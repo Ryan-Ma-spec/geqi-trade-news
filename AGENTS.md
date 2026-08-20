@@ -55,6 +55,8 @@
 | 详情弹窗 + 情报速览 | `openDetail()` `:535`；样式 `.brief-content` `:100` | 弹窗高度已限 `max-h`+`overflow-y-auto`（防超屏）；改简报版式动 `.brief-content` CSS |
 | **相关情报精准化** | `getRelated()` `:514` + `topics.js` | 同 `topicTags` 重叠度排序取前 3，无重叠退同栏目；**改匹配规则动 `getRelated` 与 `topics.js` 的 `SPECIFIC`/`THEME`** |
 | SEO/GEO 咨询抽屉 | `consultDrawer` `:238`、`openConsult()` `~:575` | 原为"政策解读"，已改 SEO/GEO 定位 |
+| **视觉增强（图标+插画）** | `CAT_ICON`/`CAT_COLOR` `index.html:291~310`、`heroIllustration()` `:332`；卡片/详情/Hero 栏目徽章均带图标 | 纯内联 SVG+Material Symbols，零外部图片依赖；加栏目需同步 `CAT_ICON`/`CAT_COLOR` |
+| **侧栏数据图表（圆环+条形）** | `renderCatDonut()` `:349`、`renderTagBars()` `:370`、`renderCharts()` `:384`（`init()` 调用）；DOM 挂载点 `#catDonut`/`#catLegend`/`#tagBars`（右侧栏） | 由 `NEWS`（即 `window.NEWS_DATA`）实时统计生成，无新闻时为空；改配色动 `CAT_COLOR`；**不依赖图表库** |
 | 每日自动管线 | `pipeline.js`：`QUERIES`:37、`classify()`:57、`rewriteWithAI()`:113、输出:192 | 数据源=Google News RSS；无 key 降级原文；取前 30 条 |
 
 ## 6. 已刻意移除的功能（不是 bug，勿"修"）

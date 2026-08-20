@@ -205,6 +205,26 @@
       </div>
     </div>
 
+    <!-- CTA 下方：数据图表（由 NEWS 实时生成） -->
+    <div class="bg-surface rounded-[16px] shadow-soft p-6 border border-border-subtle">
+      <div class="flex items-center space-x-2 mb-4">
+        <span class="material-symbols-outlined text-primary text-[18px]">donut_large</span>
+        <h3 class="font-headline-md text-headline-md text-text-primary">情报栏目分布</h3>
+      </div>
+      <div class="flex items-center gap-4">
+        <div id="catDonut" class="shrink-0"></div>
+        <div id="catLegend" class="flex-grow space-y-0.5"></div>
+      </div>
+    </div>
+
+    <div class="bg-surface rounded-[16px] shadow-soft p-6 border border-border-subtle">
+      <div class="flex items-center space-x-2 mb-4">
+        <span class="material-symbols-outlined text-primary text-[18px]">bar_chart</span>
+        <h3 class="font-headline-md text-headline-md text-text-primary">本周热点关键词</h3>
+      </div>
+      <div id="tagBars"></div>
+    </div>
+
   </aside>
 </main>
 
@@ -287,6 +307,81 @@ const CATS = {
   platform: { label: "平台规则" },
   industry: { label: "行业精选" }
 };
+
+/* 栏目图标（Material Symbols，已通过 CDN 加载） */
+const CAT_ICON = {
+  policy:   "policy",
+  tariff:   "currency_exchange",
+  market:   "public",
+  logistics:"sailing",
+  platform: "storefront",
+  industry: "factory"
+};
+
+/* 栏目配色（圆环图 / 图例 / 条形图统一） */
+const CAT_COLOR = {
+  policy:   "#3525cd",
+  tariff:   "#0ea5e9",
+  market:   "#10b981",
+  logistics:"#f59e0b",
+  platform: "#ec4899",
+  industry: "#8b5cf6"
+};
+
+/* Hero 右侧装饰插画：地球 + 趋势线（贸易与数据主题，纯 SVG 离线可渲染） */
+function heroIllustration() {
+  return `<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-95 drop-shadow-sm" aria-hidden="true">
+    <circle cx="96" cy="92" r="60" stroke="white" stroke-opacity="0.55" stroke-width="1.5"/>
+    <ellipse cx="96" cy="92" rx="60" ry="20" stroke="white" stroke-opacity="0.35" stroke-width="1.2"/>
+    <ellipse cx="96" cy="92" rx="60" ry="40" stroke="white" stroke-opacity="0.25" stroke-width="1.2"/>
+    <ellipse cx="96" cy="92" rx="22" ry="60" stroke="white" stroke-opacity="0.35" stroke-width="1.2"/>
+    <ellipse cx="96" cy="92" rx="42" ry="60" stroke="white" stroke-opacity="0.25" stroke-width="1.2"/>
+    <line x1="36" y1="92" x2="156" y2="92" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+    <circle cx="96" cy="32" r="3.5" fill="#FBBF24"/>
+    <circle cx="146" cy="70" r="3" fill="white"/>
+    <circle cx="58" cy="126" r="3" fill="white"/>
+    <path d="M34 150 L66 126 L92 134 L124 98 L158 108" stroke="#FBBF24" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="158" cy="108" r="3.5" fill="#FBBF24"/>
+  </svg>`;
+}
+
+/* ===================== Charts（数据驱动，读取 NEWS） ===================== */
+function renderCatDonut() {
+  const counts = {};
+  NEWS.forEach(n => counts[n.cat] = (counts[n.cat] || 0) + 1);
+  const entries = Object.entries(counts);
+  const total = NEWS.length;
+  const r = 54, cx = 70, cy = 70, C = 2 * Math.PI * r;
+  let offset = 0;
+  const segs = entries.map(([cat, c]) => {
+    const dash = (c / total) * C;
+    const seg = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${CAT_COLOR[cat] || '#cbd5e1'}" stroke-width="18" stroke-dasharray="${dash.toFixed(2)} ${(C - dash).toFixed(2)}" stroke-dashoffset="${(-offset).toFixed(2)}" transform="rotate(-90 ${cx} ${cy})"><title>${CATS[cat].label} ${c}</title></circle>`;
+    offset += dash;
+    return seg;
+  }).join("");
+  $("#catDonut").innerHTML = `<svg viewBox="0 0 140 140" class="w-[140px] h-[140px]" role="img" aria-label="情报栏目分布圆环图">${segs}<text x="${cx}" y="${cy - 3}" text-anchor="middle" fill="#0F172A" font-size="22" font-weight="700">${total}</text><text x="${cx}" y="${cy + 14}" text-anchor="middle" fill="#64748b" font-size="10">条情报</text></svg>`;
+  $("#catLegend").innerHTML = entries.map(([cat, c]) =>
+    `<div class="flex items-center justify-between text-sm py-0.5">
+       <span class="flex items-center gap-2 text-secondary"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${CAT_COLOR[cat] || '#cbd5e1'}"></span>${CATS[cat].label}</span>
+       <span class="font-medium text-text-primary">${c}</span>
+     </div>`).join("");
+}
+
+function renderTagBars() {
+  const freq = {};
+  NEWS.forEach(n => (n.tags || []).forEach(t => freq[t] = (freq[t] || 0) + 1));
+  const top = Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, 6);
+  const max = top.length ? top[0][1] : 1;
+  $("#tagBars").innerHTML = top.map(([t, c]) => {
+    const pct = Math.max(14, Math.round(c / max * 100));
+    return `<div class="mb-3 last:mb-0">
+      <div class="flex justify-between text-sm mb-1"><span class="text-secondary">${t}</span><span class="text-primary font-medium">${c}</span></div>
+      <div class="h-2 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full rounded-full bg-primary transition-all duration-500" style="width:${pct}%"></div></div>
+    </div>`;
+  }).join("");
+}
+
+function renderCharts() { renderCatDonut(); renderTagBars(); }
 
 const NEWS = (window.NEWS_DATA && window.NEWS_DATA.length) ? window.NEWS_DATA : [
   { id:1, cat:"policy", time:"2小时前", top:true, ai:"要点提炼",
@@ -402,7 +497,7 @@ function cardHTML(n) {
   return `<article onclick="openDetail(${n.id})" class="bg-surface rounded-[16px] shadow-soft p-6 border border-transparent hover:border-primary/30 transition-colors cursor-pointer group">
     <div class="flex justify-between mb-4 items-center flex-wrap gap-2">
       <div class="flex items-center space-x-3">
-        <span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full">${CATS[n.cat].label}</span>
+        <span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">${CAT_ICON[n.cat]}</span>${CATS[n.cat].label}</span>
         <span class="text-secondary font-label-sm text-label-sm">${n.time}</span>
       </div>
       ${aiBadge(n.ai)}
@@ -428,16 +523,20 @@ function renderHero() {
   const n = getHeroItem();
   heroId = n.id; /* 同步全局，保证点"阅读全文"进的是当前频道头条 */
   $("#heroBox").innerHTML = `
-    <div class="bg-gradient-to-br from-primary/90 to-primary-container w-full p-8 sm:p-10 flex flex-col justify-end min-h-[280px]">
-      <div class="flex items-center space-x-3 mb-4">
-        <span class="bg-white/20 text-white font-label-sm text-label-sm px-3 py-1 rounded-full backdrop-blur-sm">今日头条 · ${CATS[n.cat].label}</span>
-        <span class="text-white/80 font-label-md text-label-md flex items-center"><span class="material-symbols-outlined text-sm mr-1">schedule</span>${n.time}</span>
+    <div class="relative bg-gradient-to-br from-primary/90 to-primary-container w-full p-8 sm:p-10 min-h-[300px] flex items-center overflow-hidden">
+      <div class="relative z-10 max-w-2xl">
+        <div class="flex items-center space-x-3 mb-4">
+          <span class="bg-white/20 text-white font-label-sm text-label-sm px-3 py-1 rounded-full backdrop-blur-sm flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">${CAT_ICON[n.cat]}</span>今日头条 · ${CATS[n.cat].label}</span>
+          <span class="text-white/80 font-label-md text-label-md flex items-center"><span class="material-symbols-outlined text-sm mr-1">schedule</span>${n.time}</span>
+        </div>
+        <h1 class="font-display-lg text-[32px] sm:text-[40px] text-white mb-4 max-w-3xl leading-tight">${n.title}</h1>
+        <p class="font-body-lg text-white/90 max-w-2xl mb-6 leading-relaxed line-clamp-2">${n.summary}</p>
+        <button onclick="event.stopPropagation();openDetail(${n.id})" class="w-max bg-white/90 backdrop-blur-md text-primary font-label-md text-label-md px-6 py-3 rounded-xl hover:bg-white transition-colors shadow-sm flex items-center space-x-2">
+          <span>阅读全文</span><span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
       </div>
-      <h1 class="font-display-lg text-[32px] sm:text-[40px] text-white mb-4 max-w-3xl leading-tight">${n.title}</h1>
-      <p class="font-body-lg text-white/90 max-w-2xl mb-6 leading-relaxed line-clamp-2">${n.summary}</p>
-      <button onclick="event.stopPropagation();openDetail(${n.id})" class="w-max bg-white/90 backdrop-blur-md text-primary font-label-md text-label-md px-6 py-3 rounded-xl hover:bg-white transition-colors shadow-sm flex items-center space-x-2">
-        <span>阅读全文</span><span class="material-symbols-outlined text-sm">arrow_forward</span>
-      </button>
+      <div class="relative z-10 hidden md:block ml-auto pl-6 shrink-0">${heroIllustration()}</div>
+      <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
     </div>`;
 }
 
@@ -539,7 +638,7 @@ function openDetail(id) {
   $("#detailContent").innerHTML = `
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center space-x-3">
-        <span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full">${CATS[n.cat].label}</span>
+        <span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">${CAT_ICON[n.cat]}</span>${CATS[n.cat].label}</span>
         <span class="bg-ai-indigo-tint text-primary font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center space-x-1 border border-primary/10"><span class="material-symbols-outlined text-[14px]">${n.ai==='要点提炼'?'smart_toy':'psychology'}</span>${n.ai}</span>
       </div>
       <button onclick="closeDetail()" class="p-2 rounded-full hover:bg-surface-container-highest text-secondary"><span class="material-symbols-outlined">close</span></button>
@@ -623,7 +722,7 @@ function init() {
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeDetail(); closeConsult(); } });
 
   if (document.getElementById('statToday')) document.getElementById('statToday').textContent = NEWS.length;
-  renderHero(); renderFeed(); renderTags();
+  renderHero(); renderFeed(); renderTags(); renderCharts();
 }
 document.addEventListener("DOMContentLoaded", init);
 </script>
