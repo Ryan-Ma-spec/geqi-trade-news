@@ -1,0 +1,43 @@
+name: 每日外贸情报更新
+
+on:
+  schedule:
+    # 每天 07:00（北京时间）= 23:00 UTC 跑一次
+    - cron: "0 23 * * *"
+  workflow_dispatch: {}   # 允许手动触发
+
+permissions:
+  contents: write        # 需要写回 news.js / news.json
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 运行管线（无 key 降级整理原文；有 key 自动 DeepSeek 重写）
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: node pipeline.js
+
+      - name: 提交更新（仅当 news.js 有变化）
+        run: |
+          git config user.name "geqi-bot"
+          git config user.email "bot@geqi.dev"
+          if git diff --quiet news.js news.json; then
+            echo "无变化，跳过提交"
+          else
+            git add news.js news.json
+            git commit -m "chore: 每日外贸情报自动更新 $(date +'%Y-%m-%d')"
+            # 推送到当前分支（cron 触发时即仓库默认分支）
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+            # ↑ 推上去后，若已在 EdgeOne Pages 控制台把本仓库设为"Git 自动部署"来源，
+            #   EdgeOne 会自动拉取并重新部署，无需在 workflow 里额外写部署步骤。
+          fi

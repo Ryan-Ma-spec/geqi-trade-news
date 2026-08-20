@@ -1,0 +1,630 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>格奇外贸情报 · GeQi Trade Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,line-clamp"></script>
+<script src="news.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#38485d",
+                        "outline-variant": "#c7c4d8",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "secondary-container": "#d0e1fb",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#4d44e3",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7e3000",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface-variant": "#464555",
+                        "outline": "#777587",
+                        "text-primary": "#0F172A",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-error": "#ffffff",
+                        "secondary": "#505f76",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container": "#eceef0",
+                        "background": "#f8fafc",
+                        "on-tertiary-container": "#ffd2be",
+                        "on-secondary-container": "#54647a",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#3525cd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "tertiary-container": "#a44100",
+                        "on-primary-fixed": "#0f0069",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#e2dfff",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e0e3e5",
+                        "primary-container": "#4f46e5",
+                        "surface": "#FFFFFF",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-container": "#dad7ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "border-subtle": "#E2E8F0",
+                        "ai-indigo-tint": "#EEF2FF",
+                        "inverse-primary": "#c3c0ff"
+                    },
+                    "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    "spacing": {
+                        "unit": "8px", "container-max": "1200px", "section-gap": "80px",
+                        "margin-desktop": "40px", "gutter": "24px", "margin-mobile": "20px"
+                    },
+                    "fontFamily": { "sans": ["Inter", "system-ui", "sans-serif"] },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }]
+                    },
+                    boxShadow: { 'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)' }
+                }
+            }
+        }
+    </script>
+<style>
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #F8FAFC; color: #0F172A; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-thumb { background: #c7c4d8; border-radius: 9999px; }
+    .drawer-enter { transform: translateX(100%); }
+    .drawer-show { transform: translateX(0); transition: transform .35s cubic-bezier(.4,0,.2,1); }
+    .modal-enter { opacity: 0; }
+    .fade-in { animation: fade .25s ease forwards; }
+    @keyframes fade { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: translateY(0);} }
+    .toast-in { animation: toastIn .3s ease forwards; }
+    @keyframes toastIn { from { opacity:0; transform: translateY(-12px);} to { opacity:1; transform: translateY(0);} }
+    .brief-content h4 { font-size: 14px; font-weight: 700; color: #4F46E5; margin: 18px 0 8px; }
+    .brief-content h4:first-child { margin-top: 0; }
+    .brief-content p { font-size: 15px; line-height: 1.75; color: #334155; margin-bottom: 10px; }
+    .brief-content ul { list-style: disc; padding-left: 20px; margin-bottom: 10px; }
+    .brief-content li { font-size: 15px; line-height: 1.75; color: #334155; margin-bottom: 6px; }
+</style>
+</head>
+<body class="bg-background text-text-primary min-h-screen flex flex-col">
+
+<!-- ============ Top Navigation ============ -->
+<nav class="w-full top-0 sticky z-50 shadow-sm bg-surface">
+  <div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto">
+    <div class="flex items-center space-x-3">
+      <div class="w-9 h-9 rounded-xl bg-primary-container text-on-primary flex items-center justify-center">
+        <span class="material-symbols-outlined text-[20px]">public</span>
+      </div>
+      <div>
+        <div class="font-headline-md text-headline-md font-bold text-primary leading-none">格奇外贸情报</div>
+        <div class="text-[10px] text-secondary tracking-wider mt-0.5">GEQI TRADE INTELLIGENCE</div>
+      </div>
+    </div>
+    <!-- Desktop Nav -->
+    <div id="navLinks" class="hidden lg:flex space-x-1">
+      <a data-cat="all" class="nav-link text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">全部</a>
+      <a data-cat="policy" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">政策速递</a>
+      <a data-cat="tariff" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">关税汇率</a>
+      <a data-cat="market" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">海外市场</a>
+      <a data-cat="logistics" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">物流航运</a>
+      <a data-cat="platform" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">平台规则</a>
+      <a data-cat="industry" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">行业精选</a>
+    </div>
+    <!-- Right Actions -->
+    <div class="flex items-center space-x-2">
+      <div class="relative hidden sm:block">
+        <span class="material-symbols-outlined text-secondary text-[18px] absolute left-3 top-1/2 -translate-y-1/2">search</span>
+        <input id="searchInput" type="text" placeholder="搜索新闻、关税、平台…"
+          class="pl-9 pr-3 py-2 rounded-xl border border-outline-variant bg-surface-bright focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md w-44 transition-all focus:w-60">
+      </div>
+      <button onclick="openConsult()" class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl scale-95 active:scale-90 transition-transform shadow-soft flex items-center space-x-2">
+        <span class="material-symbols-outlined text-sm">forum</span><span class="hidden sm:inline">咨询格奇</span>
+      </button>
+      <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-full hover:bg-surface-container-highest text-secondary">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-border-subtle bg-surface px-margin-desktop py-3 flex flex-col space-y-1">
+    <a data-cat="all" class="mobile-link text-primary font-bold py-2 font-body-md text-body-md" href="javascript:void(0)">全部</a>
+    <a data-cat="policy" class="mobile-link text-secondary py-2 font-body-md text-body-md" href="javascript:void(0)">政策速递</a>
+    <a data-cat="tariff" class="mobile-link text-secondary py-2 font-body-md text-body-md" href="javascript:void(0)">关税汇率</a>
+    <a data-cat="market" class="mobile-link text-secondary py-2 font-body-md text-body-md" href="javascript:void(0)">海外市场</a>
+    <a data-cat="logistics" class="mobile-link text-secondary py-2 font-body-md text-body-md" href="javascript:void(0)">物流航运</a>
+    <a data-cat="platform" class="mobile-link text-secondary py-2 font-body-md text-body-md" href="javascript:void(0)">平台规则</a>
+    <a data-cat="industry" class="mobile-link text-secondary py-2 font-body-md text-body-md" href="javascript:void(0)">行业精选</a>
+  </div>
+</nav>
+
+<!-- ============ Main Canvas ============ -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+  <!-- LEFT: Hero + Feed (8 cols) -->
+  <div class="lg:col-span-8 flex flex-col space-y-section-gap">
+
+    <!-- Hero -->
+    <section id="heroBox" class="relative bg-surface rounded-[16px] shadow-soft overflow-hidden group cursor-pointer" onclick="openDetail(heroId)">
+    </section>
+
+    <!-- Feed -->
+    <section>
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg text-text-primary">最新情报</h2>
+          <p id="feedMeta" class="text-sm text-secondary mt-1">实时聚合 · 每日整理</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors" onclick="resetFilters()" title="重置筛选">filter_list</span>
+        </div>
+      </div>
+      <div id="feedList" class="flex flex-col space-y-6"></div>
+      <button id="loadMoreBtn" onclick="loadMore()" class="w-full mt-6 py-4 text-primary font-label-md text-label-md border border-border-subtle rounded-xl hover:bg-surface-container-low transition-colors">
+        加载更多情报
+      </button>
+      <div id="emptyState" class="hidden text-center py-16 text-secondary">
+        <span class="material-symbols-outlined text-4xl mb-3 block">search_off</span>
+        没有匹配的新闻，换个关键词试试。
+      </div>
+    </section>
+  </div>
+
+  <!-- RIGHT: Sidebar (4 cols) -->
+  <aside class="lg:col-span-4 flex flex-col space-y-8">
+    <!-- CTA: Expert -->
+    <div class="relative bg-surface rounded-[16px] shadow-soft p-6 overflow-hidden border border-primary/20">
+      <div class="absolute -right-10 -top-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10">
+        <div class="w-12 h-12 bg-ai-indigo-tint text-primary rounded-xl flex items-center justify-center mb-4">
+          <span class="material-symbols-outlined text-2xl">support_agent</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-text-primary mb-2">想提升海外搜索曝光？</h3>
+        <p class="font-body-md text-body-md text-secondary mb-6">格奇专注 Google SEO 与海外 GEO，帮出海企业拿到更多自然流量与 AI 搜索可见度。预约 1v1 诊断，明确优化方向。</p>
+        <button onclick="openConsult()" class="w-full bg-surface border border-primary text-primary font-label-md text-label-md px-4 py-3 rounded-xl hover:bg-ai-indigo-tint transition-colors flex items-center justify-center space-x-2">
+          <span class="material-symbols-outlined text-sm">calendar_month</span><span>预约格奇 1v1</span>
+        </button>
+        <p class="text-center text-[12px] text-secondary mt-3">电话 / 微信：18618130321</p>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="w-full mt-section-gap border-t border-border-subtle bg-surface-container-low">
+  <div class="flex flex-col items-center py-12 px-margin-desktop max-w-container-max mx-auto space-y-8">
+    <div class="font-headline-md text-headline-md font-bold text-primary">格奇外贸情报 · 石家庄格奇科技</div>
+    <div class="flex flex-wrap justify-center gap-6">
+      <a class="text-secondary font-label-md text-label-md hover:text-primary transition-colors" href="javascript:void(0)">关于我们</a>
+      <a class="text-secondary font-label-md text-label-md hover:text-primary transition-colors" href="javascript:void(0)">隐私政策</a>
+      <a class="text-secondary font-label-md text-label-md hover:text-primary transition-colors" href="javascript:void(0)">服务条款</a>
+      <a class="text-secondary font-label-md text-label-md hover:text-primary transition-colors" href="javascript:void(0)">联系支持</a>
+      <a class="text-secondary font-label-md text-label-md hover:text-primary transition-colors" href="javascript:void(0)">API 文档</a>
+    </div>
+    <div class="text-secondary font-label-md text-label-md opacity-80">© 2026 石家庄格奇科技 · 用清晰看见贸易情报</div>
+  </div>
+</footer>
+
+<!-- ============ Detail Modal ============ -->
+<div id="detailModal" class="fixed inset-0 z-[60] hidden">
+  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="closeDetail()"></div>
+  <div class="absolute inset-0 flex items-start sm:items-center justify-center p-4">
+    <div class="bg-surface rounded-[16px] shadow-soft w-full max-w-3xl max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] my-4 sm:my-8 fade-in overflow-y-auto">
+      <div id="detailContent" class="p-8"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Consult Drawer ============ -->
+<div id="consultBackdrop" class="fixed inset-0 z-[70] hidden bg-black/40 backdrop-blur-sm" onclick="closeConsult()"></div>
+<div id="consultDrawer" class="fixed top-0 right-0 h-full w-full max-w-md z-[80] bg-surface shadow-2xl drawer-enter">
+  <div class="h-full flex flex-col">
+    <div class="flex items-center justify-between p-6 border-b border-border-subtle">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-ai-indigo-tint text-primary flex items-center justify-center"><span class="material-symbols-outlined">support_agent</span></div>
+        <div>
+          <div class="font-headline-md text-headline-md text-text-primary">预约格奇 1v1</div>
+          <div class="text-[12px] text-secondary">石家庄格奇科技 · 马彤辉</div>
+        </div>
+      </div>
+      <button onclick="closeConsult()" class="p-2 rounded-full hover:bg-surface-container-highest text-secondary"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div class="flex-grow overflow-y-auto p-6">
+      <p class="text-secondary font-body-md text-body-md mb-6">留下联系方式，格奇会在 1 个工作日内与你沟通网站现状与海外获客优化方向。</p>
+      <form id="consultForm" class="flex flex-col space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-secondary mb-1">称呼</label>
+          <input name="name" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:outline-none focus:ring-2 focus:ring-primary font-body-md text-body-md" placeholder="您的称呼">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-secondary mb-1">联系方式（手机/微信）</label>
+          <input name="contact" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:outline-none focus:ring-2 focus:ring-primary font-body-md text-body-md" placeholder="18618130321">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-secondary mb-1">所在行业</label>
+          <select name="industry" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:outline-none focus:ring-2 focus:ring-primary font-body-md text-body-md">
+            <option>跨境电商</option><option>品牌出海</option><option>游戏 / APP 出海</option><option>软件 / SaaS</option><option>外贸出口</option><option>新能源 / 制造</option><option>其他</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-secondary mb-1">需求描述</label>
+          <textarea name="msg" rows="3" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:outline-none focus:ring-2 focus:ring-primary font-body-md text-body-md" placeholder="例如：独立站 Google 排名下滑，想了解 SEO/GEO 优化方案"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-primary-container text-on-primary font-label-md text-label-md px-4 py-3 rounded-xl hover:bg-primary transition-colors shadow-soft mt-2">提交预约</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Toast ============ -->
+<div id="toast" class="fixed top-20 left-1/2 -translate-x-1/2 z-[90] hidden bg-inverse-surface text-inverse-on-surface px-5 py-3 rounded-xl shadow-lg font-label-md text-label-md toast-in"></div>
+
+<script>
+/* ===================== Data ===================== */
+const CATS = {
+  policy:   { label: "政策速递" },
+  tariff:   { label: "关税汇率" },
+  market:   { label: "海外市场" },
+  logistics:{ label: "物流航运" },
+  platform: { label: "平台规则" },
+  industry: { label: "行业精选" }
+};
+
+const NEWS = (window.NEWS_DATA && window.NEWS_DATA.length) ? window.NEWS_DATA : [
+  { id:1, cat:"policy", time:"2小时前", top:true, ai:"要点提炼",
+    title:"欧盟正式发布 CBAM 碳边境调节机制实施细则",
+    summary:"欧盟发布最新碳边境调节机制（CBAM）实施细则，覆盖钢铁、铝、化肥、水泥及电力等核心出口行业。企业须在年底前完成碳排放数据合规申报，否则将面临额外关税成本。",
+    source:"商务部 / 新华社", url:"#",
+    tags:["CBAM","碳关税","出口合规"],
+    body:"欧盟委员会于今日正式发布碳边境调节机制（CBAM）实施细则，明确过渡期结束后（2026 年起）的申报与核算流程。\n\n新规覆盖钢铁、铝、化肥、水泥及电力五大行业，要求进口商按季度提交嵌入碳排放量数据，并以欧盟碳价抵扣。对中国出口企业而言，钢铁与铝制品受影响最为直接。\n\n建议相关企业：① 建立产品级碳排放台账；② 评估低碳替代供应商；③ 关注下游买家是否将成本转嫁。石家庄格奇科技可协助梳理受影响 SKU 并制定合规与获客并行的应对方案。" },
+
+  { id:2, cat:"tariff", time:"3小时前", ai:"要点提炼",
+    title:"人民币兑美元汇率盘中升破 7.10，外贸企业结汇窗口打开",
+    summary:"在岸人民币兑美元汇率日内升值超 200 点，盘中升破 7.10 关口。分析认为短期受美元走弱与结汇季叠加影响，出口企业可把握结汇节奏。",
+    source:"外汇交易中心", url:"#",
+    tags:["汇率","结汇","美元"],
+    body:"今日在岸人民币兑美元汇率显著走强，盘中升破 7.10。机构指出，岁末年初的出口企业结汇需求、叠加美元指数回落，是本轮升值主因。\n\n对出口商：人民币走强意味着美元回款折算人民币减少，建议在 7.10 上方分批锁定结汇；对进口商则为采购成本下降的窗口。\n\n格奇建议：建立汇率预警机制，将结汇节奏与订单账期匹配，避免单边赌方向。" },
+
+  { id:3, cat:"market", time:"4小时前", ai:"要点提炼",
+    title:"美国更新半导体制造设备出口管制清单",
+    summary:"美国商务部发布最新出口管制清单，进一步限制特定制程半导体制造设备对华出口，涉及多家全球供应链核心节点企业，短期或引发设备采购成本波动。",
+    source:"路透社", url:"#",
+    tags:["半导体","出口管制","供应链"],
+    body:"美国商务部工业与安全局（BIS）更新先进计算与半导体制造设备出口管制，将部分成熟制程设备纳入许可要求。\n\n影响面：不仅是芯片设计企业，设备代理商、封测厂亦受波及；供应链或出现短期囤货与交期拉长。\n\n应对：多元化供应商、评估国产替代进度、重新审视对美出口产品的 ECCN 分类。" },
+
+  { id:4, cat:"logistics", time:"5小时前", ai:"要点提炼",
+    title:"红海局势反复，上海出口集装箱运价指数环比上涨 8.3%",
+    summary:"受红海航线绕行持续影响，上海出口集装箱运价指数（SCFI）本周环比上涨 8.3%，欧线涨幅居前。货主需提前锁定舱位与运价。",
+    source:"上海航运交易所", url:"#",
+    tags:["红海","运价","SCFI"],
+    body:"SCFI 综合指数本周报收上涨 8.3%，其中欧洲航线受绕行好望角导致的运力吸收影响涨幅领先。\n\n趋势：绕行常态化使单程航程延长 10–14 天，有效运力下降约 9%。短期内运价易涨难跌。\n\n建议：与货代签订长期约价（FAK），对时效敏感货物预留缓冲，并关注保险条款覆盖战争险。" },
+
+  { id:5, cat:"platform", time:"昨天", ai:"要点提炼",
+    title:"亚马逊欧洲站更新 FBA 仓储容量限制算法",
+    summary:"针对即将到来的旺季，亚马逊欧洲站更新 FBA 仓储容量限制算法，历史动销率权重提升 20%。卖家需重新评估补货计划，避免超量仓储费。",
+    source:"雨果网", url:"#",
+    tags:["Amazon","FBA","仓储费"],
+    body:"亚马逊欧洲站宣布调整 FBA 仓储容量（Capacity）计算逻辑，将历史动销率（sell-through）权重上调约 20%，降低单纯 IPI 分数的影响。\n\n影响：动销差的 SKU 将获得更少库容，旺季补货受限。\n\n建议：清理滞销库存、提升动销、使用 AGL 跨境物流以争取容量奖励；必要时拆分账号分散风险。" },
+
+  { id:6, cat:"industry", time:"昨天", ai:"要点提炼",
+    title:"海关总署：前 7 月跨境电商出口同比增长 19.8%",
+    summary:"海关总署数据显示，前 7 月我国跨境电商出口额同比增 19.8%，占外贸比重持续提升。新兴市场与品牌化成为主要拉动因素。",
+    source:"海关总署", url:"#",
+    tags:["跨境电商","出口数据","品牌化"],
+    body:"海关总署公布数据：1–7 月跨境电商进出口额保持两位数增长，其中出口同比 +19.8%，明显快于整体外贸增速。\n\n看点：① 东南亚、中东、拉美等新兴市场增速领跑；② 自主品牌出海占比提升；③ 海外仓模式成熟带动履约体验。\n\n格奇观察：流量红利从平台搜索转向内容（TikTok/Reddit）与 GEO（生成式引擎），获客打法需同步升级。" },
+
+  { id:7, cat:"policy", time:"昨天", ai:"要点提炼",
+    title:"RCEP 新增原产地累积规则便利，区域供应链再优化",
+    summary:"RCEP 联委会通过原产地规则操作指引更新，允许更多中间品累积计算，进一步降低成员国间享惠门槛，利好区域内分工型企业。",
+    source:"海关总署", url:"#",
+    tags:["RCEP","原产地","自贸"],
+    body:"RCEP 联合委员会发布原产地规则操作更新，扩大累积原则适用范围，使更多区域产中间品可计入原产成分。\n\n利好：在成员国布局产能的企业更易达到关税减让门槛，区域供应链韧性增强。\n\n建议：复核现有供应链布局，评估将关键工序落子成员国以享惠的可能性。" },
+
+  { id:8, cat:"tariff", time:"2天前", ai:"要点提炼",
+    title:"美国贸易代表办公室公布对华部分商品关税豁免清单",
+    summary:"USTR 公布新一批对华 301 关税豁免清单，涵盖部分工业零部件与消费品，豁免期 12 个月，相关进口商可申请退税。",
+    source:"USTR", url:"#",
+    tags:["301关税","豁免","美国"],
+    body:"美国贸易代表办公室（USTR）发布新一批 301 关税豁免，涉及特定工业零部件、电子元件及部分消费品，有效期 12 个月。\n\n要点：已缴税进口商可在规定窗口申请退税；清单具有时效性，需动态跟踪。\n\n建议：梳理在清单内的 HS 编码，及时提交豁免与退税申请，降低采购成本。" },
+
+  { id:9, cat:"market", time:"2天前", ai:"要点提炼",
+    title:"东南亚电商 GMV 季度增长 22%，直播带货成新引擎",
+    summary:"第三方报告显示，东南亚主要六国电商 GMV 本季同比增长 22%，直播与短视频带货贡献显著提升，中国品牌本地化运营加速。",
+    source:"亿邦动力", url:"#",
+    tags:["东南亚","直播","GMV"],
+    body:"报告覆盖印尼、泰国、越南、菲律宾、马来、新加坡六国，GMV 同比 +22%。直播电商渗透加速，TikTok Shop 与本地平台竞争白热化。\n\n机会：中国供应链 + 本地化内容团队的组合具备优势。\n\n提醒：需注意各国数据合规（如印尼 PDP 法）与宗教/文化敏感点。" },
+
+  { id:10, cat:"logistics", time:"3天前", ai:"要点提炼",
+    title:"中欧班列前 7 月开行量创新高，新能源汽车出口通道扩容",
+    summary:"国铁集团数据显示，中欧班列前 7 月开行量同比增长，新能源汽车专列占比提升，为内陆出口企业提供稳定陆运通道。",
+    source:"新华社", url:"#",
+    tags:["中欧班列","新能源汽车","陆运"],
+    body:"中欧班列前 7 月开行量再创新高，新能源汽车出口专列常态化，缓解海运运力波动压力。\n\n价值：相比海运更快、比空运更省，适合高值时效敏感货物。\n\n建议：内陆出口企业可将班列纳入主物流方案，结合海外仓做区域分拨。" },
+
+  { id:11, cat:"platform", time:"3天前", ai:"要点提炼",
+    title:"TikTok Shop 美区更新小店资质与履约时效要求",
+    summary:"TikTok Shop 美区发布卖家资质更新，提高本土仓履约时效权重，并对特定类目加强合规审核，跨境自发货卖家需关注考核。",
+    source:"雨果网", url:"#",
+    tags:["TikTok Shop","美区","履约"],
+    body:"TikTok Shop 美区调整卖家考核：提高本土履约时效权重，对美妆、保健等类目加强资质审核。\n\n影响：纯跨境自发货（跨境直邮）权重下降，本土仓/平台仓更受青睐。\n\n建议：评估美国本土仓或平台履约方案，提前准备类目资质文件。" },
+
+  { id:12, cat:"industry", time:"4天前", ai:"要点提炼",
+    title:"新能源企业出海欧洲提速，储能与充电桩成热点",
+    summary:"多家中国新能源企业公布欧洲建厂与渠道计划，储能系统、充电桩出口订单饱满，本地化合规与服务成竞争关键。",
+    source:"行业媒体", url:"#",
+    tags:["新能源","欧洲","储能"],
+    body:"在关税与补贴政策驱动下，中国新能源企业加速欧洲本地化：储能系统出口订单饱满，充电桩企业布局海外服务网络。\n\n关键点：欧盟碳足迹、电池法规（EU Battery Regulation）与本地服务响应是准入与复购的核心。\n\n格奇建议：出海不仅是卖货，更是品牌与服务的本地化，官网 SEO/GEO 与多语内容是第一信任入口。" }
+];
+
+/* ===================== State ===================== */
+const state = { cat:"all", query:"", visible:6, saved:new Set() };
+let heroId = 1;
+
+/* ===================== Render ===================== */
+const $ = (s) => document.querySelector(s);
+
+function filtered() {
+  let list = NEWS.slice();
+  if (state.cat !== "all") list = list.filter(n => n.cat === state.cat);
+  if (state.query) {
+    const q = state.query.toLowerCase();
+    list = list.filter(n => (n.title + n.summary + n.tags.join(" ")).toLowerCase().includes(q));
+  }
+  return list;
+}
+
+function aiBadge(ai) {
+  const icon = ai === "要点提炼" ? "smart_toy" : "psychology";
+  return `<span class="bg-ai-indigo-tint text-primary font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center space-x-1 border border-primary/10">
+    <span class="material-symbols-outlined text-[14px]">${icon}</span><span>${ai}</span></span>`;
+}
+
+function cardHTML(n) {
+  const saved = state.saved.has(n.id);
+  return `<article onclick="openDetail(${n.id})" class="bg-surface rounded-[16px] shadow-soft p-6 border border-transparent hover:border-primary/30 transition-colors cursor-pointer group">
+    <div class="flex justify-between mb-4 items-center flex-wrap gap-2">
+      <div class="flex items-center space-x-3">
+        <span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full">${CATS[n.cat].label}</span>
+        <span class="text-secondary font-label-sm text-label-sm">${n.time}</span>
+      </div>
+      ${aiBadge(n.ai)}
+    </div>
+    <h3 class="font-headline-md text-headline-md text-text-primary mb-3 group-hover:text-primary transition-colors">${n.title}</h3>
+    <p class="font-body-md text-body-md text-secondary mb-4 line-clamp-2 leading-normal">${n.summary}</p>
+    <div class="flex items-center space-x-4 border-t border-border-subtle pt-4 mt-2">
+      <div onclick="event.stopPropagation();toggleSave(${n.id})" class="flex items-center ${saved?'text-primary':'text-secondary'} hover:text-primary transition-colors font-label-sm text-label-sm space-x-1 cursor-pointer">
+        <span class="material-symbols-outlined text-sm">${saved?'bookmark':'bookmark_add'}</span><span>${saved?'已收藏':'收藏'}</span>
+      </div>
+      <div onclick="event.stopPropagation();share(${n.id})" class="flex items-center text-secondary hover:text-primary transition-colors font-label-sm text-label-sm space-x-1 cursor-pointer">
+        <span class="material-symbols-outlined text-sm">share</span><span>分享</span>
+      </div>
+    </div>
+  </article>`;
+}
+
+function getHeroItem() {
+  const list = state.cat === "all" ? NEWS : NEWS.filter(x => x.cat === state.cat);
+  return (list.find(x => x.top) || list[0] || NEWS[0]);
+}
+function renderHero() {
+  const n = getHeroItem();
+  heroId = n.id; /* 同步全局，保证点"阅读全文"进的是当前频道头条 */
+  $("#heroBox").innerHTML = `
+    <div class="bg-gradient-to-br from-primary/90 to-primary-container w-full p-8 sm:p-10 flex flex-col justify-end min-h-[280px]">
+      <div class="flex items-center space-x-3 mb-4">
+        <span class="bg-white/20 text-white font-label-sm text-label-sm px-3 py-1 rounded-full backdrop-blur-sm">今日头条 · ${CATS[n.cat].label}</span>
+        <span class="text-white/80 font-label-md text-label-md flex items-center"><span class="material-symbols-outlined text-sm mr-1">schedule</span>${n.time}</span>
+      </div>
+      <h1 class="font-display-lg text-[32px] sm:text-[40px] text-white mb-4 max-w-3xl leading-tight">${n.title}</h1>
+      <p class="font-body-lg text-white/90 max-w-2xl mb-6 leading-relaxed line-clamp-2">${n.summary}</p>
+      <button onclick="event.stopPropagation();openDetail(${n.id})" class="w-max bg-white/90 backdrop-blur-md text-primary font-label-md text-label-md px-6 py-3 rounded-xl hover:bg-white transition-colors shadow-sm flex items-center space-x-2">
+        <span>阅读全文</span><span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </button>
+    </div>`;
+}
+
+function renderFeed() {
+  const list = filtered();
+  const show = list.slice(0, state.visible);
+  const box = $("#feedList");
+  if (show.length === 0) {
+    box.innerHTML = "";
+    $("#emptyState").classList.remove("hidden");
+    $("#loadMoreBtn").classList.add("hidden");
+    return;
+  }
+  $("#emptyState").classList.add("hidden");
+  box.innerHTML = show.map(cardHTML).join("");
+  $("#loadMoreBtn").style.display = state.visible < list.length ? "block" : "none";
+  const label = state.cat === "all" ? "全部栏目" : CATS[state.cat].label;
+  $("#feedMeta").textContent = `${label} · 共 ${list.length} 条 · 每日整理`;
+}
+
+function renderTags() {
+  const cloud = $("#tagCloud");
+  if (!cloud) return;
+  const base = state.cat === "all" ? NEWS : NEWS.filter(n => n.cat === state.cat);
+  const all = {};
+  base.forEach(n => n.tags.forEach(t => all[t] = (all[t]||0)+1));
+  const top = Object.entries(all).sort((a,b)=>b[1]-a[1]).slice(0,10).map(x=>x[0]);
+  cloud.innerHTML = top.map(t =>
+    `<a onclick="filterByTag('${t}')" class="px-3 py-1.5 bg-surface-container-low hover:bg-surface-container text-secondary hover:text-primary font-label-sm text-label-sm rounded-lg transition-colors border border-transparent hover:border-border-subtle cursor-pointer" href="javascript:void(0)">#${t}</a>`
+  ).join("");
+}
+
+/* ===================== Interactions ===================== */
+function setCat(cat) {
+  state.cat = cat; state.visible = 6;
+  document.querySelectorAll(".nav-link").forEach(a => {
+    const active = a.dataset.cat === cat;
+    a.className = `nav-link font-body-md text-body-md px-3 cursor-pointer hover:bg-ai-indigo-tint transition-all duration-200 ${active?'text-primary font-bold border-b-2 border-primary pb-1':'text-secondary hover:text-primary'}`;
+  });
+  renderHero(); renderFeed(); renderTags();
+}
+
+function filterByTag(tag) {
+  $("#searchInput").value = tag;
+  state.query = tag; state.visible = 6;
+  renderFeed();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  toast("已筛选话题 #" + tag);
+}
+
+function resetFilters() {
+  state.cat = "all"; state.query = ""; state.visible = 6;
+  $("#searchInput").value = "";
+  setCat("all");
+  toast("已重置筛选");
+}
+
+function loadMore() { state.visible += 6; renderFeed(); }
+
+function toggleSave(id) {
+  if (state.saved.has(id)) { state.saved.delete(id); toast("已取消收藏"); }
+  else { state.saved.add(id); toast("已收藏到情报夹"); }
+  renderFeed();
+}
+
+function share(id) {
+  const n = NEWS.find(x => x.id === id);
+  const text = location.href.split('#')[0] + "#news-" + id;
+  if (navigator.clipboard) navigator.clipboard.writeText(text).catch(()=>{});
+  toast("链接已复制：" + n.title.slice(0,12) + "…");
+}
+
+/* 相关情报：按具体话题标签重叠度精准匹配（同一事件/不同角度），无重叠则退回同栏目 */
+function getRelated(n) {
+  const others = NEWS.filter(x => x.id !== n.id);
+  const scored = others.map(o => ({
+    o,
+    ov: (o.topicTags || []).filter(t => (n.topicTags || []).includes(t)).length,
+    same: o.cat === n.cat
+  }));
+  // 先取有标签重叠的，按重叠数降序；并列时优先同栏目、再按时间（id 越小越新）
+  const precise = scored.filter(s => s.ov > 0)
+    .sort((a, b) => b.ov - a.ov || (b.same ? 1 : 0) - (a.same ? 1 : 0) || a.o.id - b.o.id);
+  let pick = precise.slice(0, 3);
+  // 不足 3 条时，用同栏目补充（宁可少而准，不用无关新闻凑数）
+  if (pick.length < 3) {
+    const sameRest = scored.filter(s => s.ov === 0 && s.same && !pick.includes(s))
+      .sort((a, b) => a.o.id - b.o.id);
+    pick = pick.concat(sameRest).slice(0, 3);
+  }
+  return pick.map(s => s.o);
+}
+
+/* Detail */
+function openDetail(id) {
+  const n = NEWS.find(x => x.id === id);
+  if (!n) return;
+  const related = getRelated(n);
+  $("#detailContent").innerHTML = `
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center space-x-3">
+        <span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full">${CATS[n.cat].label}</span>
+        <span class="bg-ai-indigo-tint text-primary font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center space-x-1 border border-primary/10"><span class="material-symbols-outlined text-[14px]">${n.ai==='要点提炼'?'smart_toy':'psychology'}</span>${n.ai}</span>
+      </div>
+      <button onclick="closeDetail()" class="p-2 rounded-full hover:bg-surface-container-highest text-secondary"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <h1 class="font-headline-lg text-headline-lg text-text-primary mb-2 leading-tight">${n.title}</h1>
+    <div class="flex items-center space-x-3 text-sm text-secondary mb-6">
+      <span>${n.time}</span><span>·</span><span>来源：${n.source}</span>
+    </div>
+    <div class="bg-surface-container-low/60 border border-border-subtle rounded-2xl p-5 mb-6">
+      <div class="flex items-center space-x-2 mb-4">
+        <span class="material-symbols-outlined text-primary text-sm">article</span>
+        <span class="font-label-md text-label-md text-primary font-bold">情报速览</span>
+      </div>
+      <div class="brief-content">${n.brief || `<p>${n.summary}</p>`}</div>
+    </div>
+    <div class="flex flex-wrap gap-2 mb-6">
+      ${n.tags.map(t=>`<span class="px-3 py-1 bg-surface-container-low text-secondary font-label-sm text-label-sm rounded-lg">#${t}</span>`).join("")}
+    </div>
+    ${related.length ? `<div class="mt-8 border-t border-border-subtle pt-6">
+      <h3 class="font-headline-md text-headline-md text-text-primary mb-4">相关情报</h3>
+      <div class="flex flex-col space-y-3">
+        ${related.map(r=>`<a href="${r.url}" target="_blank" rel="noopener" class="block p-4 rounded-xl hover:bg-surface-container-low transition-colors group"><div class="flex items-center justify-between mb-1"><div class="text-[12px] text-secondary">${CATS[r.cat].label} · ${r.time}</div><span class="material-symbols-outlined text-[16px] text-secondary group-hover:text-primary">open_in_new</span></div><div class="font-body-md text-body-md text-text-primary group-hover:text-primary">${r.title}</div></a>`).join("")}
+      </div></div>` : ""}
+  `;
+  $("#detailModal").classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+function closeDetail() { $("#detailModal").classList.add("hidden"); document.body.style.overflow = ""; }
+
+/* Consult Drawer */
+function openConsult() {
+  $("#consultBackdrop").classList.remove("hidden");
+  const d = $("#consultDrawer");
+  d.classList.remove("drawer-enter"); d.classList.add("drawer-show");
+  document.body.style.overflow = "hidden";
+}
+function closeConsult() {
+  $("#consultBackdrop").classList.add("hidden");
+  const d = $("#consultDrawer");
+  d.classList.add("drawer-enter"); d.classList.remove("drawer-show");
+  document.body.style.overflow = "";
+}
+
+/* Toast */
+let toastTimer;
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.remove("hidden"); t.classList.add("toast-in");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.add("hidden"), 2600);
+}
+
+/* Mobile menu */
+function toggleMobileMenu() {
+  const m = $("#mobileMenu");
+  m.classList.toggle("hidden");
+}
+
+/* ===================== Init ===================== */
+function init() {
+  // nav
+  document.querySelectorAll(".nav-link").forEach(a => a.addEventListener("click", () => setCat(a.dataset.cat)));
+  document.querySelectorAll(".mobile-link").forEach(a => a.addEventListener("click", () => { setCat(a.dataset.cat); $("#mobileMenu").classList.add("hidden"); }));
+  // search (debounced)
+  let st;
+  $("#searchInput").addEventListener("input", (e) => {
+    clearTimeout(st);
+    st = setTimeout(() => { state.query = e.target.value.trim(); state.visible = 6; renderFeed(); }, 200);
+  });
+  // consult
+  $("#consultForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const f = e.target;
+    try { localStorage.setItem("geqi_consult", JSON.stringify({name:f.name.value, contact:f.contact.value, industry:f.industry.value, msg:f.msg.value, at:Date.now()})); } catch(e){}
+    closeConsult();
+    toast("预约已提交，格奇会尽快联系你");
+    f.reset();
+  });
+  // esc to close
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeDetail(); closeConsult(); } });
+
+  if (document.getElementById('statToday')) document.getElementById('statToday').textContent = NEWS.length;
+  renderHero(); renderFeed(); renderTags();
+}
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body></html>
