@@ -15,7 +15,7 @@
 | `index.html` | 全部前端（630 行，含内联脚本与样式） | 改展示 / 交互 / 样式 |
 | `pipeline.js` | **生产管线**（GitHub Actions 调用）：抓 RSS → 分类 → 简报 → 输出 | 改数据源 / 栏目 / 简报结构 |
 | `topics.js` | `extractTopicTags()` 话题标签提取器（被 pipeline 引用） | 改"相关情报"匹配逻辑 |
-| `news.js` / `news.json` | 数据（30 条/日，自动生成，勿手改） | 仅管线写；前端只读 `window.NEWS_DATA` |
+| `news.js` / `news.json` | 数据（60 条/日，自动生成，勿手改） | 仅管线写；前端只读 `window.NEWS_DATA` |
 | `gen_news.js` | 沙箱兜底：内置 22 条真实新闻写 `news.js` | 仅本地无网时一次性用 |
 | `enrich_briefs.js` | 一次性回填 `brief` 的 dev 脚本 | 历史数据补简报时用 |
 | `enrich_topics.js` | 一次性回填 `topicTags` 的 dev 脚本 | 历史数据补标签时用 |
@@ -58,7 +58,7 @@
 | **预约表单真实收数据（Formspree）** | `CONSULT_FORM_ID` 常量 + submit handler（`index.html` consult 段，搜 `xljravoa`） | 客户提交 → fetch POST `https://formspree.io/f/xljravoa` → **预约记录进 Formspree 后台 + 邮件提醒到辉哥注册邮箱**；同时 localStorage（`geqi_consult`）留底。`CONSULT_FORM_ID` 清空时**明确报错引导电话/微信联系，绝不假装成功**（防旧缓存版吞线索）。提交数据带 `_v` 版本戳 + `_v` 常量 `CONSULT_VER`；失败 toast 区分「网络不通/服务异常」；fetch `cache:no-store`，head 已加 no-cache meta |
 | **视觉增强（图标+插画）** | `CAT_ICON`/`CAT_COLOR` `index.html:291~310`、`heroIllustration()` `:332`；卡片/详情/Hero 栏目徽章均带图标 | 纯内联 SVG+Material Symbols，零外部图片依赖；加栏目需同步 `CAT_ICON`/`CAT_COLOR` |
 | **侧栏数据图表（圆环+条形）** | `renderCatDonut()` `:349`、`renderTagBars()` `:370`、`renderCharts()` `:384`（`init()` 调用）；DOM 挂载点 `#catDonut`/`#catLegend`/`#tagBars`（右侧栏） | 由 `NEWS`（即 `window.NEWS_DATA`）实时统计生成，无新闻时为空；改配色动 `CAT_COLOR`；**不依赖图表库** |
-| 每日自动管线 | `pipeline.js`：`QUERIES`:37、`classify()`:57、`rewriteWithAI()`:113、输出:192 | 数据源=Google News RSS；无 key 降级原文；取前 30 条 |
+| 每日自动管线 | `pipeline.js`：`QUERIES`:38、`classify()`:72、`rewriteWithAI()`:128、输出:207 | 数据源=Google News RSS（16 组检索词覆盖 6 栏目）；无 key 降级原文；取前 60 条 |
 
 ## 6. 已刻意移除的功能（不是 bug，勿"修"）
 - 订阅邮箱卡片、4 个统计卡片、`#tagCloud` 趋势标签云（元素已删，`renderTags()` 留空壳带 null 保护）。

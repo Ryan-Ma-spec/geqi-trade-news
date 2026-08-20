@@ -58,7 +58,7 @@
 ## 三、日常是怎么自动更新的
 
 - GitHub Actions 每天 **07:00（北京时间）** 自动运行 `pipeline.js`：
-  - 抓 Google News 实时外贸检索结果（中文语境，7 组关键词覆盖 6 大栏目）。
+  - 抓 Google News 实时外贸检索结果（中文语境，16 组关键词覆盖 6 大栏目）。
   - 分类、算相对时间、有 key 则 DeepSeek 重写摘要+标签+简报。
   - 若 news.js 有变化 → 自动提交 → **EdgeOne 自动重新部署**。
 - 想手动跑一次：GitHub 仓库 → **Actions → 每日外贸情报更新 → Run workflow**。

@@ -33,15 +33,30 @@ const { extractTopicTags } = require("./topics.js");
   // 栏目中文名
   const CATS_LABEL = { policy: "政策速递", tariff: "关税汇率", market: "海外市场", logistics: "物流航运", platform: "平台规则", industry: "行业精选" };
 
-  // 检索词 → 默认栏目（classify 会按正文再校正）
+  // 检索词 → 默认栏目（classify 会按正文再校正）；扩充覆盖面以增加信息来源量
   const QUERIES = [
+    // policy 政策速递
     { q: "外贸 进出口 政策", def: "policy" },
     { q: "商务部 海关 外贸", def: "policy" },
+    { q: "出口管制 反倾销 贸易救济", def: "policy" },
+    // tariff 关税汇率
     { q: "关税 汇率 人民币 出口退税", def: "tariff" },
+    { q: "人民币 汇率 走势 外贸企业", def: "tariff" },
+    { q: "加征关税 反补贴 关税豁免", def: "tariff" },
+    // market 海外市场
     { q: "海外贸易市场 出海", def: "market" },
+    { q: "出海 东南亚 欧盟 美国 市场", def: "market" },
+    { q: "一带一路 RCEP 海外市场", def: "market" },
+    // logistics 物流航运
     { q: "跨境物流 航运 运价 港口", def: "logistics" },
+    { q: "中欧班列 海运 集装箱 运费", def: "logistics" },
+    // platform 平台规则
     { q: "跨境电商 亚马逊 TikTok Shop 平台规则", def: "platform" },
-    { q: "外贸企业 行业 订单", def: "industry" }
+    { q: "亚马逊 Temu SHEIN 速卖通 独立站", def: "platform" },
+    // industry 行业精选
+    { q: "外贸企业 行业 订单", def: "industry" },
+    { q: "跨境电商 出口 制造业 工厂", def: "industry" },
+    { q: "海外仓 品牌出海 独立站 外贸", def: "industry" }
   ];
 
   // 分类关键词（按优先级匹配）
@@ -153,9 +168,13 @@ const { extractTopicTags } = require("./topics.js");
     process.exit(1);
   }
 
+  // 过滤纯行情播报噪声（"08月19日 美元兑日元跌破..." 类汇率/商品机器播报）
+  const cleaned = raw.filter(x => !(/^\d{1,2}月\d{1,2}日/.test(x.title) && /兑/.test(x.title) && /(跌破|突破|涨破)/.test(x.title)));
+  if (raw.length !== cleaned.length) console.log(`🧹 过滤行情播报噪声：${raw.length - cleaned.length} 条`);
+
   // 去重（按标题）
   const seen = new Set();
-  const dedup = raw.filter(x => { const k = x.title; if (seen.has(k)) return false; seen.add(k); return true; });
+  const dedup = cleaned.filter(x => { const k = x.title; if (seen.has(k)) return false; seen.add(k); return true; });
 
   // 分类 + 相对时间
   let list = dedup.map(x => {
@@ -164,9 +183,9 @@ const { extractTopicTags } = require("./topics.js");
     return { ...x, cat, time: relTime(x.pub) };
   });
 
-  // 按发布时间倒序，取前 30
+  // 按发布时间倒序，取前 60（每日信息量翻倍）
   list.sort((a, b) => new Date(b.pub) - new Date(a.pub));
-  list = list.slice(0, 30);
+  list = list.slice(0, 60);
 
   // AI 重写（有 key 才调）
   const useAI = !!process.env.DEEPSEEK_API_KEY;
