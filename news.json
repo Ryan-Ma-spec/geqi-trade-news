@@ -1,88 +1,207 @@
 [
   {
     "id": 1,
-    "cat": "market",
-    "time": "20小时前",
+    "cat": "industry",
+    "time": "12小时前",
     "top": true,
     "ai": "要点提炼",
-    "title": "人民币汇率逼近6.7，外贸企业靠什么稳住订单？",
-    "summary": "人民币汇率逼近6.7，外贸企业面临成本压力，需通过优化产品结构、提升附加值、灵活运用金融工具等方式稳住订单。",
-    "source": "凤凰网财经",
-    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9rTDhzZWFfTFJjd01wVm5qLVZ2YnNtejVJYV9uRXRTZWp4UXNYc3RSQV8zNy1lUVRjZFdGSmZWeVlQc2J4N1g2WHl0YVJzWnRu?oc=5",
+    "title": "聊诚评 | “一店卖全球”：跨境电商赋能山东制造出海",
+    "summary": "山东依托跨境电商实现“一店卖全球”，赋能本地制造企业出海，提升国际竞争力。",
+    "source": "鲁网",
+    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5SbEdxZS1XZ3UzZkZQM0xIRFpjeExKU2JJclN3aXVOaXYtdC1QNDdxbGtaNDFIX1VkcU9BYXZXcjNOTzVpZWxpUU1QTzhkV1lHdE9kaFdSMmVZNDJtOXJQWFpLX3NfbWZvbDRIT0swNGxENjdW?oc=5",
+    "tags": [
+      "跨境电商",
+      "山东制造",
+      "出海"
+    ],
+    "topicTags": [
+      "出海通道",
+      "跨境电商"
+    ],
+    "body": "聊诚评 | “一店卖全球”：跨境电商赋能山东制造出海 鲁网",
+    "brief": "<h4>核心事实</h4><p>山东通过跨境电商平台推动本地制造企业实现“一店卖全球”，拓展海外市场。</p><h4>影响看点</h4><ul><li>提升山东制造业国际竞争力</li><li>促进外贸新业态发展</li><li>带动本地产业升级</li></ul><h4>涉及主体/市场</h4><p>山东制造企业、跨境电商平台、海外消费者</p>"
+  },
+  {
+    "id": 2,
+    "cat": "industry",
+    "time": "18小时前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "2026跨境客服外包服务商TOP10：多语种、合规、AI 中台选型参考指南",
+    "summary": "2026年跨境客服外包服务商TOP10榜单发布，聚焦多语种支持、合规能力及AI中台建设，为跨境电商企业提供选型参考，强调技术驱动与本地化服务并重。",
+    "source": "手机新浪网",
+    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVmN6VUdlWGh2elM0VjZuWXZVQWNsRTU5RUpsRk9YYU9EeGFUbTVqa2gxNktNOTlKT25GVGFmeXd1RUxhMGZ1NmJUVXFJaHI1SS1KZDkzRkhRVHpVaFVqZDFkSlRUZ2tCQjRCNGxEQ0xaMS12R2hibGJ6bFlRVVNEaUdTX1JKQ2xfc1pxeDI5X2Rxdw?oc=5",
+    "tags": [
+      "跨境客服",
+      "外包服务",
+      "AI中台",
+      "多语种",
+      "合规"
+    ],
+    "topicTags": [
+      "平台合规",
+      "AI",
+      "跨境电商"
+    ],
+    "body": "2026跨境客服外包服务商TOP10：多语种、合规、AI 中台选型参考指南 手机新浪网",
+    "brief": "<h4>核心事实</h4><p>2026年跨境客服外包服务商TOP10榜单公布，评选标准涵盖多语种服务能力、合规体系及AI中台技术，旨在帮助跨境电商企业优化客户支持策略。</p><h4>影响看点</h4><ul><li>多语种能力成跨境客服核心竞争点，覆盖小语种市场成差异化优势。</li><li>合规要求趋严，服务商需具备国际数据隐私与消费者保护认证。</li><li>AI中台应用提升客服效率与响应速度，降低运营成本。</li></ul><h4>涉及主体/市场</h4><p>跨境电商企业、客服外包服务商、全球消费市场（尤其欧美及新兴市场）。</p>"
+  },
+  {
+    "id": 3,
+    "cat": "market",
+    "time": "1天前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "汇率破6.74刷新三年高点！外贸企业结汇“越升越结、越结越升”？",
+    "summary": "人民币汇率突破6.74，创三年新高，外贸企业结汇行为呈现“越升越结、越结越升”的循环。市场关注汇率走势对出口企业利润的影响及央行可能的干预措施。",
+    "source": "新浪财经",
+    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQT2hIUlFnb3BCWFNkSHpxWWItQkFRSHpDX3J2aVNzNGN0NXo0NGtQOHV2MW4wTWNicHRKSjFPbFhMMGEzazRubEF2SXVlMVBBbUE1VnpoLU4zZDZ6NjBBLWIxM0g5R0hDMm1hc2M4aFU3dkJBcmk1Mm9IRHc2bUF3bUtKenRpV1F2T3ZFRHAtZw?oc=5",
+    "tags": [
+      "人民币汇率",
+      "外贸结汇",
+      "汇率风险",
+      "出口企业",
+      "央行干预"
+    ],
+    "topicTags": [
+      "汇率",
+      "汇率关税"
+    ],
+    "body": "汇率破6.74刷新三年高点！外贸企业结汇“越升越结、越结越升”？ 新浪财经",
+    "brief": "<h4>核心事实</h4><p>人民币兑美元汇率突破6.74，刷新三年高点，外贸企业结汇行为出现“越升越结、越结越升”的自我强化趋势。</p><h4>影响看点</h4><ul><li>出口企业利润承压，需加强汇率风险管理。</li><li>央行可能出手干预，稳定汇率预期。</li><li>结汇行为可能加剧汇率波动，影响外贸订单定价。</li></ul><h4>涉及主体/市场</h4><p>外贸企业、商业银行、央行及外汇市场参与者。</p>"
+  },
+  {
+    "id": 4,
+    "cat": "industry",
+    "time": "1天前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "大众安徽第10万辆下线，欧盟关税豁免验证出海新模式",
+    "summary": "大众安徽第10万辆整车下线，标志着其本土化生产取得重要进展。欧盟关税豁免政策验证了大众通过中国工厂向欧洲出口的新模式，有助于规避贸易壁垒，提升竞争力。",
+    "source": "网通社",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE96aUxwV3pOcGxCb191RzRoMEYyUnV5V0hRUWFYYmlCR2FpNTBfVkhrbWRaVGNwb0dxT1dVUWhIOFB2VHdObTk3LWJtd1BVQ0N5VS1aRlpZa09VODA?oc=5",
+    "tags": [
+      "大众安徽",
+      "10万辆下线",
+      "欧盟关税豁免",
+      "出海新模式",
+      "本土化"
+    ],
+    "topicTags": [
+      "出海通道",
+      "汇率关税"
+    ],
+    "body": "大众安徽第10万辆下线，欧盟关税豁免验证出海新模式 网通社",
+    "brief": "<h4>核心事实</h4><p>大众安徽第10万辆整车下线，欧盟关税豁免验证了其通过中国工厂向欧洲出口的新模式。</p><h4>影响看点</h4><ul><li>大众安徽产能提升，强化中国市场布局。</li><li>欧盟关税豁免降低出口成本，增强价格竞争力。</li><li>验证跨国车企“中国造、全球销”新路径，可能引发行业效仿。</li></ul><h4>涉及主体/市场</h4><p>大众汽车、大众安徽、欧盟市场、中国汽车产业。</p>"
+  },
+  {
+    "id": 5,
+    "cat": "market",
+    "time": "1天前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "人民币汇率逼近6.7！外贸企业靠什么稳住订单？",
+    "summary": "人民币汇率逼近6.7，外贸企业面临成本与利润压力，需通过优化结算、套期保值等方式稳住订单。",
+    "source": "新浪财经",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE00Q0VsS3VrbHNwQmJSUnRsX08xR2d0b1p0aHdnRmdBMU9YR2RsNFRUSWY1NXlyQ05XbzR3N1ZzeTlEZnVRNGlySGlacmFfNkkzQVdEM0VaLUVaN2xqbk15bVN4R1cwOEtZLUh4dTdkMU5qWkpURHc?oc=5",
     "tags": [
       "人民币汇率",
       "外贸企业",
       "订单",
-      "金融工具"
+      "结算",
+      "套期保值"
     ],
     "topicTags": [
       "汇率",
-      "跨境金融",
-      "外贸稳增长"
+      "汇率关税"
     ],
-    "body": "人民币汇率逼近6.7，外贸企业靠什么稳住订单？ 凤凰网财经",
-    "brief": "<h4>核心事实</h4><p>人民币兑美元汇率逼近6.7，外贸企业成本压力增大，需调整策略应对。</p><h4>影响看点</h4><ul><li>汇率波动影响出口利润，企业需加强汇率风险管理。</li><li>优化产品结构，提升附加值以对冲成本上升。</li><li>灵活运用远期结售汇等金融工具锁定汇率。</li></ul><h4>涉及主体/市场</h4><p>外贸企业、出口市场、外汇市场。</p>"
+    "body": "人民币汇率逼近6.7！外贸企业靠什么稳住订单？ 新浪财经",
+    "brief": "<h4>核心事实</h4><p>人民币兑美元汇率逼近6.7，外贸企业出口成本上升，利润空间受挤压。</p><h4>影响看点</h4><ul><li>出口企业需调整报价策略，应对汇率波动。</li><li>套期保值等金融工具需求增加。</li><li>可能影响出口订单的竞争力。</li></ul><h4>涉及主体/市场</h4><p>中国外贸企业、外汇市场、出口行业。</p>"
   },
   {
-    "id": 2,
+    "id": 6,
     "cat": "industry",
     "time": "1天前",
     "top": false,
     "ai": "要点提炼",
     "title": "外贸S2B2B系统推荐：数商云解决方案助力企业全球化增长",
-    "summary": "数商云推出外贸S2B2B系统解决方案，旨在助力企业全球化增长，通过数字化平台优化供应链管理，提升外贸效率。",
+    "summary": "数商云推出外贸S2B2B系统，旨在助力企业全球化增长，通过数字化解决方案优化供应链管理，提升外贸效率。该系统整合资源，支持多语言、多币种交易，强化数据分析和客户管理，帮助中小企业拓展国际市场。",
     "source": "财富号",
     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBSdzQyOXdFLWlwVkZGeXhTSE92eUxTdEs2Nnp4U1VLZjBTVENHX2EwVlVBd243WnQ4ZDdFM0lqTTYyTmY0alZvTGxBNkJ4OGJweHNBemM4a1VoVm5WR0VGblJ0OXVoLUg4MGI4?oc=5",
     "tags": [
       "S2B2B",
       "数商云",
-      "外贸数字化",
-      "供应链管理"
+      "外贸系统",
+      "数字化",
+      "全球化"
     ],
     "topicTags": [
-      "平台规则",
       "供应链"
     ],
     "body": "外贸S2B2B系统推荐：数商云解决方案助力企业全球化增长 财富号",
-    "brief": "<h4>核心事实</h4><p>数商云发布外贸S2B2B系统，面向外贸企业提供数字化解决方案，支持全球化业务拓展。</p><h4>影响看点</h4><ul><li>提升外贸企业供应链协同效率</li><li>助力中小企业低成本数字化转型</li><li>可能加剧外贸软件市场竞争</li></ul><h4>涉及主体/市场</h4><p>外贸企业、跨境电商平台、软件服务商</p>"
+    "brief": "<h4>核心事实</h4><p>数商云发布外贸S2B2B系统，提供数字化解决方案，支持企业全球化业务拓展。</p><h4>影响看点</h4><ul><li>提升外贸企业供应链协同效率</li><li>降低中小企业国际化门槛</li><li>推动外贸行业数字化转型</li></ul><h4>涉及主体/市场</h4><p>外贸企业、跨境电商平台、数商云及全球B2B市场。</p>"
   },
   {
-    "id": 3,
+    "id": 7,
     "cat": "policy",
-    "time": "1天前",
+    "time": "2天前",
     "top": false,
     "ai": "要点提炼",
     "title": "美国“退税潮”持续！新关税已在路上",
-    "summary": "美国退税潮持续，但新关税政策已在酝酿中，可能影响跨境贸易。",
+    "summary": "美国“退税潮”持续，但新关税已在路上。此举或影响跨境卖家成本与利润，需关注政策动态。",
     "source": "雨果跨境",
     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBQNjFmRnNma3g4NVp5YWFDWE9wdmxfSW9jeGZLUC00RGdWZmt2R0FiT25fRExlWGF4VzhacGEyaTk4SnlGSTQ4ZVJUcW0?oc=5",
     "tags": [
       "美国",
       "退税",
       "关税",
-      "跨境贸易"
+      "跨境"
     ],
     "topicTags": [
       "跨境电商"
     ],
     "body": "美国“退税潮”持续！新关税已在路上 雨果跨境",
-    "brief": "<h4>核心事实</h4><p>美国退税潮持续，但新关税已在路上，可能对进口商品加征新税。</p><h4>影响看点</h4><ul><li>跨境卖家需关注关税变化，调整定价策略。</li><li>退税政策可能刺激消费，但新关税增加成本。</li></ul><h4>涉及主体/市场</h4><p>美国进口商、跨境电商卖家、消费者。</p>"
+    "brief": "<h4>核心事实</h4><p>美国退税潮持续，但新关税政策即将实施，可能影响进口商品成本。</p><h4>影响看点</h4><ul><li>跨境卖家面临成本上升风险</li><li>需调整定价策略应对关税变化</li><li>关注政策细则以规避风险</li></ul><h4>涉及主体/市场</h4><p>美国进口商、跨境电商卖家、相关供应链企业。</p>"
   },
   {
-    "id": 4,
+    "id": 8,
+    "cat": "industry",
+    "time": "2天前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "2026品牌出海服务商推荐，中东品牌出海，电商品牌出海，3C品牌出海，饰品品牌出海，跨境选品服务商优选指南！",
+    "summary": "2026年品牌出海服务商推荐指南发布，涵盖中东市场、电商、3C、饰品等品类，提供跨境选品服务商优选建议，助力中国企业拓展海外市场。",
+    "source": "大众网",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA3NXp2eVQ2TEsxVXFTRnFMNnB1N19ZUlFPakFTXzhscUVETHNWaUhsTUh4VUI4UHNqa1lhRndKTEJJVlkzQzd3RDV4dElqbFZQUkl0dlhaQkhMeGs5N1pF?oc=5",
+    "tags": [
+      "品牌出海",
+      "服务商",
+      "中东市场",
+      "跨境电商",
+      "选品指南"
+    ],
+    "topicTags": [
+      "出海通道",
+      "跨境电商"
+    ],
+    "body": "2026品牌出海服务商推荐，中东品牌出海，电商品牌出海，3C品牌出海，饰品品牌出海，跨境选品服务商优选指南！ 大众网",
+    "brief": "<h4>核心事实</h4><p>大众网发布2026年品牌出海服务商推荐指南，聚焦中东及全球市场，涉及电商、3C、饰品等品类，提供跨境选品服务商优选建议。</p><h4>影响看点</h4><ul><li>品牌出海需求增长，服务商选择成为关键。</li><li>中东市场潜力大，需本地化策略。</li><li>3C和饰品品类竞争激烈，选品需精准。</li></ul><h4>涉及主体/市场</h4><p>中国出海品牌、跨境服务商、中东及全球电商市场。</p>"
+  },
+  {
+    "id": 9,
     "cat": "industry",
     "time": "2天前",
     "top": false,
     "ai": "要点提炼",
     "title": "ECTIP华贸通走进无锡川商：从AI获客到海外落地，传统企业如何走好“出海第一步”？",
-    "summary": "ECTIP华贸通在无锡川商活动中，探讨传统企业出海路径，强调从AI获客到海外落地的一体化服务，助力企业迈出国际化第一步。",
+    "summary": "ECTIP华贸通近日走进无锡川商，聚焦传统企业出海难题，提出从AI获客到海外落地的全链路解决方案，助力企业迈出“出海第一步”。",
     "source": "中华网",
     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE11RjZ3QUl4eVJhRHY0U2l3azZpcmhnRGNVZGpKeGt4eDBvaWI5NEFZVlpGY2x5WWlTQ1djeUxxZV9TRTZYYmJxVWdIcnRBSHFsYU5qUHVHNF95MVVrem44TlZvQ3hGZ3NsWEsyOA?oc=5",
     "tags": [
-      "ECTIP华贸通",
-      "出海",
       "AI获客",
-      "传统企业",
+      "海外落地",
+      "传统企业出海",
+      "ECTIP华贸通",
       "无锡川商"
     ],
     "topicTags": [
@@ -90,99 +209,166 @@
       "出海通道"
     ],
     "body": "ECTIP华贸通走进无锡川商：从AI获客到海外落地，传统企业如何走好“出海第一步”？ 中华网",
-    "brief": "<h4>核心事实</h4><p>ECTIP华贸通在无锡举办活动，聚焦传统企业出海，提供从AI获客到海外落地的全流程支持。</p><h4>影响看点</h4><ul><li>传统企业可借助AI技术提升海外市场拓展效率。</li><li>一体化服务降低出海门槛，加速国际化进程。</li><li>无锡川商或成区域企业出海示范案例。</li></ul><h4>涉及主体/市场</h4><p>ECTIP华贸通、无锡川商、传统制造及外贸企业。</p>"
+    "brief": "<h4>核心事实</h4><p>ECTIP华贸通在无锡川商活动中，针对传统企业出海痛点，推出涵盖AI获客、海外落地等环节的一站式服务，帮助企业降低出海门槛。</p><h4>影响看点</h4><ul><li>传统企业可借助AI工具精准触达海外客户，提升营销效率。</li><li>全链路服务模式或成行业新趋势，推动外贸服务升级。</li><li>无锡川商等地方商会资源对接，加速区域企业国际化进程。</li></ul><h4>涉及主体/市场</h4><p>ECTIP华贸通、无锡川商及有意拓展海外市场的传统制造与贸易企业。</p>"
   },
   {
-    "id": 5,
+    "id": 10,
     "cat": "policy",
-    "time": "2天前",
+    "time": "3天前",
     "top": false,
     "ai": "要点提炼",
     "title": "2026商标注册变局：跨境卖家如何落子海外？",
-    "summary": "2026年商标注册规则将迎来变局，跨境卖家需提前布局海外市场，应对新规挑战，确保品牌权益。",
+    "summary": "2026年商标注册规则将迎来变局，跨境卖家需提前布局海外市场。新规可能涉及审查标准、费用调整及国际协定变化，卖家应关注目标市场注册流程，优化品牌保护策略，以应对潜在风险并抢占先机。",
     "source": "邢台网",
     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5WQXVuX19pc0VweHBHd3BXWXdCejB5dzZyTEtQZHd0bTZxdlZsM0kyVURiT2d5SVItaDU5cGdkX0F2NURBa1RkcDc2UlpUTG1TRDI0aDY5aGVGVlE1RHplbjQyU3VMdw?oc=5",
     "tags": [
       "商标注册",
       "跨境卖家",
       "海外布局",
-      "2026"
+      "2026新规",
+      "品牌保护"
     ],
     "topicTags": [
       "平台规则",
       "跨境电商"
     ],
     "body": "2026商标注册变局：跨境卖家如何落子海外？ 邢台网",
-    "brief": "<h4>核心事实</h4><p>2026年商标注册规则将发生重大变化，跨境卖家需关注海外商标注册的新要求与流程调整。</p><h4>影响看点</h4><ul><li>卖家需提前规划海外商标注册，避免品牌被抢注。</li><li>新规可能影响注册成本和时间，需调整策略。</li><li>合规性要求提高，需加强知识产权管理。</li></ul><h4>涉及主体/市场</h4><p>跨境卖家、海外商标注册机构、跨境电商平台。</p>"
+    "brief": "<h4>核心事实</h4><p>2026年商标注册规则将发生重大变化，影响跨境卖家的海外商标申请与保护策略。</p><h4>影响看点</h4><ul><li>审查标准可能趋严，需提前准备更充分的申请材料。</li><li>费用调整或增加注册成本，卖家需预算规划。</li><li>国际协定变化可能影响多国注册的便利性。</li><li>品牌保护需更早布局，避免抢注风险。</li></ul><h4>涉及主体/市场</h4><p>跨境卖家、知识产权代理机构、海外目标市场（如欧美、东南亚等）。</p>"
   },
   {
-    "id": 6,
+    "id": 11,
+    "cat": "industry",
+    "time": "3天前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "闪电评论| 一店卖全球，跨境电商助力山东贸易出海拓市_原创阵地",
+    "summary": "山东跨境电商发展迅速，通过“一店卖全球”模式助力本地企业拓展海外市场，提升贸易竞争力。",
+    "source": "齐鲁网",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1xWUtJWmhfLUdBNW1GZTItQk8xTWRJXzB4T0FueE1CaVhNMDdzOG04eVp6SWwycTdhN0dFbmRwalVJZE1tRHRrdXFkVDd0aDlfUkdmNzczOC1aejJXSGtZN2VITWZILUVSVW1KOA?oc=5",
+    "tags": [
+      "跨境电商",
+      "山东",
+      "贸易出海"
+    ],
+    "topicTags": [
+      "出海通道",
+      "跨境电商"
+    ],
+    "body": "闪电评论| 一店卖全球，跨境电商助力山东贸易出海拓市_原创阵地 齐鲁网",
+    "brief": "<h4>核心事实</h4><p>山东利用跨境电商平台，实现“一店卖全球”，推动本地企业产品销往全球，促进贸易增长。</p><h4>影响看点</h4><ul><li>降低中小企业出海门槛</li><li>提升山东外贸数字化水平</li><li>带动相关物流、支付等配套服务发展</li></ul><h4>涉及主体/市场</h4><p>山东外贸企业、跨境电商平台、全球消费者</p>"
+  },
+  {
+    "id": 12,
     "cat": "market",
     "time": "3天前",
     "top": false,
     "ai": "要点提炼",
     "title": "前7月长三角外贸进出口值达11.41万亿元",
-    "summary": "今年前7个月，长三角地区外贸进出口总值达11.41万亿元，同比增长5.1%，占全国进出口总值的36.7%。其中，出口7.05万亿元，增长6.8%；进口4.36万亿元，增长2.6%。民营企业活力增强，高新技术产品出口占比提升。",
+    "summary": "前7月，长三角地区外贸进出口总值达11.41万亿元，占全国比重提升，显示区域外贸韧性。",
     "source": "人民日报",
     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5aRS15NmxDNFdBb3hnTW1iNUlsNVpxMk9jMGJNNU9aVHpDN0ExVnduNERhVnJUdDF6WnlhOWdYT2ZCeWFNVXREMThhS2NCMG1TOVJBaFIwYVZzSFR6c2JMMmxRT1FtdExoOVJaaGk0NktwV3lTSkUya3FnWUVXQmM?oc=5",
     "tags": [
       "长三角",
       "外贸",
       "进出口",
-      "增长",
-      "民营企业"
+      "经济数据"
     ],
     "topicTags": [
-      "汇率",
       "长三角",
       "进出口",
-      "省份外贸"
+      "外贸韧性",
+      "外贸稳增长"
     ],
     "body": "前7月长三角外贸进出口值达11.41万亿元 人民日报",
-    "brief": "<h4>核心事实</h4><p>前7月长三角外贸进出口总值11.41万亿元，同比增长5.1%，占全国36.7%。出口7.05万亿元，增长6.8%；进口4.36万亿元，增长2.6%。</p><h4>影响看点</h4><ul><li>长三角外贸增长高于全国平均水平，显示区域经济韧性。</li><li>民营企业活力增强，高新技术产品出口占比提升，反映结构优化。</li><li>对全国外贸稳定增长起到重要支撑作用。</li></ul><h4>涉及主体/市场</h4><p>长三角地区（上海、江苏、浙江、安徽）的外贸企业及相关产业链。</p>"
+    "brief": "<h4>核心事实</h4><p>2023年前7个月，长三角地区外贸进出口总值达11.41万亿元人民币，占全国外贸总值的比重有所上升，体现区域外贸稳定增长。</p><h4>影响看点</h4><ul><li>长三角作为外贸重镇，其增长态势对全国外贸走势具有风向标意义。</li><li>区域产业链供应链优势持续巩固，利好相关出口企业。</li><li>需关注外部需求变化及贸易摩擦对后续月份的影响。</li></ul><h4>涉及主体/市场</h4><p>长三角地区（上海、江苏、浙江、安徽）外贸企业及全国外贸市场。</p>"
   },
   {
-    "id": 7,
+    "id": 13,
+    "cat": "industry",
+    "time": "4天前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "一店卖全球，跨境电商推动中国制造加速出海",
+    "summary": "跨境电商正推动中国制造加速出海，实现“一店卖全球”模式，助力企业拓展国际市场。",
+    "source": "jpchinapress.com",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNQnQ0Z2JKRXBIZXMzTkYtVkF4N1Z6SVJYX2RwUW1pRVdVck52NjQza0VwLWd6WGxxRDVkbmpsVHNWcmRhNTdBWjhBTE0ya3RlWVpobmdpaDdTOGtNUjI3bHk5dWg1Mmp2ZTRnNjNROVJ0UE1KY1BqZUY3RjN0UDJLVGd0bWU3NmdNdEE?oc=5",
+    "tags": [
+      "跨境电商",
+      "中国制造",
+      "出海"
+    ],
+    "topicTags": [
+      "出海通道",
+      "跨境电商"
+    ],
+    "body": "一店卖全球，跨境电商推动中国制造加速出海 jpchinapress.com",
+    "brief": "<h4>核心事实</h4><p>跨境电商平台助力中国制造企业实现全球销售，加速国际化进程。</p><h4>影响看点</h4><ul><li>降低中小企业出海门槛</li><li>提升中国品牌全球影响力</li><li>促进外贸结构优化</li></ul><h4>涉及主体/市场</h4><p>中国制造企业、跨境电商平台、全球消费者</p>"
+  },
+  {
+    "id": 14,
     "cat": "market",
     "time": "5天前",
     "top": false,
     "ai": "要点提炼",
     "title": "湖南企业出海，真正缺的不是订单从7,300多家外贸企业，看湘企如何进入加拿大和美国_多伦多_新闻",
-    "summary": "湖南拥有7300多家外贸企业，出海缺的不是订单，而是进入北美市场的路径。文章分析湘企如何通过多伦多等节点进入加拿大和美国市场，强调渠道、合规与本地化运营是关键。",
+    "summary": "湖南7300多家外贸企业出海，缺的不是订单而是渠道与品牌。文章分析湘企进入加拿大和美国市场的路径，强调本地化运营与合规的重要性。",
     "source": "华人头条",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBJOXBjQTRKVXFDcG03S2FzOEQwcDd3TFR6R0lONFhGNHlrZXJ2M1AzdEhSR29fcnduV1FqMUJFT0Z5S1Flei1BTkMxLVhPWTg1NVVuWG5rdHVrMGIxVXVB?oc=5",
     "tags": [
       "湖南",
-      "外贸",
-      "北美市场",
       "出海",
+      "北美市场",
+      "外贸企业",
       "本地化"
     ],
     "topicTags": [
-      "中美航线",
       "平台合规",
       "出海通道",
+      "长沙",
       "省份外贸"
     ],
     "body": "湖南企业出海，真正缺的不是订单从7,300多家外贸企业，看湘企如何进入加拿大和美国_多伦多_新闻 华人头条",
-    "brief": "<h4>核心事实</h4><p>湖南7300多家外贸企业寻求进入加拿大和美国市场，重点在于突破渠道与合规障碍，而非单纯获取订单。</p><h4>影响看点</h4><ul><li>企业需关注北美市场准入标准与认证要求</li><li>本地化运营和渠道建设成为出海成败关键</li><li>多伦多作为枢纽，可辐射美加市场</li></ul><h4>涉及主体/市场</h4><p>湖南外贸企业、加拿大及美国市场、多伦多贸易节点</p>"
+    "brief": "<h4>核心事实</h4><p>湖南拥有7300多家外贸企业，出海北美市场时面临渠道和品牌短板，而非订单不足。</p><h4>影响看点</h4><ul><li>企业需加强本地化运营，适应北美合规要求。</li><li>品牌建设成为突破市场壁垒的关键。</li><li>政府或需提供更多海外市场支持服务。</li></ul><h4>涉及主体/市场</h4><p>湖南外贸企业、加拿大及美国市场。</p>"
   },
   {
-    "id": 8,
-    "cat": "platform",
+    "id": 15,
+    "cat": "market",
     "time": "5天前",
     "top": false,
     "ai": "要点提炼",
+    "title": "人民币汇率走势对进出口贸易有哪些影响？",
+    "summary": "人民币汇率波动直接影响进出口贸易：升值抑制出口、促进进口，贬值则相反。企业需关注汇率风险，采取套期保值等措施。",
+    "source": "finance.sina.com.cn",
+    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQNkJmZ005TV9fcTRSREZucl81MXJ3NGRKVVBFZ1dXT3FRQUVQLWJyNmhiUE5qSnZhdF9tQ3pNMXFoMzVjcFgxaF9MemxkSjRPVjJfNncxWDhTQ0NtaEVUZHkyY1hhanhtR01weWVpOGxZSFB6Z1o1MUNkbmlUMmlOdE5odVU?oc=5",
+    "tags": [
+      "人民币汇率",
+      "进出口贸易",
+      "汇率风险"
+    ],
+    "topicTags": [
+      "汇率",
+      "进出口",
+      "汇率关税"
+    ],
+    "body": "人民币汇率走势对进出口贸易有哪些影响？ finance.sina.com.cn",
+    "brief": "<h4>核心事实</h4><p>人民币汇率变动影响进出口商品价格竞争力，进而改变贸易收支。</p><h4>影响看点</h4><ul><li>升值不利于出口，利于进口</li><li>贬值利于出口，抑制进口</li><li>企业需管理汇率风险</li></ul><h4>涉及主体/市场</h4><p>进出口企业、外汇市场、贸易政策制定者</p>"
+  },
+  {
+    "id": 16,
+    "cat": "platform",
+    "time": "6天前",
+    "top": false,
+    "ai": "要点提炼",
     "title": "苏宁出海，押注TikTok",
-    "summary": "苏宁易购宣布出海战略，重点押注TikTok平台，计划通过短视频和直播电商拓展海外市场，首站瞄准东南亚。此举旨在利用TikTok流量红利，推动品牌国际化。",
+    "summary": "苏宁易购宣布出海战略，将重点押注TikTok平台，利用其流量和电商生态拓展海外市场，首站瞄准东南亚。",
     "source": "白鲸出海",
     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFB4c29tOUttOS1Qay1Vb2s1YlVfX09PeUxzTXllY2U1eUJLNjBoQkN0b3BBaHBfYW94VDRiSDJjckRlbkxlSlJKSjhVMWQ?oc=5",
     "tags": [
       "苏宁",
       "TikTok",
       "出海",
-      "电商",
-      "东南亚"
+      "东南亚",
+      "电商"
     ],
     "topicTags": [
       "平台规则",
@@ -190,63 +376,64 @@
       "跨境电商"
     ],
     "body": "苏宁出海，押注TikTok 白鲸出海",
-    "brief": "<h4>核心事实</h4><p>苏宁易购正式启动出海计划，选择TikTok作为核心渠道，借助其短视频和直播功能，在东南亚市场开展跨境电商业务。</p><h4>影响看点</h4><ul><li>苏宁将利用TikTok的流量优势，快速触达海外年轻消费者。</li><li>直播电商模式在东南亚兴起，苏宁有望复制国内成功经验。</li><li>此举或加剧东南亚电商市场竞争，影响现有平台格局。</li></ul><h4>涉及主体/市场</h4><p>苏宁易购、TikTok、东南亚电商市场（如印尼、泰国、越南）。</p>"
+    "brief": "<h4>核心事实</h4><p>苏宁易购正式启动出海计划，选择TikTok作为主要合作平台，借助其短视频和直播电商模式，首站布局东南亚市场。</p><h4>影响看点</h4><ul><li>苏宁将利用TikTok的流量优势，快速触达海外年轻消费者。</li><li>东南亚电商竞争加剧，或影响现有平台格局。</li><li>TikTok电商生态进一步扩展，吸引更多中国品牌入驻。</li></ul><h4>涉及主体/市场</h4><p>苏宁易购、TikTok、东南亚电商市场。</p>"
   },
   {
-    "id": 9,
+    "id": 17,
     "cat": "policy",
-    "time": "5天前",
+    "time": "6天前",
     "top": false,
     "ai": "要点提炼",
     "title": "香港政务司：香港国际贸易平台高效、专业 可助力内地优质农产品出海",
-    "summary": "香港政务司表示，香港国际贸易平台高效、专业，可助力内地优质农产品出海。此举有望加强内地与香港的经贸合作，推动农产品国际化。",
+    "summary": "香港政务司表示，香港国际贸易平台高效专业，可助力内地优质农产品出海。",
     "source": "QQ News",
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0zS3c5SG1FUTVYSjRIbnRPTUZEam5SUmRIcVdHYkdKVlFtUmxTLWF2VDBRZlJfV3M2WFdtSzRxNjdEb0JOX1lOa3hQRnV1T1Fzd0hyOWtR?oc=5",
     "tags": [
       "香港",
       "国际贸易",
       "农产品",
-      "出海",
-      "合作"
+      "出海"
     ],
     "topicTags": [
       "平台规则",
       "出海通道"
     ],
     "body": "香港政务司：香港国际贸易平台高效、专业 可助力内地优质农产品出海 QQ News",
-    "brief": "<h4>核心事实</h4><p>香港政务司强调香港国际贸易平台的高效与专业性，并指出其可助力内地优质农产品走向国际市场。</p><h4>影响看点</h4><ul><li>内地农产品出口渠道有望拓宽，提升国际竞争力。</li><li>香港作为中转枢纽，可增强其国际贸易中心地位。</li><li>促进两地经贸深度融合，带动相关产业链发展。</li></ul><h4>涉及主体/市场</h4><p>涉及香港政务司、内地农产品供应商、香港贸易服务商及国际农产品市场。</p>"
+    "brief": "<h4>核心事实</h4><p>香港政务司强调香港国际贸易平台的高效与专业性，并指出其可助力内地优质农产品走向国际市场。</p><h4>影响看点</h4><ul><li>内地农产品企业可利用香港平台拓展海外市场。</li><li>香港作为国际枢纽，其贸易服务优势或进一步强化。</li></ul><h4>涉及主体/市场</h4><p>香港政务司、内地农产品出口企业、国际市场。</p>"
   },
   {
-    "id": 10,
-    "cat": "logistics",
-    "time": "5天前",
+    "id": 18,
+    "cat": "industry",
+    "time": "6天前",
     "top": false,
     "ai": "要点提炼",
-    "title": "2026年8月解析：上海比较好的跨境海运物流/整柜海运物流服务公司哪家靠谱",
-    "summary": "2026年8月，大众网发布文章解析上海跨境海运物流服务公司选择，聚焦整柜海运物流的可靠性，为外贸企业提供参考。",
+    "title": "2026年8月实力之选：目前知名的跨境供应链可视化/头部跨境供应链服务商哪个好",
+    "summary": "2026年8月，跨境供应链可视化服务成为行业焦点，多家头部服务商在技术、物流网络和合规能力上展开竞争。文章对比了主流服务商的优势，强调数字化工具对提升供应链透明度和效率的关键作用，并建议企业根据自身业务规模选择合适方案。",
     "source": "大众网",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5pU0pzLUtmQkwwUFFCcnU0dGg4QWhsN2FhZVh3ODdJeGZiRWx6VjVIckpvc3NHVjFGQl9mU0NRYmhQMDRxclhIZWN0ZkNlV1p6a2FscVZySlJLYjQ2cmVB?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA4RWtiZDYydFNscVNtVWlFemtncUJuQ242YTF6a1JBOEpwU2xzdVBrWXplRmM1SkxDQU1DMFp1ZklWVno3UU5lWXU2TWZEMjV3dDg2RVBxU2pyX0VBNFU0?oc=5",
     "tags": [
-      "上海",
-      "跨境海运",
-      "整柜物流",
-      "服务公司"
+      "跨境供应链",
+      "可视化",
+      "服务商",
+      "数字化",
+      "2026"
     ],
     "topicTags": [
-      "上海港",
+      "平台合规",
+      "供应链",
       "跨境电商"
     ],
-    "body": "2026年8月解析：上海比较好的跨境海运物流/整柜海运物流服务公司哪家靠谱 大众网",
-    "brief": "<h4>核心事实</h4><p>文章探讨上海跨境海运物流公司选择标准，强调整柜海运服务的可靠性。</p><h4>影响看点</h4><ul><li>外贸企业需关注物流服务商资质与口碑</li><li>整柜海运成本与时效对比</li><li>上海港口优势与物流网络</li></ul><h4>涉及主体/市场</h4><p>上海跨境物流公司、外贸企业、海运市场</p>"
+    "body": "2026年8月实力之选：目前知名的跨境供应链可视化/头部跨境供应链服务商哪个好 大众网",
+    "brief": "<h4>核心事实</h4><p>2026年8月，跨境供应链可视化服务商竞争加剧，头部企业通过技术升级和网络优化提升竞争力，文章对比了主要服务商的特点。</p><h4>影响看点</h4><ul><li>数字化工具成为供应链管理标配，企业需关注技术迭代。</li><li>服务商差异化明显，选择需匹配业务规模与区域覆盖。</li><li>合规与数据安全成为新竞争点。</li></ul><h4>涉及主体/市场</h4><p>跨境供应链服务商、跨境电商企业、物流科技公司。</p>"
   },
   {
-    "id": 11,
+    "id": 19,
     "cat": "policy",
     "time": "6天前",
     "top": false,
     "ai": "要点提炼",
     "title": "政策赋能开放型经济新跃升，园区外贸首破万亿大关",
-    "summary": "苏州工业园区外贸首次突破万亿元大关，得益于政策赋能开放型经济，实现新跃升。",
+    "summary": "苏州工业园区外贸首次突破万亿大关，得益于政策赋能开放型经济，实现新跃升。",
     "source": "sipac.gov.cn",
     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQWDRMclIxcGZwM3YyZ3ZUQTlZZEJzeWFKeEc1bXowbXdITmx0X2NpdEZvaDFzVThHSGJBZ3R1bzZDT0xHdmhOWXlzamJqNjdzMTRNUzk3MEI3YU02Tmx5V0gydlFYMWgta011LTFiS3pvckdzV0dybmlSbDVOcU9TWnJ6MFhraEx2Rmc?oc=5",
     "tags": [
@@ -259,47 +446,47 @@
       "外贸"
     ],
     "body": "政策赋能开放型经济新跃升，园区外贸首破万亿大关 sipac.gov.cn",
-    "brief": "<h4>核心事实</h4><p>苏州工业园区外贸总额首次突破万亿，政策支持推动开放型经济升级。</p><h4>影响看点</h4><ul><li>园区外贸规模创新高，显示政策成效。</li><li>开放型经济模式或成其他园区借鉴。</li></ul><h4>涉及主体/市场</h4><p>苏州工业园区及外贸相关企业。</p>"
+    "brief": "<h4>核心事实</h4><p>苏州工业园区外贸总额首次突破万亿元，政策支持推动开放型经济升级。</p><h4>影响看点</h4><ul><li>园区外贸规模创新高，显示政策成效显著。</li><li>开放型经济模式或成其他园区借鉴样板。</li><li>后续可能出台更多外贸便利化措施。</li></ul><h4>涉及主体/市场</h4><p>苏州工业园区及外贸企业，面向全球市场。</p>"
   },
   {
-    "id": 12,
+    "id": 20,
     "cat": "industry",
     "time": "6天前",
     "top": false,
     "ai": "要点提炼",
     "title": "TikTok头部服务商暴雷！卷款3000万跑路",
-    "summary": "TikTok头部服务商暴雷，卷款3000万跑路，引发行业震动。该事件暴露了跨境电商服务商监管漏洞，提醒卖家在选择合作伙伴时需谨慎，加强风险防范。",
+    "summary": "TikTok头部服务商暴雷，卷款3000万跑路，引发行业震动。该事件涉及跨境支付和电商服务领域，凸显行业监管缺失和商家风险。",
     "source": "雨果跨境",
     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5ibTl1Z3hHa2l1N1NraG5JVmtYa0tXblNhRldFRGo0U1AwSngyaEFPaXlkcjhoUFFMZGZjMVJQRjI5VVQ2UWxLeTI0a3A?oc=5",
     "tags": [
       "TikTok",
       "服务商暴雷",
-      "跨境电商",
-      "风险防范",
-      "监管"
+      "跨境支付",
+      "电商风险",
+      "行业监管"
     ],
     "topicTags": [
       "跨境电商"
     ],
     "body": "TikTok头部服务商暴雷！卷款3000万跑路 雨果跨境",
-    "brief": "<h4>核心事实</h4><p>TikTok头部服务商涉嫌卷款3000万跑路，导致众多卖家受损，行业信任危机加剧。</p><h4>影响看点</h4><ul><li>卖家资金安全受威胁，需警惕服务商资质和信誉。</li><li>行业监管缺失问题凸显，呼吁加强合规管理。</li><li>可能影响TikTok生态健康发展，平台需介入整顿。</li></ul><h4>涉及主体/市场</h4><p>TikTok卖家、服务商、跨境电商行业。</p>"
+    "brief": "<h4>核心事实</h4><p>TikTok头部服务商被曝卷款3000万跑路，涉及跨境支付和电商服务，商家资金受损。</p><h4>影响看点</h4><ul><li>商家需警惕服务商资质和资金安全，加强风控。</li><li>行业监管缺失问题凸显，或引发更严格规范。</li><li>TikTok生态信任度受损，影响商家合作信心。</li></ul><h4>涉及主体/市场</h4><p>TikTok电商生态、跨境支付服务商、中小商家。</p>"
   },
   {
-    "id": 13,
+    "id": 21,
     "cat": "policy",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
     "title": "亚马逊乱封号要终结？美国新法案来了！",
-    "summary": "美国提出新法案，旨在规范电商平台封号行为，保护卖家权益，或终结亚马逊等平台的随意封号现象。",
+    "summary": "美国提出新法案，旨在限制亚马逊等平台随意封禁卖家账号，要求平台在封号前提供明确理由和申诉机会。此举或终结亚马逊乱封号现象，保护卖家权益。",
     "source": "雨果跨境",
     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9nYXBMOXpEOHhYMzVfMjlBdzNmbUh2Y2ZRLVF0SnVLY0hOalRYdVVobG41dHdta1FBNDgwTl9ScExFMmpJdVBDM0JLZ1o?oc=5",
     "tags": [
       "亚马逊",
       "封号",
       "美国法案",
-      "电商监管",
-      "卖家权益"
+      "卖家权益",
+      "平台监管"
     ],
     "topicTags": [
       "亚马逊",
@@ -307,78 +494,149 @@
       "跨境电商"
     ],
     "body": "亚马逊乱封号要终结？美国新法案来了！ 雨果跨境",
-    "brief": "<h4>核心事实</h4><p>美国推出新法案，针对电商平台封号规则进行约束，要求平台提供明确理由和申诉机制，减少卖家被无故封号的风险。</p><h4>影响看点</h4><ul><li>亚马逊等平台需调整封号流程，增加透明度。</li><li>卖家获得更多申诉机会，降低经营风险。</li><li>可能引发全球电商监管效仿。</li></ul><h4>涉及主体/市场</h4><p>美国电商市场，亚马逊、eBay等平台及跨境卖家。</p>"
+    "brief": "<h4>核心事实</h4><p>美国新法案拟要求亚马逊等电商平台在封禁卖家账号前，必须提供具体理由并给予申诉机会，限制平台随意封号行为。</p><h4>影响看点</h4><ul><li>卖家账号安全性提升，减少无故封号风险。</li><li>平台需建立更透明的封号流程，增加合规成本。</li><li>可能影响亚马逊的卖家管理政策，促进行业公平。</li></ul><h4>涉及主体/市场</h4><p>亚马逊平台、美国市场卖家、跨境电商行业。</p>"
   },
   {
-    "id": 14,
+    "id": 22,
+    "cat": "policy",
+    "time": "1周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "金陵企航助宁扬帆｜聚焦英国市场，赋能南京消费品企业出海拓新局_工作动态",
+    "summary": "南京市贸促会举办活动，聚焦英国市场，助力南京消费品企业出海，拓展新机遇。",
+    "source": "南京市贸促会",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBFRHpyMk1FM2NuRXd0OTFUT3RiTkY1VmpsY1hsTjlOLVR3WUhfOVpIUlBDbFdGUF9JLUlDbjRBREZRMWowQWxaYWo3WDFHRFZFREd5bmJGeHFCRWoxcmYya1duWEJrMnYxQzV6UHpMeHM?oc=5",
+    "tags": [
+      "南京",
+      "英国市场",
+      "消费品",
+      "出海",
+      "贸促会"
+    ],
+    "topicTags": [
+      "出海通道"
+    ],
+    "body": "金陵企航助宁扬帆｜聚焦英国市场，赋能南京消费品企业出海拓新局_工作动态 南京市贸促会",
+    "brief": "<h4>核心事实</h4><p>南京市贸促会开展“金陵企航助宁扬帆”活动，聚焦英国市场，为南京消费品企业提供出海支持。</p><h4>影响看点</h4><ul><li>帮助南京企业了解英国市场准入和消费趋势</li><li>促进南京消费品出口，提升国际竞争力</li><li>加强中英贸易合作，拓展海外渠道</li></ul><h4>涉及主体/市场</h4><p>南京市贸促会、南京消费品企业、英国市场</p>"
+  },
+  {
+    "id": 23,
     "cat": "tariff",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
     "title": "春风动力获美国 2.62 亿元关税退税 创 A 股单笔最高纪录",
-    "summary": "春风动力获得美国2.62亿元关税退税，创A股单笔最高纪录。此举或缓解中美贸易摩擦下企业关税压力，利好出口型企业。",
-    "source": "新浪网",
+    "summary": "春风动力获得美国2.62亿元关税退税，创A股单笔最高纪录。此退税或源于美国对部分中国商品关税的重新评估或豁免，对企业现金流和利润产生积极影响，也反映中美贸易摩擦缓和迹象。",
+    "source": "finance.sina.com.cn",
     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQb2NCYTBqTzBUaGhFcGRBWW1WVEdOeE9mczc5NGdFVVRfOWhLWnlPWlJ0U1V3LVBLVjhzQnc3ODNpTTY3b1djX2FUMWRrc1dia2RSc3VLU3liYjNpX1dlREU5UE9RQkU1X2RQYzlsZ3FPN3NvNnZkalZkZGY5ZW93aTZlZzVfNTNiVnpr?oc=5",
     "tags": [
       "关税退税",
       "春风动力",
       "A股",
-      "中美贸易"
+      "中美贸易",
+      "企业利好"
     ],
     "topicTags": [
       "汇率关税"
     ],
-    "body": "春风动力获美国 2.62 亿元关税退税 创 A 股单笔最高纪录 新浪网",
-    "brief": "<h4>核心事实</h4><p>春风动力获美国2.62亿元关税退税，为A股单笔最高。</p><h4>影响看点</h4><ul><li>缓解企业关税成本压力</li><li>提振出口型企业信心</li><li>反映中美贸易关系缓和迹象</li></ul><h4>涉及主体/市场</h4><p>春风动力、A股市场、美国关税政策</p>"
+    "body": "春风动力获美国 2.62 亿元关税退税 创 A 股单笔最高纪录 finance.sina.com.cn",
+    "brief": "<h4>核心事实</h4><p>春风动力获美国2.62亿元关税退税，创A股单笔最高纪录。</p><h4>影响看点</h4><ul><li>企业现金流和利润改善，利好股价。</li><li>可能反映美国对部分中国商品关税政策松动。</li><li>或提振其他出口企业信心。</li></ul><h4>涉及主体/市场</h4><p>春风动力（A股上市公司）、美国海关、中美贸易相关企业。</p>"
   },
   {
-    "id": 15,
+    "id": 24,
     "cat": "tariff",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
     "title": "春风动力：全资子公司收到美国关税退税2.62亿元",
-    "summary": "春风动力全资子公司收到美国关税退税2.62亿元，涉及此前缴纳的对美出口关税。此举或缓解企业资金压力，反映中美贸易摩擦缓和迹象。",
-    "source": "搜狐网",
-    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQSWpSTXJwUWkyV2ZxY3BIRVdNQURFWG9CZ212bFJCMm9ITmpvLVIyamNhVHZnTENqTXlVSkFvQ0t2aDA4WlVLUDRBZmFSVXdHZlFCa08zemhYSGdXUlh1U3dQMEhTQlhnaU00WDNJVm9Ta2ZUNGJYbHY4WGpicHJJaUlrajJyVnRR?oc=5",
+    "summary": "春风动力全资子公司收到美国关税退税2.62亿元，涉及此前缴纳的关税返还，或缓解企业资金压力，反映中美贸易摩擦缓和迹象。",
+    "source": "新浪财经",
+    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9yczgwaWNET3ZZSjM1UHlRR0dfSzVMSl92QVFLRW45SmctSG1VYXlnWXRzYkIteDVNSmMxd3pOVG1NTk5zWFdLaU13MGhPdFk2YVBSWnljeDNjR250Zk9IbE5MWEtVc0h5ZnpuMjFSNWo4ejduLUF5Rw?oc=5",
     "tags": [
       "关税退税",
       "春风动力",
       "中美贸易",
-      "企业动态"
+      "企业财务"
     ],
     "topicTags": [
       "汇率关税"
     ],
-    "body": "春风动力：全资子公司收到美国关税退税2.62亿元 搜狐网",
-    "brief": "<h4>核心事实</h4><p>春风动力全资子公司收到美国关税退税2.62亿元，系此前缴纳的对美出口关税返还。</p><h4>影响看点</h4><ul><li>直接改善企业现金流，降低出口成本。</li><li>可能预示中美关税政策调整或豁免落地。</li><li>对同类出口企业具有示范效应。</li></ul><h4>涉及主体/市场</h4><p>春风动力（摩托车及全地形车制造商）、美国市场、中国出口企业。</p>"
+    "body": "春风动力：全资子公司收到美国关税退税2.62亿元 新浪财经",
+    "brief": "<h4>核心事实</h4><p>春风动力公告，全资子公司收到美国关税退税2.62亿元，为前期缴纳关税的返还。</p><h4>影响看点</h4><ul><li>直接增厚公司现金流，改善财务状况。</li><li>可能预示美国对华部分商品关税政策调整，利好出口企业。</li><li>关注后续退税范围是否扩大，影响行业预期。</li></ul><h4>涉及主体/市场</h4><p>春风动力（603129）及美国海关，涉及中美贸易相关出口企业。</p>"
   },
   {
-    "id": 16,
+    "id": 25,
+    "cat": "industry",
+    "time": "1周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "南海跨境电商从“头”越，大沥借力AI打通智造出海全链路｜沥创新局⑮",
+    "summary": "南海大沥镇通过AI技术赋能跨境电商，打通智能制造出海全链路，推动产业升级。",
+    "source": "content.foshanplus.com",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBZd1NmZF9pNHI2bnJjS3R0ZTRNWW1ETFQ5MmZ2MGR2d3Q1MXVLaUZFLW1Na3lnUVMwUFFUb0tLbUsyWFJHRFBXYXhmVmd3NXA2bk5xQlVaQjRhOEI1dDVfOVpCemRLS1NnR1lxVDhxUQ?oc=5",
+    "tags": [
+      "跨境电商",
+      "AI",
+      "智能制造",
+      "出海",
+      "大沥"
+    ],
+    "topicTags": [
+      "AI",
+      "出海通道",
+      "跨境电商"
+    ],
+    "body": "南海跨境电商从“头”越，大沥借力AI打通智造出海全链路｜沥创新局⑮ content.foshanplus.com",
+    "brief": "<h4>核心事实</h4><p>南海大沥镇利用AI技术优化跨境电商流程，实现从生产到销售的全链路智能化，助力本地制造业拓展海外市场。</p><h4>影响看点</h4><ul><li>AI提升供应链效率，降低出海成本。</li><li>带动传统制造业数字化转型。</li><li>增强区域跨境电商竞争力。</li></ul><h4>涉及主体/市场</h4><p>南海大沥镇制造企业、跨境电商平台、AI技术服务商。</p>"
+  },
+  {
+    "id": 26,
+    "cat": "policy",
+    "time": "1周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "面对面纾困解难，实打实赋能出海，我市举办第五期市直亲清政商恳谈会外贸专场",
+    "summary": "武汉市举办第五期亲清政商恳谈会外贸专场，聚焦外贸企业出海难题，通过面对面沟通纾困解难，实打实赋能企业拓展国际市场，助力外贸高质量发展。",
+    "source": "武汉市商务局",
+    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9LbVNYZ0hibkZfWmxBNjE0TWJEQ3RVekJna2lmNkV2YWItLW9VQ1hUT1U5SmZqQ2RmSlpiaDBMdVIzMzgtdWJ6M2MyWWpLZGxaV1NaRmZsWndLZWRPd2wzYnRuWXlIRktGN1p6MXhxSW9BQQ?oc=5",
+    "tags": [
+      "武汉",
+      "政商恳谈会",
+      "外贸",
+      "出海",
+      "纾困"
+    ],
+    "topicTags": [
+      "出海通道"
+    ],
+    "body": "面对面纾困解难，实打实赋能出海，我市举办第五期市直亲清政商恳谈会外贸专场 武汉市商务局",
+    "brief": "<h4>核心事实</h4><p>武汉市商务局举办第五期市直亲清政商恳谈会外贸专场，旨在通过政企面对面交流，解决外贸企业实际困难，支持企业出海。</p><h4>影响看点</h4><ul><li>政府直接对接企业需求，提升外贸政策精准性。</li><li>赋能企业出海，可能带动本地外贸增长。</li><li>政商关系优化，改善营商环境。</li></ul><h4>涉及主体/市场</h4><p>武汉市外贸企业、商务局及相关政府部门。</p>"
+  },
+  {
+    "id": 27,
     "cat": "tariff",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
     "title": "银都股份：境外子公司收到美国关税退税约7876万元",
-    "summary": "银都股份境外子公司收到美国关税退税约7876万元，或缓解关税成本压力，反映美国关税政策调整或企业合规申诉成效。",
+    "summary": "银都股份境外子公司收到美国关税退税约7876万元，涉及此前缴纳的关税返还，或缓解企业成本压力。",
     "source": "QQ News",
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBnTVFPaElpZGU1QWlVZEgwc0lKa3ZUcFBiNlI3SjFrV0dFOV9uNlpSY093VW9xWmZ0eVJMaWk2ZFowNXJCaUN3enFLZktsTk52cmo0XzZB?oc=5",
     "tags": [
       "银都股份",
       "关税退税",
-      "美国关税",
+      "美国",
       "境外子公司",
-      "企业财务"
+      "制造业"
     ],
     "topicTags": [
-      "平台合规",
       "汇率关税"
     ],
     "body": "银都股份：境外子公司收到美国关税退税约7876万元 QQ News",
-    "brief": "<h4>核心事实</h4><p>银都股份公告，其境外子公司收到美国关税退税约7876万元人民币，涉及此前缴纳的关税款项。</p><h4>影响看点</h4><ul><li>直接增厚公司利润，改善现金流，对冲部分关税成本。</li><li>可能预示美国对特定产品关税政策松动或企业申诉成功，关注后续同类案例。</li><li>对出口美国的企业具有信号意义，或引发更多退税申请。</li></ul><h4>涉及主体/市场</h4><p>银都股份及其境外子公司；美国海关及关税政策；出口美国市场的中国企业。</p>"
+    "brief": "<h4>核心事实</h4><p>银都股份公告，其境外子公司收到美国关税退税约7876万元人民币，系美国海关对先前征收关税的退还。</p><h4>影响看点</h4><ul><li>直接增厚公司利润，改善现金流。</li><li>反映美国关税政策执行中的调整空间，或影响其他出口企业预期。</li><li>可能涉及特定产品关税豁免或退税机制，需关注后续政策动态。</li></ul><h4>涉及主体/市场</h4><p>银都股份（制造业）、美国海关及关税政策、中美贸易相关出口企业。</p>"
   },
   {
-    "id": 17,
+    "id": 28,
     "cat": "policy",
     "time": "1周前",
     "top": false,
@@ -399,104 +657,174 @@
       "外贸稳增长"
     ],
     "body": "金融“活水”精准滴灌 乐清助企跑出“出海”加速度 温州新闻网",
-    "brief": "<h4>核心事实</h4><p>乐清市采取金融措施，精准支持企业拓展海外市场，加速“出海”步伐。</p><h4>影响看点</h4><ul><li>企业融资便利化提升，降低出海成本。</li><li>增强本地外贸企业国际竞争力。</li><li>可能带动区域出口增长。</li></ul><h4>涉及主体/市场</h4><p>乐清市外贸企业及金融机构。</p>"
+    "brief": "<h4>核心事实</h4><p>乐清市推出金融支持措施，精准滴灌外贸企业，帮助企业加速海外市场拓展。</p><h4>影响看点</h4><ul><li>降低企业融资成本，提升资金周转效率</li><li>增强企业国际竞争力，促进出口增长</li><li>优化营商环境，吸引更多外贸主体</li></ul><h4>涉及主体/市场</h4><p>乐清市外贸企业、金融机构、海外市场</p>"
   },
   {
-    "id": 18,
+    "id": 29,
+    "cat": "industry",
+    "time": "1周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "十月深圳盛会启幕,解锁2026第十八届跨境电商展全产业链合作机遇",
+    "summary": "2026年第十八届跨境电商展将于十月在深圳举办，聚焦全产业链合作机遇，旨在推动跨境电商行业发展。",
+    "source": "手机网易网",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9pSmtpZ25pRGduNFNockpZMndXUDloZVRiZWo2U2xZYzhWal9zZGl4di0xSURJYS1zWmJ6SExNSWw0Rlp4eF9udkRWSVpwcEdGWXBwSk1qaFNoanVyUFdwQ3VR?oc=5",
+    "tags": [
+      "跨境电商",
+      "深圳",
+      "展会",
+      "2026",
+      "全产业链"
+    ],
+    "topicTags": [
+      "跨境电商"
+    ],
+    "body": "十月深圳盛会启幕,解锁2026第十八届跨境电商展全产业链合作机遇 手机网易网",
+    "brief": "<h4>核心事实</h4><p>2026年第十八届跨境电商展将于十月在深圳启幕，重点展示全产业链合作机遇。</p><h4>影响看点</h4><ul><li>为跨境电商企业提供展示与对接平台</li><li>促进产业链上下游协同合作</li><li>助力行业趋势交流与市场拓展</li></ul><h4>涉及主体/市场</h4><p>跨境电商企业、产业链供应商、深圳及全球市场参与者。</p>"
+  },
+  {
+    "id": 30,
     "cat": "tariff",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
-    "title": "968万！杭州家居大卖已收到美国退回关税",
-    "summary": "杭州家居大卖收到美国退回的关税968万元，涉及中美贸易摩擦中的关税退还。该事件反映美国对部分中国商品关税政策调整，企业可申请退税，利好出口企业现金流。",
-    "source": "雨果跨境",
-    "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9JNTM0QXQ0ejRGZVFUdVBLaTEwSW5ZNE1kX0FZTkxqYjYwRFNwckJlVW5mMDJSb0p0WVNNY3NDby02UDRXRjZsQUIyZ1E?oc=5",
+    "title": "中美峰会前贸易摩擦升温 中国对美国碧根果征54.3%保证金",
+    "summary": "中美峰会前夕，中国宣布对美国碧根果征收54.3%的保证金，贸易摩擦再度升温。此举被视为对美方压力的回应，可能影响双边谈判氛围。",
+    "source": "KLSE Screener",
+    "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxQWk11OWZoR1VqN1d6eVViYm1JVkVaTmFGZXE5SzNoTnM5aEZILTBQb1NFbkxmaHphN1pLTVh5OXVxUGoxZ3pQTWZMRDZIZmpVRDJUUkVDVHJobkwxTjJRYWNOX2ZwY2V0UU93aUVBS1RuOS0zTnpvaG00UFZCaEEyc0dPSG9TbUQ1SWw1Nmt4dHBHejU3blFLQkJXNHVRR2VDM29ESHBqRHh2bnZreGxWLWo2MHlSMHREcG5PcGhMUW5IZlNzZ1ltR1JyVEFkOGhKS3dDWi11MUxqMXJzQ3ZJYmVhMHZZa1ZuQjJ1b1ByZk1Bdi1qQW5WZzk5OXBNQVM0RTNENE9KZkRQV3Q0ZTlDcWstQzU1RkF4S0ZZandDdHN4aUVaeEcxZ1lKa1lKYV8zTUt5dUZQN1J1TFdNSlVKclpTRnFESk1aLWM3d19Jbzd3OVpfajQwYmVSWVBMRDJFV1RPRDB6TUYzRnZFVVVFYWRtakNDVkxvYzRV?oc=5",
     "tags": [
-      "关税退还",
-      "家居出口",
-      "美国关税",
-      "杭州企业",
-      "贸易政策"
+      "中美贸易",
+      "碧根果",
+      "保证金",
+      "贸易摩擦",
+      "峰会"
     ],
     "topicTags": [
-      "汇率关税"
+      "外贸"
     ],
-    "body": "968万！杭州家居大卖已收到美国退回关税 雨果跨境",
-    "brief": "<h4>核心事实</h4><p>杭州一家家居出口企业已收到美国退回的关税968万元人民币，表明美国对部分中国商品实施关税退还政策，企业通过合规申请获得退税。</p><h4>影响看点</h4><ul><li>出口企业可关注关税退还政策，及时申请以改善现金流。</li><li>美国关税政策存在调整空间，企业需持续跟踪合规要求。</li><li>家居等品类出口或受益于退税，增强价格竞争力。</li></ul><h4>涉及主体/市场</h4><p>杭州家居出口企业、美国海关及贸易政策相关方，涉及中美贸易市场。</p>"
+    "body": "中美峰会前贸易摩擦升温 中国对美国碧根果征54.3%保证金 KLSE Screener",
+    "brief": "<h4>核心事实</h4><p>中国对美国碧根果征收54.3%的保证金，在中美峰会前加剧贸易紧张。</p><h4>影响看点</h4><ul><li>可能推高美国碧根果对华出口成本，影响美国农户。</li><li>或为谈判筹码，影响峰会经贸议题。</li><li>中国进口商需寻找替代供应源。</li></ul><h4>涉及主体/市场</h4><p>中美政府、美国碧根果种植商、中国进口商及坚果市场。</p>"
   },
   {
-    "id": 19,
-    "cat": "logistics",
+    "id": 31,
+    "cat": "industry",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
-    "title": "深圳港“朋友圈”不断扩容",
-    "summary": "深圳港国际朋友圈持续扩大，新增多条国际航线，加强与全球主要港口的合作，提升国际航运枢纽地位。",
-    "source": "sz.gov.cn",
-    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5HN2JqeHlEMkVTZ25oWVhsa3BPMlViMG5EVVQxX25pblBLdGVyd1I4aXRhd0xWeUZmaTFMWWpmNkJtTWxScFBiaXVqc0pWX0JzTkowaTdXejVyVWJySWFPVW5RUTZRc2JSaTFUSndONXFSV0p3Y3RB?oc=5",
+    "title": "今天，13位实战专家指明欧洲/美洲/东南亚出海之道",
+    "summary": "今日，13位实战专家齐聚，就欧洲、美洲、东南亚市场出海策略进行分享，涵盖市场准入、本地化运营、合规风险等关键议题，为中国企业出海提供实战指导。",
+    "source": "中华网生活",
+    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE41MHZIQWJIMzlyY29hRi1mdmtfVUlGRVRlNVYyNHgzWGJuMGNDSHBzNW9aLU0xQmx4WTBaNDBRWkZ6ZllnTmpDcGNrZm1lWVlYY3FQZGUyZm1RcGZlRExHQUxCMA?oc=5",
     "tags": [
-      "深圳港",
-      "国际航线",
-      "航运枢纽",
-      "港口合作"
+      "出海",
+      "欧洲",
+      "美洲",
+      "东南亚",
+      "专家"
     ],
     "topicTags": [
-      "物流运费"
+      "平台合规",
+      "出海通道"
     ],
-    "body": "深圳港“朋友圈”不断扩容 sz.gov.cn",
-    "brief": "<h4>核心事实</h4><p>深圳港不断扩展国际航线网络，新增与全球主要港口的合作，提升其作为国际航运枢纽的地位。</p><h4>影响看点</h4><ul><li>增强深圳港在全球航运市场的竞争力</li><li>促进深圳与沿线国家的贸易往来</li><li>带动港口物流及相关产业发展</li></ul><h4>涉及主体/市场</h4><p>深圳港、国际航运公司、全球贸易市场</p>"
+    "body": "今天，13位实战专家指明欧洲/美洲/东南亚出海之道 中华网生活",
+    "brief": "<h4>核心事实</h4><p>13位实战专家今日分享欧洲、美洲、东南亚出海策略，聚焦市场准入、本地化运营与合规。</p><h4>影响看点</h4><ul><li>企业可借鉴区域差异化进入策略</li><li>本地化运营与合规风险成关注重点</li><li>东南亚或成新兴出海热点</li></ul><h4>涉及主体/市场</h4><p>中国企业、欧洲/美洲/东南亚市场</p>"
   },
   {
-    "id": 20,
-    "cat": "platform",
+    "id": 32,
+    "cat": "market",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
-    "title": "京东收紧招商规则亚马逊限75字符商品标题| 邦小白日报- 栏目",
-    "summary": "京东收紧招商规则，亚马逊限制商品标题为75字符。这些变化影响电商卖家的运营策略，需关注平台政策调整。",
+    "title": "2026年上半年鸡蛋出口创同期新高，后续增长动能持续稳固",
+    "summary": "2026年上半年鸡蛋出口创同期新高，后续增长动能持续稳固。",
+    "source": "新浪财经",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNNG42bThHVVNCNVlhLUpQOTdJYzFoZTM1LThOc3RoSDRtRVo0Sjl2cE5TVUcxeDFPR1pZZXBNcXg5bWpBNHk4Z0Y1ZkFVaTl5WWhGSDRMMzYwUnFQaHFIR3FTVVVMMkxSLWE5ZC15ZEd1dFBHU3BTS0E5ZG5jTktyM25ZZw?oc=5",
+    "tags": [
+      "鸡蛋出口",
+      "2026",
+      "增长",
+      "新高"
+    ],
+    "topicTags": [
+      "外贸"
+    ],
+    "body": "2026年上半年鸡蛋出口创同期新高，后续增长动能持续稳固 新浪财经",
+    "brief": "<h4>核心事实</h4><p>2026年上半年鸡蛋出口量创历史同期新高，增长动能稳固。</p><h4>影响看点</h4><ul><li>出口增长反映国际市场需求旺盛</li><li>可能带动国内禽蛋产业链发展</li><li>需关注贸易政策与汇率变化</li></ul><h4>涉及主体/市场</h4><p>中国鸡蛋出口商、国际买家、禽蛋养殖业。</p>"
+  },
+  {
+    "id": 33,
+    "cat": "industry",
+    "time": "1周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "跨境日报：跨境电商一周动态Whatnot融资SHEIN开放英国入驻- 栏目",
+    "summary": "本周跨境电商动态：美国直播购物平台Whatnot获融资，SHEIN开放英国站入驻，行业持续扩张。",
     "source": "亿邦动力网",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9HZkNMTTZSMmNaVV9ZbnVFWUtKN0wtZnI4TDVXMkpDYXA0U05QNGdiS2prWkFSMUwwWDE2b1dVZkxaaVYzUmVTOGoxVWFQcVJVNENIS29n?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBuYXJGdjB3Y00ydms1Q3U0T2t1NV9GVXMxWnEtSDV4NUdrdkQzcXlxUHdWc1JzdjhjbG5DSV9wZ0VZWTJuSmZHNm1JVFl4cVdpdkYta1RB?oc=5",
     "tags": [
-      "京东",
-      "亚马逊",
-      "招商规则",
-      "商品标题",
-      "电商平台"
+      "Whatnot",
+      "SHEIN",
+      "融资",
+      "英国市场",
+      "跨境电商"
     ],
     "topicTags": [
       "亚马逊",
       "平台规则",
       "跨境电商"
     ],
-    "body": "京东收紧招商规则亚马逊限75字符商品标题| 邦小白日报- 栏目 亿邦动力网",
-    "brief": "<h4>核心事实</h4><p>京东调整招商规则，提高入驻门槛；亚马逊将商品标题字符上限设为75字符，要求更简洁。</p><h4>影响看点</h4><ul><li>卖家需优化标题以符合亚马逊新规，可能影响搜索排名和点击率。</li><li>京东招商收紧或减少中小卖家机会，但提升平台商品质量。</li><li>卖家需及时调整多平台运营策略，适应不同平台规则。</li></ul><h4>涉及主体/市场</h4><p>京东、亚马逊平台及其卖家，主要影响跨境电商和国内电商市场。</p>"
+    "body": "跨境日报：跨境电商一周动态Whatnot融资SHEIN开放英国入驻- 栏目 亿邦动力网",
+    "brief": "<h4>核心事实</h4><p>美国直播购物平台Whatnot完成新一轮融资，SHEIN正式开放英国站商家入驻，跨境电商领域投资与市场拓展活跃。</p><h4>影响看点</h4><ul><li>Whatnot融资显示直播电商赛道受资本青睐，或加剧竞争。</li><li>SHEIN开放英国入驻，加速全球化布局，利好中国卖家出海。</li><li>跨境电商平台动态频繁，卖家需关注平台政策与市场机会。</li></ul><h4>涉及主体/市场</h4><p>Whatnot、SHEIN、英国市场、跨境电商行业。</p>"
   },
   {
-    "id": 21,
-    "cat": "platform",
+    "id": 34,
+    "cat": "industry",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
-    "title": "跨境日报：跨境电商一周动态Whatnot融资SHEIN开放英国入驻- 栏目",
-    "summary": "本周跨境电商动态：Whatnot获融资，SHEIN开放英国卖家入驻，行业持续扩张。",
-    "source": "亿邦动力网",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBuYXJGdjB3Y00ydms1Q3U0T2t1NV9GVXMxWnEtSDV4NUdrdkQzcXlxUHdWc1JzdjhjbG5DSV9wZ0VZWTJuSmZHNm1JVFl4cVdpdkYta1RB?oc=5",
+    "title": "2026，跨境电商奔向“Agent 2 Agent”时刻",
+    "summary": "2026年，跨境电商将迎来“Agent 2 Agent”时代，即智能体间自主协作交易。该模式通过AI代理自动完成选品、谈判、支付等环节，大幅提升效率，降低人力成本。行业需关注技术标准、数据安全及监管适配，企业应提前布局AI能力以抢占先机。",
+    "source": "手机网易网",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5ZSDBYZXJjaWN3VENOUUZHdTNyZWdIYmtCNk1EWFBFVzB1aHBuWEFQYnNHSGpHQWVtNzMyNmNybEF3b2hpNlFiMmxNUldwcUNTdlFVRkhnRHJaaTllcVVWYWtn?oc=5",
     "tags": [
       "跨境电商",
-      "融资",
-      "SHEIN",
-      "英国市场",
-      "平台动态"
+      "AI代理",
+      "Agent2Agent",
+      "智能协作",
+      "2026趋势"
     ],
     "topicTags": [
-      "亚马逊",
+      "AI",
       "跨境电商"
     ],
-    "body": "跨境日报：跨境电商一周动态Whatnot融资SHEIN开放英国入驻- 栏目 亿邦动力网",
-    "brief": "<h4>核心事实</h4><p>本周跨境电商领域动态频繁，二手交易平台Whatnot完成新一轮融资，快时尚电商SHEIN宣布开放英国站卖家入驻，进一步拓展欧洲市场。</p><h4>影响看点</h4><ul><li>Whatnot融资将加速其社交电商和直播购物功能迭代，提升用户体验。</li><li>SHEIN开放英国入驻，为本地卖家提供新渠道，加剧欧洲市场竞争。</li><li>平台扩张或带动跨境物流、支付等配套服务需求增长。</li></ul><h4>涉及主体/市场</h4><p>涉及平台：Whatnot、SHEIN；市场：美国、英国及欧洲跨境电商市场。</p>"
+    "body": "2026，跨境电商奔向“Agent 2 Agent”时刻 手机网易网",
+    "brief": "<h4>核心事实</h4><p>2026年跨境电商将进入“Agent 2 Agent”阶段，AI智能体自主完成交易全流程。</p><h4>影响看点</h4><ul><li>交易效率大幅提升，人力成本降低</li><li>需制定统一技术标准与数据安全规范</li><li>企业需加速AI能力建设，适应新生态</li></ul><h4>涉及主体/市场</h4><p>跨境电商平台、外贸企业、AI技术服务商及全球贸易监管机构。</p>"
   },
   {
-    "id": 22,
+    "id": 35,
+    "cat": "logistics",
+    "time": "1周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "2026 年精选十大澳洲跨境物流服务商推荐榜单：基于工商与第三方权威评定平台数据分析",
+    "summary": "2026年澳洲跨境物流服务商推荐榜单发布，基于工商数据和第三方权威评定平台分析，评选出十大服务商，为跨境电商提供物流选择参考。",
+    "source": "手机网易网",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1lLW04RlBrR0xpZ29leGtDejFiZ29saG5qUlVGRFVtWW9WZ3ZJak1KT3JUWmpEX3dTdFYyMlpLdDdQUHNPeEdGNjQ5bDhHMUVfdnRLa3JRaE9CdDFvRi1Yb093?oc=5",
+    "tags": [
+      "澳洲物流",
+      "跨境物流",
+      "服务商榜单",
+      "2026"
+    ],
+    "topicTags": [
+      "平台规则",
+      "跨境电商"
+    ],
+    "body": "2026 年精选十大澳洲跨境物流服务商推荐榜单：基于工商与第三方权威评定平台数据分析 手机网易网",
+    "brief": "<h4>核心事实</h4><p>2026年澳洲跨境物流服务商推荐榜单出炉，依据工商注册信息及第三方权威评定平台数据，综合评选出十大服务商。</p><h4>影响看点</h4><ul><li>为跨境电商卖家提供物流商选择参考，降低试错成本。</li><li>榜单或推动物流服务商提升服务质量与透明度。</li><li>反映澳洲物流市场竞争格局，预示行业整合趋势。</li></ul><h4>涉及主体/市场</h4><p>澳洲跨境物流服务商、跨境电商卖家、澳洲市场。</p>"
+  },
+  {
+    "id": 36,
     "cat": "platform",
     "time": "1周前",
     "top": false,
@@ -516,138 +844,182 @@
       "跨境电商"
     ],
     "body": "TikTok Shop美区跨境POP发布新锐商家加速计划；美客多Q2营收同增50%丨跨境电商周报 亿邦动力网",
-    "brief": "<h4>核心事实</h4><p>TikTok Shop美区跨境POP发布新锐商家加速计划，旨在扶持新商家；美客多公布Q2财报，营收同比增长50%。</p><h4>影响看点</h4><ul><li>TikTok Shop加速计划可能吸引更多中国卖家入驻，提升平台竞争力。</li><li>美客多高增长显示拉美电商市场潜力，或引发更多跨境卖家关注。</li></ul><h4>涉及主体/市场</h4><p>TikTok Shop（美国市场）、美客多（拉美市场）及跨境电商卖家群体。</p>"
+    "brief": "<h4>核心事实</h4><p>TikTok Shop美区跨境POP发布新锐商家加速计划，旨在扶持新商家；美客多公布Q2财报，营收同比增长50%。</p><h4>影响看点</h4><ul><li>TikTok Shop加速计划可能降低新商家入驻门槛，提升平台竞争力。</li><li>美客多高增长显示拉美电商市场潜力，吸引更多卖家布局。</li><li>跨境电商平台竞争加剧，卖家需关注平台政策变化。</li></ul><h4>涉及主体/市场</h4><p>TikTok Shop（美国市场）、美客多（拉美市场）、跨境电商卖家。</p>"
   },
   {
-    "id": 23,
-    "cat": "tariff",
+    "id": 37,
+    "cat": "policy",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
     "title": "多家A股公司：收到美国关税退税",
-    "summary": "多家A股上市公司公告称，已收到美国海关退还的关税款项，涉及此前因贸易战加征的关税。此举或为中美经贸关系缓和信号，相关企业现金流有望改善。",
+    "summary": "多家A股上市公司近期收到美国海关退还的关税款项，涉及此前因贸易摩擦被征收的额外关税。此举或为美国贸易政策调整的信号，对相关出口企业构成利好。",
     "source": "搜狐网",
     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5pWGszb2JwRHAxOVJBUkgtTjA2eHdzbkZGYWhKRTR0Q0NmbHBfM0lmR2dTQUQyc0RQQ0VVMUxXR3hhMWdvSEM3cEhDQmhaX2NfcXc?oc=5",
     "tags": [
       "关税退税",
       "A股",
-      "中美贸易",
-      "企业现金流"
+      "美国",
+      "贸易政策",
+      "出口企业"
     ],
     "topicTags": [
       "汇率关税"
     ],
     "body": "多家A股公司：收到美国关税退税 搜狐网",
-    "brief": "<h4>核心事实</h4><p>多家A股公司宣布收到美国关税退税，涉及此前加征的关税，具体金额未披露。</p><h4>影响看点</h4><ul><li>退税将直接改善相关企业现金流，降低出口成本。</li><li>可能反映中美经贸关系缓和，未来关税政策或进一步调整。</li><li>对出口导向型行业（如机械、电子）构成短期利好。</li></ul><h4>涉及主体/市场</h4><p>涉及A股上市公司，主要面向美国市场的出口企业。</p>"
+    "brief": "<h4>核心事实</h4><p>多家A股公司公告称已收到美国海关的关税退税，涉及此前被加征的关税。</p><h4>影响看点</h4><ul><li>利好出口型企业，改善现金流和利润。</li><li>可能预示美国对华关税政策松动，需关注后续动向。</li><li>对相关行业（如机械、电子）的出口预期有提振作用。</li></ul><h4>涉及主体/市场</h4><p>A股上市公司、美国海关、中美贸易相关行业。</p>"
   },
   {
-    "id": 24,
+    "id": 38,
     "cat": "tariff",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
     "title": "多家A股公司公告：收到美国关税退税！最高近亿元",
     "summary": "多家A股上市公司公告收到美国关税退税，最高金额近亿元。此举或与中美贸易摩擦缓和及关税政策调整有关，涉及企业财务改善。",
-    "source": "新浪网",
-    "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxQa0dwTUczOHltc1lvbGNJOGlpQ0FWMGJ0RW1IcGlzSWtTQ1RDU2pKTHk3YVhkbXVtcThaVkV5Z3h6d292ZkNPQ3c2Q0pmUHRlanhMUXBSNUp3cGlsaC02MURVM1M3ZXBsU0w4bjkycmRrMURSa19uZ2l6MG1IWHdjdHJDS3JONzl4eVNEeTBabnNHdXRBYlBXekR5LW1BT0dRSkwyckx3dlNMVFRvU1J4ODBWY2pBU1E2ZHpyU0hWTUhJcTIzdmJZUmxBb283RmJDaENWT3ZibXZxM3lVRk9JWG1vRk1QSExHZldHeHFtOVBuamY4OVlITWtURTdUaWE3cUxtanhqRTJ5MEJyYjl6c2JBeVBBOFRnLU0tLTR3cGY0VjdyT3RNZU1RWmM4cDhCZGw2OWxvRUlCS1dObzJfUXhsdw?oc=5",
+    "source": "finance.sina.com.cn",
+    "url": "https://news.google.com/rss/articles/CBMiqARBVV95cUxQS3Rrbk5lOHVBMkNTdnF0eU5UTDZUMkZtMFRUSldsc0l6UmhVSTdoM3A3QWZGOThTY1VIQ3lUSE5WOWNDUmxITnRSWEVCYk05Y195VnZ4YlNyZW1uQkNIMXF1WTJjVXozZE9YMDI3ZzB6d0RMc3V2eGNYUVpwdW1seU10OVF4SXJKZ0RwQ3F5VWVKU0Q4dHNMUlZOUFRFdFR0MjdQVDlBU3IxZTRkWGtQcnZlTV9CYTVkUzk0MzJHVlFqRXRjYlNhcVNoampPTm9lSDgyelFoMGpHTHhaZ2RlQjRfZm1zNS1Ib21hMDhmQTU2T0dpQVZsNUZpelRyU0pIZFNaMEZ4clVxT2VXWUN5SjlZZnZaS2t4aTF5RkVLZWJ3TUNRa3ZadEF0UXFzczZ5OUcySk5jUDJYNGtmSzI4dlRtdkYxeF81eldSWUxRRWJCb0lUaHlyZ0xwNE8xQ0xPaUZoLW1NZG9LdU9ET3pNZGNTeTNfVlE2ZnR1YkRVUkItdHBTRjNCbWx1UWFOU1M1d0Z4d2p2RndITGtEMDhGb29oSUgzRnliSXc4TU9JUXJnNG02OUtxOEhidWxGY2U5Y2FPQ3NINHhPXzBBV21jS0xOZm9JMGQ3NVQ5WE52LUVDaVNFOEdiVmJKUVZlNWFnbzFiRGFHNWZTOXdxLWNuNEpvaDRObnpQVWJwWU0yZjEtNXR5SW41eXVzRG5FdUNoUEI4UEYyWjI?oc=5",
     "tags": [
+      "关税退税",
       "A股",
       "美国关税",
-      "退税",
-      "贸易政策",
-      "企业财务"
+      "中美贸易"
     ],
     "topicTags": [
       "汇率关税"
     ],
-    "body": "多家A股公司公告：收到美国关税退税！最高近亿元 新浪网",
-    "brief": "<h4>核心事实</h4><p>多家A股公司公告收到美国关税退税，最高金额接近1亿元人民币，反映美国对部分中国商品关税的退还或调整。</p><h4>影响看点</h4><ul><li>退税直接增厚相关企业利润，改善现金流。</li><li>可能预示中美贸易关系阶段性缓和，关税政策出现松动。</li><li>对出口导向型行业（如机械、电子）构成短期利好。</li></ul><h4>涉及主体/市场</h4><p>涉及多家A股上市公司，主要集中于制造业和出口贸易领域，市场关注中美关税后续动态。</p>"
+    "body": "多家A股公司公告：收到美国关税退税！最高近亿元 finance.sina.com.cn",
+    "brief": "<h4>核心事实</h4><p>多家A股公司公告收到美国关税退税，最高金额接近1亿元人民币，反映美国对部分中国商品关税政策调整或退税机制生效。</p><h4>影响看点</h4><ul><li>退税将直接增厚相关公司利润，改善现金流。</li><li>可能预示中美贸易关系阶段性缓和，降低出口企业关税成本。</li><li>关注后续更多企业跟进公告，或影响市场对贸易板块预期。</li></ul><h4>涉及主体/市场</h4><p>涉及A股上市公司，尤其出口美国比例较高的制造业企业；市场关注中美贸易政策动向。</p>"
   },
   {
-    "id": 25,
+    "id": 39,
     "cat": "policy",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
     "title": "黄陂搭台，全球卖车！专业外贸团队当起商户的“出海舵手”",
-    "summary": "黄陂区搭建外贸平台，组建专业团队帮助本地商户拓展海外市场，推动汽车出口，成为商户“出海舵手”。",
-    "source": "news.hubeidaily.net",
+    "summary": "黄陂区搭建外贸平台，组建专业团队助力商户汽车出口，充当“出海舵手”，推动本地汽车走向全球市场。",
+    "source": "湖北日报传媒集团",
     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1UMDVZOG5PN0JOWkFsTE53ellXcF8tOUFURjhORkFqMUdDYkhJc2N4c3k4N2lSa3AzRlV5cTNFTVpVR1dUTEREMkNwMGhyNlBWMFVFRHp6d0xRM3B5amc?oc=5",
     "tags": [
-      "黄陂",
       "汽车出口",
       "外贸平台",
+      "黄陂",
       "出海"
     ],
     "topicTags": [
       "平台规则",
       "出海通道"
     ],
-    "body": "黄陂搭台，全球卖车！专业外贸团队当起商户的“出海舵手” news.hubeidaily.net",
-    "brief": "<h4>核心事实</h4><p>黄陂区搭建外贸平台，组建专业团队帮助本地商户拓展海外市场，推动汽车出口。</p><h4>影响看点</h4><ul><li>提升本地汽车产业国际竞争力</li><li>降低商户出海门槛</li><li>促进区域外贸增长</li></ul><h4>涉及主体/市场</h4><p>黄陂区商户、汽车出口市场</p>"
+    "body": "黄陂搭台，全球卖车！专业外贸团队当起商户的“出海舵手” 湖北日报传媒集团",
+    "brief": "<h4>核心事实</h4><p>黄陂区搭建外贸平台，组建专业外贸团队，为商户提供汽车出口服务，助力本地汽车走向全球。</p><h4>影响看点</h4><ul><li>提升本地汽车出口效率</li><li>降低商户出海门槛</li><li>促进区域外贸发展</li></ul><h4>涉及主体/市场</h4><p>黄陂区商户、外贸团队、全球汽车市场</p>"
   },
   {
-    "id": 26,
-    "cat": "market",
+    "id": 40,
+    "cat": "policy",
     "time": "1周前",
     "top": false,
     "ai": "要点提炼",
-    "title": "贵州轮胎收到退税后股价表现如何，投资者该关注什么？",
-    "summary": "贵州轮胎收到退税，市场关注其股价表现及对投资者影响。退税或增厚公司利润，但需关注后续经营及行业动态。",
-    "source": "新浪网",
-    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1vR3pENHRBMGlObkxDN3pTV0p2Qm1qY08tanpUNWJMSlZXakw0SklxTk5ESmdaNTNZZ1M4amdNemQzUkxrR3pWUzhqZ25vdU8xc2FHWDZqQUszZ2xKel9CNGtTM3BfTGZwdWhlaWtHN19MUUdVdWxPa3IyRXkydw?oc=5",
+    "title": "商务部集中发布四项反制措施：我国首次启动对外贸易国家安全调查",
+    "summary": "商务部首次启动对外贸易国家安全调查，并集中发布四项反制措施，以应对贸易摩擦。此举旨在维护国家安全和产业利益，彰显我国在对外贸易中的主动反制能力。",
+    "source": "Lexology",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQT1VrZnBSNEs1OVpjSThGaS1qZHNSek44eGxEclJIRUp0a3J0aHF1SWNoNmZjZHZVNmx5cDdZUHE1N2s4QmJWdm1SNnM4NjRJUlo3RjRUajZtRkp3eWpkWWxwdUo2amZkTWJYZjJ2SjdXTEtWeTBFZ2U1eDZOSVB1MVZkQkk3U0pFMlhj?oc=5",
     "tags": [
-      "贵州轮胎",
-      "退税",
-      "股价",
-      "投资者"
+      "反制措施",
+      "国家安全调查",
+      "对外贸易",
+      "商务部",
+      "贸易摩擦"
     ],
     "topicTags": [
-      "汇率关税"
+      "外贸"
     ],
-    "body": "贵州轮胎收到退税后股价表现如何，投资者该关注什么？ 新浪网",
-    "brief": "<h4>核心事实</h4><p>贵州轮胎收到退税，具体金额未披露，市场关注其股价反应。</p><h4>影响看点</h4><ul><li>退税可能提升公司当期利润，短期利好股价。</li><li>需关注退税是否一次性，以及公司主业盈利能力。</li><li>轮胎行业竞争激烈，退税或难改长期趋势。</li></ul><h4>涉及主体/市场</h4><p>贵州轮胎（A股上市），轮胎行业，A股市场。</p>"
+    "body": "商务部集中发布四项反制措施：我国首次启动对外贸易国家安全调查 Lexology",
+    "brief": "<h4>核心事实</h4><p>商务部首次启动对外贸易国家安全调查，并集中发布四项反制措施，针对外部贸易限制行为。</p><h4>影响看点</h4><ul><li>可能影响相关进口产品及供应链，增加贸易不确定性。</li><li>对外释放信号，我国将更积极运用国家安全审查工具。</li><li>相关企业需关注调查进展，评估合规风险。</li></ul><h4>涉及主体/市场</h4><p>商务部、相关进出口企业、受影响的外国供应商及行业市场。</p>"
   },
   {
-    "id": 27,
+    "id": 41,
+    "cat": "industry",
+    "time": "2周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "进军滚装运输业务，宁波远洋欧洲滚装航线首航_行业新闻_财经",
+    "summary": "宁波远洋正式进军滚装运输业务，其欧洲滚装航线完成首航。此举标志着公司业务多元化拓展，有望提升其在全球汽车及设备运输市场的竞争力。",
+    "source": "证券之星",
+    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE85LVFYZGY4ejV4V2NZOXByUlAzMEwwVGFxNFFqTFM1U3hndXRibjV6TW5WZFVLQ1pTdzB1cUUycldibDBJSE1UNkV5NGlKVi1ON2hOb2ZWaWdPeEVqak5FSA?oc=5",
+    "tags": [
+      "宁波远洋",
+      "滚装运输",
+      "欧洲航线",
+      "首航",
+      "业务拓展"
+    ],
+    "topicTags": [
+      "宁波"
+    ],
+    "body": "进军滚装运输业务，宁波远洋欧洲滚装航线首航_行业新闻_财经 证券之星",
+    "brief": "<h4>核心事实</h4><p>宁波远洋宣布进入滚装运输领域，并成功开通欧洲滚装航线首航。</p><h4>影响看点</h4><ul><li>公司业务范围扩大，增加新的收入来源。</li><li>欧洲航线开通有助于提升国际物流服务能力。</li><li>可能加剧滚装运输市场竞争，推动行业服务升级。</li></ul><h4>涉及主体/市场</h4><p>宁波远洋、欧洲滚装运输市场、汽车及设备进出口商。</p>"
+  },
+  {
+    "id": 42,
+    "cat": "industry",
+    "time": "2周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "2026 零基础 TK 店群创业者，多店管理浏览器完整使用指南",
+    "summary": "本文为2026年零基础TikTok店群创业者提供多店管理浏览器的完整使用指南，涵盖工具选择、账号隔离、操作效率提升等核心内容，帮助新手高效管理多个店铺。",
+    "source": "CSDN",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFB3ZWFQb0FXS1NCajNJOGJMM0g4MC00a2dPT3ZNZS1Ea1RRaXZQQi1mc3NrRlN3SHZvNGRLbVk1X0ZfSGExUmFJZlJWcnhjeGd3U1p2ZUZkd0RNWkVWSnc?oc=5",
+    "tags": [
+      "TikTok",
+      "店群",
+      "多店管理",
+      "浏览器",
+      "创业指南"
+    ],
+    "topicTags": [
+      "软件出海"
+    ],
+    "body": "2026 零基础 TK 店群创业者，多店管理浏览器完整使用指南 CSDN",
+    "brief": "<h4>核心事实</h4><p>指南面向2026年TikTok店群创业者，介绍多店管理浏览器的功能与使用方法，强调账号隔离与操作效率。</p><h4>影响看点</h4><ul><li>降低多店管理门槛，适合零基础创业者。</li><li>提升运营效率，减少账号关联风险。</li><li>反映跨境电商工具化趋势。</li></ul><h4>涉及主体/市场</h4><p>TikTok电商创业者、多店管理工具提供商、跨境电商服务生态。</p>"
+  },
+  {
+    "id": 43,
     "cat": "industry",
     "time": "2周前",
     "top": false,
     "ai": "要点提炼",
     "title": "从“产品出海”到“产业出海” 中国汽车打响“全球化升维战”",
-    "summary": "中国汽车产业正从单纯的产品出口转向全产业链出海，包括技术、品牌、供应链的全球化布局。这一战略升级旨在提升国际竞争力，应对贸易壁垒，实现可持续发展。",
+    "summary": "中国汽车产业正从单纯的产品出口转向全产业链出海，包括技术、品牌、供应链和服务的全球化布局，以提升国际竞争力。",
     "source": "封面新闻",
     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBCNVBCYmFNaWY0NDRHbmcwNDNheEtLOGxmc1k1WWdtQjVXOXBtcTVzNFBlWVZuRU0xSWhISUhqcjYtS2k2aVo3TlFiMm9zajc4QnVSaFpoTU9Gc3lvYUxrZzl0bmIwUXpZcU5DdExNZHRpT2hSdS1R?oc=5",
     "tags": [
-      "中国汽车",
-      "产业出海",
-      "全球化",
-      "供应链",
-      "品牌"
+      "汽车出海",
+      "产业升级",
+      "全球化"
     ],
     "topicTags": [
       "供应链",
       "出海通道"
     ],
     "body": "从“产品出海”到“产业出海” 中国汽车打响“全球化升维战” 封面新闻",
-    "brief": "<h4>核心事实</h4><p>中国汽车产业正从产品出口转向全产业链出海，涵盖技术、品牌、供应链的全球化布局。</p><h4>影响看点</h4><ul><li>提升国际竞争力，应对贸易壁垒</li><li>带动上下游企业协同出海</li><li>增强品牌国际影响力</li></ul><h4>涉及主体/市场</h4><p>中国汽车制造商、零部件供应商、海外市场（欧洲、东南亚等）</p>"
+    "brief": "<h4>核心事实</h4><p>中国汽车产业正从产品出口转向全产业链出海，涵盖技术、品牌、供应链和服务。</p><h4>影响看点</h4><ul><li>提升国际市场份额</li><li>带动相关产业链协同发展</li><li>增强品牌国际影响力</li></ul><h4>涉及主体/市场</h4><p>中国汽车制造商及全球汽车市场。</p>"
   },
   {
-    "id": 28,
+    "id": 44,
     "cat": "platform",
     "time": "2周前",
     "top": false,
     "ai": "要点提炼",
     "title": "2024亚马逊严打跟卖政策落地 平台跟卖乱象潮水消退 跨境电商卖家合规运营成主流趋势",
-    "summary": "2024年亚马逊实施严格跟卖政策，打击平台跟卖乱象，推动跨境电商卖家转向合规运营，行业主流趋势显现。",
+    "summary": "2024年亚马逊实施严打跟卖政策，平台跟卖乱象减少，跨境电商卖家合规运营成为主流趋势。",
     "source": "36 Kr",
     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9uU0RNdm1BaUJNTHpsNnRacFVVcGQ1SlZjdjZScUlrMURGcVQ1Uy1ZbkNXMXRIUDdtOEJ6WTdDeHVQWUxLaTNlc3NneGVhOENhbUZV?oc=5",
     "tags": [
       "亚马逊",
-      "跟卖政策",
-      "跨境电商",
+      "跟卖",
       "合规运营",
-      "平台治理"
+      "跨境电商"
     ],
     "topicTags": [
       "亚马逊",
@@ -656,24 +1028,24 @@
       "跨境电商"
     ],
     "body": "2024亚马逊严打跟卖政策落地 平台跟卖乱象潮水消退 跨境电商卖家合规运营成主流趋势 36 Kr",
-    "brief": "<h4>核心事实</h4><p>亚马逊2024年落地严打跟卖政策，有效遏制跟卖乱象，促使卖家合规运营成为主流。</p><h4>影响看点</h4><ul><li>卖家需调整策略，避免侵权风险。</li><li>平台生态净化，品牌卖家受益。</li><li>合规成本上升，中小卖家面临挑战。</li></ul><h4>涉及主体/市场</h4><p>亚马逊平台、跨境电商卖家、品牌所有者。</p>"
+    "brief": "<h4>核心事实</h4><p>亚马逊2024年落地严打跟卖政策，有效遏制跟卖乱象，推动卖家转向合规运营。</p><h4>影响看点</h4><ul><li>跟卖行为减少，品牌卖家权益得到更好保护。</li><li>卖家需加强品牌注册和合规管理，提升竞争力。</li><li>平台治理趋严，长期利于行业健康发展。</li></ul><h4>涉及主体/市场</h4><p>亚马逊平台及全球跨境电商卖家，尤其中国卖家。</p>"
   },
   {
-    "id": 29,
+    "id": 45,
     "cat": "industry",
     "time": "3周前",
     "top": false,
     "ai": "要点提炼",
     "title": "跨境卖家去哪里找货源？跨境货源网站汇总！新手做亚马逊、TikTok Shop 必看",
-    "summary": "本文汇总了跨境卖家寻找货源的常用网站，包括阿里巴巴国际站、环球资源、中国制造网等B2B平台，以及义乌购、1688等国内货源网站，为新手做亚马逊、TikTok Shop提供选品参考。",
+    "summary": "本文汇总了跨境卖家寻找货源的常用网站，包括阿里巴巴国际站、环球资源、中国制造网等B2B平台，以及亚马逊、TikTok Shop等平台的热门货源渠道，为新手卖家提供选品和采购参考。",
     "source": "全球定制网",
     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9hQkJNVVRWV254Qkt6SHdWc1N5RUNTekpVTm5LTmU4eEFjaHBGU25oY3dwazRiNlRHQ0tEem44RzhFX2hveVhvdE04cWFQUQ?oc=5",
     "tags": [
       "跨境货源",
-      "选品",
+      "B2B平台",
       "亚马逊",
       "TikTok Shop",
-      "B2B平台"
+      "选品"
     ],
     "topicTags": [
       "亚马逊",
@@ -681,16 +1053,16 @@
       "跨境电商"
     ],
     "body": "跨境卖家去哪里找货源？跨境货源网站汇总！新手做亚马逊、TikTok Shop 必看 全球定制网",
-    "brief": "<h4>核心事实</h4><p>文章整理了跨境卖家常用的货源网站，涵盖国际B2B平台（如阿里巴巴国际站、环球资源）和国内货源渠道（如1688、义乌购），旨在帮助新手卖家快速找到供应商。</p><h4>影响看点</h4><ul><li>新手卖家可低成本获取货源信息，降低选品门槛。</li><li>多平台对比有助于优化采购成本，提升利润空间。</li><li>对亚马逊、TikTok Shop等平台卖家具有直接参考价值。</li></ul><h4>涉及主体/市场</h4><p>跨境卖家、货源平台、亚马逊及TikTok Shop卖家。</p>"
+    "brief": "<h4>核心事实</h4><p>文章整理了跨境卖家常用的货源网站，涵盖阿里巴巴国际站、环球资源、中国制造网等B2B平台，并针对亚马逊和TikTok Shop卖家推荐了相应货源渠道，强调选品和供应链管理的重要性。</p><h4>影响看点</h4><ul><li>新手卖家可快速了解主流货源平台，降低采购成本。</li><li>平台选择需结合目标市场与品类，避免同质化竞争。</li><li>供应链稳定性直接影响跨境业务长期发展。</li></ul><h4>涉及主体/市场</h4><p>跨境卖家、B2B平台、亚马逊及TikTok Shop卖家，主要面向中国出口电商市场。</p>"
   },
   {
-    "id": 30,
+    "id": 46,
     "cat": "industry",
     "time": "3周前",
     "top": false,
     "ai": "要点提炼",
     "title": "商务部：人工智能相关产品成为中国外贸“新名片”",
-    "summary": "商务部表示，人工智能相关产品已成为中国外贸的“新名片”，出口增长迅速，涵盖智能机器人、语音识别设备等，推动外贸结构优化升级。",
+    "summary": "商务部表示，人工智能相关产品已成为中国外贸的“新名片”，展现出强劲增长势头，推动出口结构优化升级。",
     "source": "新华网",
     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPRXVPT2NhU2ExZGpvMEVDQVR4VUdtNkVrRHhfQjV0MTNMcG51WmxMSk1rUGhnMDI5U25LQWFwQ2ZTM20teEoteXZqSDVuR0d6NTEwclA5VS1QX3pJTFF6VzQ5TF9wN0ZNdU4teURoYmNfTW5jdkE2SVktQnhyUnJyUA?oc=5",
     "tags": [
@@ -704,6 +1076,328 @@
       "AI"
     ],
     "body": "商务部：人工智能相关产品成为中国外贸“新名片” 新华网",
-    "brief": "<h4>核心事实</h4><p>商务部指出，人工智能相关产品成为中国外贸的新增长点，出口表现亮眼，成为“新名片”。</p><h4>影响看点</h4><ul><li>人工智能产品出口增长，带动外贸结构升级。</li><li>可能推动相关产业链发展，增强国际竞争力。</li><li>对传统外贸企业转型有示范作用。</li></ul><h4>涉及主体/市场</h4><p>中国外贸企业、人工智能产业、全球科技市场。</p>"
+    "brief": "<h4>核心事实</h4><p>商务部指出，人工智能相关产品成为中国外贸新增长点，出口表现突出，成为“新名片”。</p><h4>影响看点</h4><ul><li>提升中国出口产品技术含量和附加值</li><li>带动相关产业链发展，增强国际竞争力</li><li>可能引发海外市场对AI产品的关注与需求</li></ul><h4>涉及主体/市场</h4><p>中国外贸企业、人工智能产业、全球科技产品市场</p>"
+  },
+  {
+    "id": 47,
+    "cat": "policy",
+    "time": "3周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "商务部驳“中国冲击2.0”论调 上半年工业机器人出口增18.6%",
+    "summary": "商务部回应“中国冲击2.0”论调，强调中国出口优势与全球供应链稳定。数据显示，上半年工业机器人出口同比增长18.6%，显示高端制造出口强劲。商务部表示，中国将继续推动高质量发展，反对贸易保护主义。",
+    "source": "观点网",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1ZSHVmSGhCTG9UdzVHWVhGSDZzUzlBc1JIVHVUR2owdUJ0QXN1cURBaW5nbS1ZS21ZaDlmWUlSSFE5WW5WQzdnUm5VZG1aU01pMktNWDBtUlBHSERFZDN4VXJ3?oc=5",
+    "tags": [
+      "商务部",
+      "工业机器人",
+      "出口",
+      "中国冲击2.0",
+      "高端制造"
+    ],
+    "topicTags": [
+      "供应链"
+    ],
+    "body": "商务部驳“中国冲击2.0”论调 上半年工业机器人出口增18.6% 观点网",
+    "brief": "<h4>核心事实</h4><p>商务部驳斥“中国冲击2.0”论调，并公布上半年工业机器人出口同比增长18.6%。</p><h4>影响看点</h4><ul><li>中国高端制造出口持续增长，显示产业升级成效。</li><li>商务部回应贸易保护主义论调，强调开放合作。</li><li>工业机器人出口增长可能影响全球供应链格局。</li></ul><h4>涉及主体/市场</h4><p>中国商务部、工业机器人出口企业、全球制造业市场。</p>"
+  },
+  {
+    "id": 48,
+    "cat": "industry",
+    "time": "3周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "2026 境外电商如何做，国内个人卖家入门避坑",
+    "summary": "本文为国内个人卖家提供2026年境外电商入门指南，重点强调避坑要点，包括平台选择、合规要求、物流成本及市场趋势，帮助新手规避常见风险。",
+    "source": "CSDN",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5zdXEtMnlzVGEtWERpUnN2cjdTUWZLdzFleTNoWUw5THF5bFlmeVRxYlhrakV4QjdaQThSNEtJeWVqMkZubExYczNaQUstOWNSOWV1cnhEd09NTno4ekE?oc=5",
+    "tags": [
+      "境外电商",
+      "个人卖家",
+      "入门指南",
+      "避坑",
+      "2026"
+    ],
+    "topicTags": [
+      "平台合规",
+      "平台规则",
+      "跨境电商"
+    ],
+    "body": "2026 境外电商如何做，国内个人卖家入门避坑 CSDN",
+    "brief": "<h4>核心事实</h4><p>文章面向国内个人卖家，介绍2026年境外电商的入门策略，指出常见陷阱如平台规则、税务合规、物流成本等，并建议关注新兴市场。</p><h4>影响看点</h4><ul><li>个人卖家需重视目标市场合规要求，避免封店风险。</li><li>物流成本控制是盈利关键，建议对比多渠道。</li><li>新兴市场（如东南亚、拉美）或成增长点。</li></ul><h4>涉及主体/市场</h4><p>国内个人卖家、跨境电商平台、物流服务商、新兴市场。</p>"
+  },
+  {
+    "id": 49,
+    "cat": "policy",
+    "time": "3周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "人民币清算行落户非洲，中非贸易开启新纪元：直连中国的机遇与挑战",
+    "summary": "人民币清算行在非洲设立，标志着中非贸易进入新阶段，提供直连中国的金融通道，带来机遇与挑战。",
+    "source": "QQ News",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE15ejBsVDZINFRubzhBV3lkYVlRS2FhOGlMLUh4RVNORmNOYWFjR0VoVk95QnFmeTgyLWdYVzdTWFN0bWNlOFctS05ubWlmekNBWkltVFdB?oc=5",
+    "tags": [
+      "人民币清算",
+      "中非贸易",
+      "金融合作"
+    ],
+    "topicTags": [
+      "汇率",
+      "跨境金融",
+      "出海通道",
+      "外贸稳增长"
+    ],
+    "body": "人民币清算行落户非洲，中非贸易开启新纪元：直连中国的机遇与挑战 QQ News",
+    "brief": "<h4>核心事实</h4><p>人民币清算行正式落户非洲，为中非贸易提供直接的人民币结算服务，减少对美元依赖。</p><h4>影响看点</h4><ul><li>降低交易成本，提高结算效率</li><li>促进人民币国际化，增强中非经济联系</li><li>需应对当地金融监管和汇率风险</li></ul><h4>涉及主体/市场</h4><p>中非贸易企业、金融机构、非洲当地市场</p>"
+  },
+  {
+    "id": 50,
+    "cat": "industry",
+    "time": "3周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "2026绍兴代理记账实践亲测口碑",
+    "summary": "2026年绍兴代理记账服务实践评测显示，当地代理记账机构在专业性和服务效率上获得企业好评，口碑良好。评测涵盖服务流程、费用透明度及客户支持等方面，为中小企业选择代理记账服务提供参考。",
+    "source": "潮新闻客户端",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFA2SDlJNWs0aVpIOV9wTGJndGlmOGJEOTN0QWp0aEpTb1M0SEMxWld1TUk3cnBxcUxMUmVSNzZDQ1d0MEt2dXZka2NQY2RnVHRuMkwzeG1vYy1zVDJnNEpHRnlUWm1NazhhWjdJVmxZUld4OW8?oc=5",
+    "tags": [
+      "代理记账",
+      "绍兴",
+      "企业服务",
+      "口碑评测"
+    ],
+    "topicTags": [
+      "外贸"
+    ],
+    "body": "2026绍兴代理记账实践亲测口碑 潮新闻客户端",
+    "brief": "<h4>核心事实</h4><p>2026年绍兴代理记账服务实践评测显示，当地代理记账机构在专业性和服务效率上获得企业好评，口碑良好。评测涵盖服务流程、费用透明度及客户支持等方面。</p><h4>影响看点</h4><ul><li>中小企业可参考评测选择可靠代理记账服务，降低财务成本。</li><li>代理记账行业竞争加剧，服务质量成为关键差异点。</li><li>评测或推动行业标准化和透明度提升。</li></ul><h4>涉及主体/市场</h4><p>绍兴地区代理记账机构及中小企业，主要影响企业服务市场。</p>"
+  },
+  {
+    "id": 51,
+    "cat": "industry",
+    "time": "4周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "回顾｜2026年上半年江西外贸进出口情况新闻发布会",
+    "summary": "2026年上半年江西外贸进出口情况新闻发布会回顾，公布相关数据及趋势，反映区域外贸发展动态。",
+    "source": "凤凰网江西",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBDN0hSOEU3a2prcU00WlVUZUJCZ0RuOFFsb29PLUF3ZjFjU0RkVXk5dWFNcjRUVW1kcGFnS05GODMxVW9uY29qOTMtUnM1d0NTLTQ0RA?oc=5",
+    "tags": [
+      "江西",
+      "外贸",
+      "进出口",
+      "2026上半年",
+      "新闻发布会"
+    ],
+    "topicTags": [
+      "进出口"
+    ],
+    "body": "回顾｜2026年上半年江西外贸进出口情况新闻发布会 凤凰网江西",
+    "brief": "<h4>核心事实</h4><p>江西举办2026年上半年外贸进出口情况新闻发布会，发布相关统计数据。</p><h4>影响看点</h4><ul><li>反映江西外贸运行态势</li><li>可能涉及重点商品和贸易伙伴变化</li></ul><h4>涉及主体/市场</h4><p>江西外贸企业及相关国际市场</p>"
+  },
+  {
+    "id": 52,
+    "cat": "logistics",
+    "time": "4周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "贯通两海，坦桑尼亚与埃及共筑亚非物流新走廊",
+    "summary": "坦桑尼亚与埃及签署协议，共建连接印度洋与地中海的亚非物流走廊，旨在提升区域贸易效率，促进经济一体化。",
+    "source": "见道网",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1FcjNUN2lWVzk0MU9XeGYzWk0yMmp0WE9KeTVha0pNTTBOT1o0b3VzaGZNNV9IZkI1ZkZPeDVZRWxOaVZydHF0SDJ6Wm9jbC0yaHExTg?oc=5",
+    "tags": [
+      "坦桑尼亚",
+      "埃及",
+      "物流走廊",
+      "亚非贸易",
+      "区域合作"
+    ],
+    "topicTags": [
+      "物流运费"
+    ],
+    "body": "贯通两海，坦桑尼亚与埃及共筑亚非物流新走廊 见道网",
+    "brief": "<h4>核心事实</h4><p>坦桑尼亚与埃及达成合作，共同建设贯通印度洋与地中海的物流走廊，强化亚非间贸易通道。</p><h4>影响看点</h4><ul><li>缩短亚非货物运输时间，降低物流成本。</li><li>促进东非与北非经济联动，吸引投资。</li><li>可能改变区域港口竞争格局。</li></ul><h4>涉及主体/市场</h4><p>坦桑尼亚、埃及、东非共同体、地中海沿岸国家及亚非贸易相关企业。</p>"
+  },
+  {
+    "id": 53,
+    "cat": "policy",
+    "time": "4周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "吴安琪_合规与监管",
+    "summary": "上海市人民政府发布关于吴安琪合规与监管的新闻，强调合规监管重要性。",
+    "source": "上海市人民政府",
+    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPcWpjVXkwM2kwQmZZRGMySFBHZ0pvWUJZbEtUU1k3VjA3ZnJLZWY3VTFyeWpIOURxMzYxSDFOV0ZabEVwQ21HZDB4akppdmlUUGVwVHpuOUJqcHRWYTQxNlZ4dUhaVXhOQm5PaV9yTzZvYVNqUWRsd3Fkd0h1MmVRVjZMQTlqS0FoRmRXUm1qdWR1ODRu?oc=5",
+    "tags": [
+      "合规",
+      "监管",
+      "上海"
+    ],
+    "topicTags": [
+      "上海港",
+      "平台合规",
+      "省份外贸"
+    ],
+    "body": "吴安琪_合规与监管 上海市人民政府",
+    "brief": "<h4>核心事实</h4><p>上海市人民政府发布关于吴安琪合规与监管的新闻。</p><h4>影响看点</h4><ul><li>强调合规监管重要性</li><li>可能影响相关企业合规要求</li></ul><h4>涉及主体/市场</h4><p>上海市人民政府及受监管企业。</p>"
+  },
+  {
+    "id": 54,
+    "cat": "logistics",
+    "time": "4周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "中国空调坐上中欧班列为欧洲送清凉 从武汉工厂到欧洲客厅只需20天",
+    "summary": "中国空调通过中欧班列从武汉运往欧洲，全程仅需20天，为欧洲市场提供清凉。这一物流模式显著缩短了运输时间，提升了中国制造在欧洲的竞争力。",
+    "source": "hubei.gov.cn",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBhSWJpX2VTdGkzY0tQTVNGV3hjb1VrUGROR3hnREVHRUJmTUQ4WlF3MnJPVk4xVjZWWE5vWnRjbjRKSks1bzFhQldnT0lLdy1NeVNoeXRaZjNUOWZqaGZVaHFWLWFCSGR4dTdqVmYyM29qU2s?oc=5",
+    "tags": [
+      "中欧班列",
+      "空调出口",
+      "物流效率",
+      "欧洲市场"
+    ],
+    "topicTags": [
+      "中欧班列",
+      "物流运费"
+    ],
+    "body": "中国空调坐上中欧班列为欧洲送清凉 从武汉工厂到欧洲客厅只需20天 hubei.gov.cn",
+    "brief": "<h4>核心事实</h4><p>中国空调经中欧班列从武汉工厂直达欧洲，运输时间缩短至20天，实现高效跨境物流。</p><h4>影响看点</h4><ul><li>物流时效提升，增强中国空调在欧洲市场的竞争力</li><li>中欧班列作为稳定物流通道，降低对海运依赖</li><li>可能带动更多家电品类采用铁路运输</li></ul><h4>涉及主体/市场</h4><p>中国空调制造商、中欧班列运营方、欧洲家电进口商及消费者。</p>"
+  },
+  {
+    "id": 55,
+    "cat": "logistics",
+    "time": "5周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "全球海运变天！中拉物流成本再次上涨，企业需提前布局",
+    "summary": "全球海运市场波动，中国至拉美物流成本再次上涨，企业需提前布局以应对挑战。",
+    "source": "手机网易网",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9PamZuSW4ySkl3dm02Mmo4WUF2TDJ0c0dYWUxkSWdPMDVncjVGakIzWGZkWF84R05qVU9ET2JObHFGNVFxX1lGMjctb09tS0F1bDF4QlNyZzJFZkxTVkpPVEdR?oc=5",
+    "tags": [
+      "海运",
+      "中拉物流",
+      "成本上涨",
+      "企业布局"
+    ],
+    "topicTags": [
+      "物流运费"
+    ],
+    "body": "全球海运变天！中拉物流成本再次上涨，企业需提前布局 手机网易网",
+    "brief": "<h4>核心事实</h4><p>全球海运市场变化导致中拉物流成本再次上涨，企业需提前规划。</p><h4>影响看点</h4><ul><li>物流成本上升可能影响贸易利润</li><li>企业需优化供应链管理</li><li>提前布局可降低风险</li></ul><h4>涉及主体/市场</h4><p>中国与拉美地区的进出口企业及物流服务商。</p>"
+  },
+  {
+    "id": 56,
+    "cat": "policy",
+    "time": "5周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "外贸稳规模优结构成效明显",
+    "summary": "中国外贸稳规模优结构成效显著，出口结构持续优化，高技术产品占比提升，市场多元化拓展，为稳增长提供有力支撑。",
+    "source": "中国经济网",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5VbFU4ZFF6VHVCZVdyUE0xbl9mM195UF93Z2tqakQ3cmF6MVF0SmhCT2lrcHkxa3JZcGVzNXBjVXZSSDJfaFZtQWkwUHJ6NkxrQmxRcHFUd0xBd2RmWkwxdmFuWU01bm1sX25qag?oc=5",
+    "tags": [
+      "外贸",
+      "稳规模",
+      "优结构",
+      "出口",
+      "高技术"
+    ],
+    "topicTags": [
+      "外贸稳增长"
+    ],
+    "body": "外贸稳规模优结构成效明显 中国经济网",
+    "brief": "<h4>核心事实</h4><p>中国外贸在稳规模、优结构方面取得明显成效，出口结构优化，高技术产品占比上升，市场多元化推进。</p><h4>影响看点</h4><ul><li>高技术产品出口增长，提升外贸竞争力</li><li>市场多元化降低单一市场风险</li><li>政策支持持续发力，稳定外贸基本盘</li></ul><h4>涉及主体/市场</h4><p>中国外贸企业、全球主要贸易伙伴、高新技术产业</p>"
+  },
+  {
+    "id": 57,
+    "cat": "industry",
+    "time": "5周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "粤开证券罗志恒：企业出海需谋定而后动，从“卖产品”迈向“建生态”",
+    "summary": "粤开证券首席经济学家罗志恒指出，中国企业出海需从单纯“卖产品”升级为“建生态”，强调战略规划与长期布局，以应对全球化新挑战。",
+    "source": "新京报",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5aRTNJa1dlQVdxTmtZNTVtYmRJQTRKWGRPUFF1M2lvalltRkZBVE1wV1dUeUVDMlNhT1VNakVIQmlUVjBobFp6NEFfRmZLUDZzanRKYlYwZm4xdWpWQ0J2SnV3?oc=5",
+    "tags": [
+      "企业出海",
+      "生态建设",
+      "战略规划",
+      "全球化"
+    ],
+    "topicTags": [
+      "出海通道"
+    ],
+    "body": "粤开证券罗志恒：企业出海需谋定而后动，从“卖产品”迈向“建生态” 新京报",
+    "brief": "<h4>核心事实</h4><p>粤开证券罗志恒建议企业出海应谋定而后动，从产品输出转向生态构建。</p><h4>影响看点</h4><ul><li>企业需注重本地化运营与产业链协同</li><li>长期战略比短期销售更重要</li><li>出海模式转型或影响外贸结构</li></ul><h4>涉及主体/市场</h4><p>中国企业、海外市场、粤开证券</p>"
+  },
+  {
+    "id": 58,
+    "cat": "policy",
+    "time": "5周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "回顾｜抚州“强攻工业、大抓产业，加快打造高质量发展的现代产业新区”新闻发布会",
+    "summary": "抚州市召开新闻发布会，强调“强攻工业、大抓产业”，加快打造高质量发展的现代产业新区。会议聚焦产业升级、工业强市战略，旨在推动区域经济高质量发展。",
+    "source": "凤凰网江西",
+    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5OQ29nLXNCU09iRGZmX2M5Tl9OdFRFZjdjQlNlZHEtYTc2QmdlTDFFajFqTHJoRFpiS2h6cnBLQzN1amhoWFl4aElqdDhlQU5VNmxMbHRzOElULUFx?oc=5",
+    "tags": [
+      "抚州",
+      "工业",
+      "产业新区",
+      "高质量发展"
+    ],
+    "topicTags": [
+      "外贸"
+    ],
+    "body": "回顾｜抚州“强攻工业、大抓产业，加快打造高质量发展的现代产业新区”新闻发布会 凤凰网江西",
+    "brief": "<h4>核心事实</h4><p>抚州市举行新闻发布会，部署“强攻工业、大抓产业”战略，明确加快打造现代产业新区，推动高质量发展。</p><h4>影响看点</h4><ul><li>工业与产业政策导向明确，可能带动区域投资与产业升级。</li><li>现代产业新区建设或吸引相关企业入驻，影响地方经济布局。</li></ul><h4>涉及主体/市场</h4><p>抚州市政府、本地工业企业、潜在投资者及产业园区相关方。</p>"
+  },
+  {
+    "id": 59,
+    "cat": "industry",
+    "time": "5周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "资讯 - 2026胡润智榜·大中华区卓越法律服务指南（国际贸易/WTO、海关与出口管制）",
+    "summary": "胡润百富发布2026智榜·大中华区卓越法律服务指南，聚焦国际贸易/WTO、海关与出口管制领域，旨在甄选顶尖法律服务机构，为企业跨境合规提供参考。",
+    "source": "胡润百富",
+    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1qNnJKbG81QWhGbW93THU4QS1Wc3JUWEZibk9EREJ1b2tnTDB4QWgyVmpIR1VDYWxUQW5lVTA3Z0ZYVUFtVm41WjZ0akhwWjhfTEozUnhIX3V4Vml0RXpYVVhxRHc5c3c?oc=5",
+    "tags": [
+      "法律服务",
+      "国际贸易",
+      "WTO",
+      "海关",
+      "出口管制"
+    ],
+    "topicTags": [
+      "平台合规",
+      "跨境电商"
+    ],
+    "body": "资讯 - 2026胡润智榜·大中华区卓越法律服务指南（国际贸易/WTO、海关与出口管制） 胡润百富",
+    "brief": "<h4>核心事实</h4><p>胡润百富推出2026年智榜，针对大中华区法律服务市场，重点覆盖国际贸易、WTO、海关及出口管制领域，评选卓越法律服务机构。</p><h4>影响看点</h4><ul><li>为企业跨境贸易合规提供权威法律资源指引。</li><li>反映国际贸易法律服务的市场需求增长。</li><li>可能影响企业选择法律合作伙伴的决策。</li></ul><h4>涉及主体/市场</h4><p>大中华区法律服务机构、外贸企业、跨境贸易相关企业。</p>"
+  },
+  {
+    "id": 60,
+    "cat": "industry",
+    "time": "5周前",
+    "top": false,
+    "ai": "要点提炼",
+    "title": "一款浏览器，如何年入近7亿",
+    "summary": "一款浏览器通过提供高效、安全的浏览体验，结合广告、订阅和企业服务等多元化商业模式，实现年收入近7亿元。其成功源于技术创新和用户粘性，成为行业标杆。",
+    "source": "21财经",
+    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQUHdjS3J5Z0l1ZWFWZ1dVY2dJcU5jc1JqOWdRa3NyaUE5UFczaGQyckNwM29sQk5naHpiT0dVSFFXWWtsNlhvcG9wVjRxN0JxNnBObF9oZ2NMblh6a1hZLVBOWHZYMW56cmdoTVd3ZVpkWWNaVDJ4c3ZvaHlEM1dMZ2VyMUZLY3JvcWdCQw?oc=5",
+    "tags": [
+      "浏览器",
+      "商业模式",
+      "收入",
+      "技术创新",
+      "用户粘性"
+    ],
+    "topicTags": [
+      "软件出海"
+    ],
+    "body": "一款浏览器，如何年入近7亿 21财经",
+    "brief": "<h4>核心事实</h4><p>一款浏览器通过多元化商业模式（广告、订阅、企业服务）实现年收入近7亿元，凭借技术创新和用户粘性成为行业标杆。</p><h4>影响看点</h4><ul><li>浏览器行业盈利模式创新，从免费转向增值服务。</li><li>技术创新驱动用户增长，提升市场竞争力。</li><li>对依赖传统广告的浏览器企业构成压力。</li></ul><h4>涉及主体/市场</h4><p>浏览器行业、互联网科技公司、广告商及企业用户市场。</p>"
   }
 ]
