@@ -67,7 +67,7 @@
 ## 7. 外部依赖与密钥
 | 依赖 | 位置 / 值 | 说明 |
 |------|-----------|------|
-| GitHub PAT | 推送用，需 **`repo` + `workflow`** 两个 scope | 仅推代码时需要；用完吊销旧 token |
+| GitHub PAT | **已长期存储（2026-08-20 配）**：Windows 凭据管理器条目 `git:https://github.com`（用户 `Ryan-Ma-spec`），git 凭据助手 `wincred` 自动读取，**push 零输入** | 有效期 90 天（约 11-18 到期）。换新 token 一条命令：`cmdkey /generic:git:https://github.com /user:Ryan-Ma-spec /pass:<新token>`；GitHub 访问已配本地代理（`git config --global http.https://github.com.proxy http://127.0.0.1:7890`），代理软件须开着；勿再用 `helper-selector`（无窗口环境会静默崩溃，已从系统 gitconfig 移除） |
 | `DEEPSEEK_API_KEY` | GitHub **Secrets**（名 `DEEPSEEK_API_KEY`） | **不填则简报退化为原文摘要**（质量下降）；填了每日 AI 生成 |
 | Vercel | 连 GitHub 仓库 `geqi-trade-news`，push 即部署 | 框架=纯静态，构建命令留空，输出目录 `.` |
 | 自定义域名 | `geqitradeconsulting.com`（腾讯云购，DNSPod 解析） | `@` A → `216.198.79.1`；`www` CNAME → `fe0bfe18ef7be893.vercel-dns-017.com` |
