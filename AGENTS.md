@@ -55,6 +55,7 @@
 | 详情弹窗 + 情报速览 | `openDetail()` `:535`；样式 `.brief-content` `:100` | 弹窗高度已限 `max-h`+`overflow-y-auto`（防超屏）；改简报版式动 `.brief-content` CSS |
 | **相关情报精准化** | `getRelated()` `:514` + `topics.js` | 同 `topicTags` 重叠度排序取前 3，无重叠退同栏目；**改匹配规则动 `getRelated` 与 `topics.js` 的 `SPECIFIC`/`THEME`** |
 | SEO/GEO 咨询抽屉 | `consultDrawer` `:238`、`openConsult()` `~:575` | 原为"政策解读"，已改 SEO/GEO 定位 |
+| **预约表单真实收数据（Formspree）** | `CONSULT_FORM_ID` 常量 + submit handler（`index.html` consult 段，搜 `xljravoa`） | 客户提交 → fetch POST `https://formspree.io/f/xljravoa` → **预约记录进 Formspree 后台 + 邮件提醒到辉哥注册邮箱**；同时 localStorage（`geqi_consult`）留底。`CONSULT_FORM_ID` 清空即退回"只存本地"假提交（勿清空，会丢客户数据）。提交中禁用按钮防重复，失败 toast 引导电话联系 |
 | **视觉增强（图标+插画）** | `CAT_ICON`/`CAT_COLOR` `index.html:291~310`、`heroIllustration()` `:332`；卡片/详情/Hero 栏目徽章均带图标 | 纯内联 SVG+Material Symbols，零外部图片依赖；加栏目需同步 `CAT_ICON`/`CAT_COLOR` |
 | **侧栏数据图表（圆环+条形）** | `renderCatDonut()` `:349`、`renderTagBars()` `:370`、`renderCharts()` `:384`（`init()` 调用）；DOM 挂载点 `#catDonut`/`#catLegend`/`#tagBars`（右侧栏） | 由 `NEWS`（即 `window.NEWS_DATA`）实时统计生成，无新闻时为空；改配色动 `CAT_COLOR`；**不依赖图表库** |
 | 每日自动管线 | `pipeline.js`：`QUERIES`:37、`classify()`:57、`rewriteWithAI()`:113、输出:192 | 数据源=Google News RSS；无 key 降级原文；取前 30 条 |
@@ -71,6 +72,7 @@
 | `DEEPSEEK_API_KEY` | GitHub **Secrets**（名 `DEEPSEEK_API_KEY`） | **不填则简报退化为原文摘要**（质量下降）；填了每日 AI 生成 |
 | Vercel | 连 GitHub 仓库 `geqi-trade-news`，push 即部署 | 框架=纯静态，构建命令留空，输出目录 `.` |
 | 自定义域名 | `geqitradeconsulting.com`（腾讯云购，DNSPod 解析） | `@` A → `216.198.79.1`；`www` CNAME → `fe0bfe18ef7be893.vercel-dns-017.com` |
+| Formspree（预约表单收数据） | form ID `xljravoa`，硬编码在 `index.html`（非密钥，公开可见无妨） | 辉哥注册的免费账号（注册邮箱即接收提醒的邮箱），**免费版每月限 50 条提交**；预约后台：https://formspree.io 登录查看；首次某域名提交可能需点邮件里的验证链接 |
 
 ## 8. 部署与定时
 - **每日 07:00（cron `0 23 * * *`）** GitHub Actions 跑 `pipeline.js` → 有变化则提交 `news.js`/`news.json` → Vercel 自动部署。
