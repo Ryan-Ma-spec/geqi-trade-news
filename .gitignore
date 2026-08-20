@@ -10,3 +10,6 @@ stitch_ref/
 # 系统文件
 .DS_Store
 Thumbs.db
+
+# WorkBuddy 内部运作目录（含本地记忆，不进公开仓库）
+.workbuddy/
