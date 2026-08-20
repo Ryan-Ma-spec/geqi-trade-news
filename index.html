@@ -710,13 +710,42 @@ function init() {
     st = setTimeout(() => { state.query = e.target.value.trim(); state.visible = 6; renderFeed(); }, 200);
   });
   // consult
-  $("#consultForm").addEventListener("submit", (e) => {
+  // Formspree 表单 ID：注册 https://formspree.io 后新建表单拿到（形如 xqkrgozz），填到下面引号里
+  // 留空 = 旧兜底逻辑（只存浏览器 localStorage，数据到你不了手里）
+  const CONSULT_FORM_ID = "xljravoa";
+  $("#consultForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const f = e.target;
-    try { localStorage.setItem("geqi_consult", JSON.stringify({name:f.name.value, contact:f.contact.value, industry:f.industry.value, msg:f.msg.value, at:Date.now()})); } catch(e){}
-    closeConsult();
-    toast("预约已提交，格奇会尽快联系你");
-    f.reset();
+    const data = { name: f.name.value, contact: f.contact.value, industry: f.industry.value, msg: f.msg.value, at: new Date().toISOString() };
+    // 本地留底（防第三方丢数据）
+    try { localStorage.setItem("geqi_consult", JSON.stringify(data)); } catch(err){}
+    const btn = f.querySelector('button[type="submit"]');
+    if (!CONSULT_FORM_ID) {
+      // 未接入 Formspree：保持旧行为，提示但不上传
+      closeConsult();
+      toast("预约已提交，格奇会尽快联系你");
+      f.reset();
+      return;
+    }
+    btn.disabled = true;
+    const old = btn.textContent;
+    btn.textContent = "提交中…";
+    try {
+      const res = await fetch("https://formspree.io/f/" + CONSULT_FORM_ID, {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      closeConsult();
+      toast("预约已提交，格奇会尽快联系你");
+      f.reset();
+    } catch (err) {
+      toast("提交失败，请稍后重试或直接电话/微信联系");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = old;
+    }
   });
   // esc to close
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeDetail(); closeConsult(); } });
