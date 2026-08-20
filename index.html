@@ -1,6 +1,9 @@
 <!DOCTYPE html><html lang="zh-CN"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>格奇外贸情报 · GeQi Trade Intelligence</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,line-clamp"></script>
 <script src="news.js"></script>
@@ -710,21 +713,19 @@ function init() {
     st = setTimeout(() => { state.query = e.target.value.trim(); state.visible = 6; renderFeed(); }, 200);
   });
   // consult
-  // Formspree 表单 ID：注册 https://formspree.io 后新建表单拿到（形如 xqkrgozz），填到下面引号里
-  // 留空 = 旧兜底逻辑（只存浏览器 localStorage，数据到你不了手里）
+  // Formspree 表单 ID：注册 https://formspree.io 后新建表单拿到（形如 xqkrgozz）
   const CONSULT_FORM_ID = "xljravoa";
+  const CONSULT_VER = "2026-08-20"; // 版本戳：随提交上报，便于在后台识别客户是否用了旧缓存
   $("#consultForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const f = e.target;
-    const data = { name: f.name.value, contact: f.contact.value, industry: f.industry.value, msg: f.msg.value, at: new Date().toISOString() };
-    // 本地留底（防第三方丢数据）
+    const data = { name: f.name.value.trim(), contact: f.contact.value.trim(), industry: f.industry.value, msg: f.msg.value.trim(), at: new Date().toISOString(), _v: CONSULT_VER };
+    // 本地留底（防第三方丢数据，仅作兜底排查用）
     try { localStorage.setItem("geqi_consult", JSON.stringify(data)); } catch(err){}
     const btn = f.querySelector('button[type="submit"]');
+    // 未配置后端：绝不假装成功（旧缓存版若走到这，会明确报错而不是吞掉线索）
     if (!CONSULT_FORM_ID) {
-      // 未接入 Formspree：保持旧行为，提示但不上传
-      closeConsult();
-      toast("预约已提交，格奇会尽快联系你");
-      f.reset();
+      toast("系统暂未开放预约，请直接电话/微信联系：18618130321");
       return;
     }
     btn.disabled = true;
@@ -733,6 +734,7 @@ function init() {
     try {
       const res = await fetch("https://formspree.io/f/" + CONSULT_FORM_ID, {
         method: "POST",
+        cache: "no-store",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
@@ -741,7 +743,9 @@ function init() {
       toast("预约已提交，格奇会尽快联系你");
       f.reset();
     } catch (err) {
-      toast("提交失败，请稍后重试或直接电话/微信联系");
+      // 网络不通 / 服务异常时明说，引导留电话，避免静默丢线索
+      const hint = (err && err.message && err.message.startsWith("HTTP")) ? "（服务异常 " + err.message + "）" : "（网络不通）";
+      toast("提交未成功" + hint + "，请稍后重试，或直接电话/微信联系：18618130321");
     } finally {
       btn.disabled = false;
       btn.textContent = old;
