@@ -167,6 +167,29 @@ const { extractTopicTags } = require("./topics.js");
     } catch (e) { console.error("DeepSeek 失败，降级：", e.message); return null; }
   }
 
+  // ===== 增量/回填模式配置 =====
+  const MODE = process.env.MODE === "backfill" ? "backfill" : "incremental";
+  const SINCE_DAYS = parseInt(process.env.SINCE_DAYS || "1", 10) || 1;
+
+  // 读取已有底座（news.js 的 window.NEWS_DATA），增量时在其上追加而非覆盖
+  function parseNewsJs() {
+    try {
+      const s = fs.readFileSync(path.join(__dirname, "news.js"), "utf8");
+      const m = s.match(/window\.NEWS_DATA\s*=\s*(\[[\s\S]*?\]);\s*\nwindow\.SITE_META/);
+      if (m) return JSON.parse(m[1]);
+    } catch (e) { /* 文件不存在或损坏则当作空底座 */ }
+    return [];
+  }
+  function normUrl(u) {
+    if (!u) return "";
+    try { const x = new URL(u); x.search = ""; x.hash = ""; return x.origin + x.pathname; }
+    catch { return String(u).trim(); }
+  }
+
+  const existing = parseNewsJs();
+  const existKeys = new Set(existing.map(n => normUrl(n.url)).filter(Boolean));
+  console.log(`📚 已有底座：${existing.length} 条 | 模式=${MODE} | 增量窗口=${SINCE_DAYS}天`);
+
   const raw = [];
   for (const { q, def } of QUERIES) {
     const url = `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=zh-CN&gl=CN&ceid=CN:zh-Hans`;
@@ -215,9 +238,13 @@ const { extractTopicTags } = require("./topics.js");
     return { ...x, cat, time: relTime(x.pub) };
   });
 
-  // 按发布时间倒序，取前 60（每日信息量翻倍）
-  list.sort((a, b) => new Date(b.pub) - new Date(a.pub));
-  list = list.slice(0, 60);
+  // 增量窗口过滤：每日(incremental)只保留最近 SINCE_DAYS 天；回填(backfill)不过滤
+  if (MODE === "incremental") {
+    const since = Date.now() - SINCE_DAYS * 86400000;
+    const before = list.length;
+    list = list.filter(x => new Date(x.pub).getTime() >= since);
+    console.log(`⏱ 增量窗口(近${SINCE_DAYS}天)：${before} → ${list.length} 条`);
+  }
 
   // AI 重写（有 key 才调）
   const useAI = !!process.env.DEEPSEEK_API_KEY;
@@ -239,12 +266,11 @@ const { extractTopicTags } = require("./topics.js");
     n.brief = brief;
   }
 
-  // 组装输出
-  const data = list.map((n, i) => ({
-    id: i + 1,
+  // 组装本次新条目（含 pub 便于未来精确排序）
+  const freshData = list.map(n => ({
     cat: n.cat,
     time: n.time,
-    top: i === 0,
+    top: false,
     ai: "要点提炼",
     title: n.title,
     summary: n.summary,
@@ -253,15 +279,35 @@ const { extractTopicTags } = require("./topics.js");
     tags: n.tags,
     topicTags: extractTopicTags(n.title, n.summary),
     body: n.desc || n.title,
-    brief: n.brief
+    brief: n.brief,
+    pub: n.pub
   }));
 
-  const out = `window.NEWS_DATA = ${JSON.stringify(data, null, 0)};\nwindow.SITE_META = ${JSON.stringify({ total: data.length, updated: new Date().toISOString() }, null, 0)};\n`;
-  fs.writeFileSync(path.join(__dirname, "news.js"), out);
-  fs.writeFileSync(path.join(__dirname, "news.json"), JSON.stringify(data, null, 2));
+  // 合并去重（按 url 规范化）：跳过已存在于底座的条目，避免重复累积
+  const merged = existing.slice();
+  const seenMerged = new Set(merged.map(m => normUrl(m.url)).filter(Boolean));
+  let added = 0;
+  for (const f of freshData) {
+    const k = normUrl(f.url);
+    if (k && seenMerged.has(k)) continue;
+    if (k && merged.some(m => normUrl(m.url) === k)) continue;
+    merged.push(f); added++;
+  }
+  console.log(`➕ 新增 ${added} 条，底座 → ${merged.length} 条`);
 
-  console.log(`\n✅ 生成完成：${data.length} 条情报 -> news.js / news.json`);
-  console.log(`   AI 重写：${useAI ? "已启用 (DeepSeek)" : "未启用（降级模式，填 DEEPSEEK_API_KEY 即自动重写）"}`);
-  const c = {}; data.forEach(n => c[n.cat] = (c[n.cat] || 0) + 1);
+  // 排序：本次新抓按发布时间倒序置顶，已有底座（本身已倒序）顺延在后
+  const existingPart = merged.slice(0, existing.length);
+  const freshPart = merged.slice(existing.length);
+  freshPart.sort((a, b) => new Date(b.pub || 0) - new Date(a.pub || 0));
+  const finalList = freshPart.concat(existingPart);
+  finalList.forEach((n, i) => { n.id = i + 1; n.top = (i === 0); });
+
+  const out = `window.NEWS_DATA = ${JSON.stringify(finalList, null, 0)};\nwindow.SITE_META = ${JSON.stringify({ total: finalList.length, updated: new Date().toISOString() }, null, 0)};\n`;
+  fs.writeFileSync(path.join(__dirname, "news.js"), out);
+  fs.writeFileSync(path.join(__dirname, "news.json"), JSON.stringify(finalList, null, 2));
+
+  console.log(`\n✅ 生成完成：底座共 ${finalList.length} 条（新增 ${added}）-> news.js / news.json`);
+  console.log(`   模式=${MODE} | 增量窗口=${SINCE_DAYS}天 | AI 重写：${useAI ? "已启用 (DeepSeek)" : "未启用（降级）"}`);
+  const c = {}; finalList.forEach(n => c[n.cat] = (c[n.cat] || 0) + 1);
   console.log("   分类分布:", c);
 })();

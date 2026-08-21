@@ -15,8 +15,8 @@
 | `index.html` | 全部前端（630 行，含内联脚本与样式） | 改展示 / 交互 / 样式 |
 | `pipeline.js` | **生产管线**（GitHub Actions 调用）：抓 RSS → 分类 → 简报 → 输出 | 改数据源 / 栏目 / 简报结构 |
 | `topics.js` | `extractTopicTags()` 话题标签提取器（被 pipeline 引用） | 改"相关情报"匹配逻辑 |
-| `news.js` / `news.json` | 数据（60 条/日，自动生成，勿手改） | 仅管线写；前端只读 `window.NEWS_DATA` |
-| `gen_news.js` | 沙箱兜底：内置 22 条真实新闻写 `news.js` | 仅本地无网时一次性用 |
+| `news.js` / `news.json` | 数据（**2026 全年累积底座，每日增量追加**，自动生成，勿手改） | 仅管线写（读底座+增量合并+去重）；前端只读 `window.NEWS_DATA` |
+| `gen_news.js` | 沙箱兜底：内置 31 条真实新闻写 `news.js` | 仅本地无网时一次性用 |
 | `enrich_briefs.js` | 一次性回填 `brief` 的 dev 脚本 | 历史数据补简报时用 |
 | `enrich_topics.js` | 一次性回填 `topicTags` 的 dev 脚本 | 历史数据补标签时用 |
 | `README.md` | 面向辉哥的部署手册（三步） | 部署流程变更时同步 |
@@ -59,7 +59,7 @@
 | **预约表单真实收数据（Formspree）** | `CONSULT_FORM_ID` 常量 + submit handler（`index.html` consult 段，搜 `xljravoa`） | 客户提交 → fetch POST `https://formspree.io/f/xljravoa` → **预约记录进 Formspree 后台 + 邮件提醒到辉哥注册邮箱**；同时 localStorage（`geqi_consult`）留底。`CONSULT_FORM_ID` 清空时**明确报错引导电话/微信联系，绝不假装成功**（防旧缓存版吞线索）。提交数据带 `_v` 版本戳 + `_v` 常量 `CONSULT_VER`；失败 toast 区分「网络不通/服务异常」；fetch `cache:no-store`，head 已加 no-cache meta |
 | **视觉增强（图标+插画）** | `CAT_ICON`/`CAT_COLOR` `index.html:291~310`、`heroIllustration()` `:332`；卡片/详情/Hero 栏目徽章均带图标 | 纯内联 SVG+Material Symbols，零外部图片依赖；加栏目需同步 `CAT_ICON`/`CAT_COLOR` |
 | **侧栏数据图表（圆环+条形）** | `renderCatDonut()` `:349`、`renderTagBars()` `:370`、`renderCharts()` `:384`（`init()` 调用）；DOM 挂载点 `#catDonut`/`#catLegend`/`#tagBars`（右侧栏） | 由 `NEWS`（即 `window.NEWS_DATA`）实时统计生成，无新闻时为空；改配色动 `CAT_COLOR`；**不依赖图表库** |
-| 每日自动管线 | `pipeline.js`：`QUERIES`(中文16组)、`EN_QUERIES`(英文6组)、`classify()`、`rewriteWithAI()`、输出 | 数据源=Google News RSS（16 组中文检索词 + 6 组英文检索词，英文经 DeepSeek 翻译成中文后并入，每组限取 5 条控占比）；**分类用本地规则 `classify()`（确定性），AI 只负责翻译/摘要/标签/简报，不决定分类**；无 key 降级原文；取前 60 条 |
+| 每日自动管线 | `pipeline.js`：`QUERIES`(中文16组)、`EN_QUERIES`(英文6组)、`classify()`、`rewriteWithAI()`、输出 | 数据源=Google News RSS（16 组中文检索词 + 6 组英文检索词，英文经 DeepSeek 翻译成中文后并入，每组限取 5 条控占比）；**分类用本地规则 `classify()`（确定性），AI 只负责翻译/摘要/标签/简报，不决定分类**；无 key 降级原文；**增量合并**：读 `news.js` 已有底座，按 url 去重后追加新抓（每日默认 `MODE=incremental` 只取最近 `SINCE_DAYS=1` 天，手动 `backfill` 填全量），不再覆盖、不再限 60 条上限，保留 2026 年内全部 |
 
 ## 6. 已刻意移除的功能（不是 bug，勿"修"）
 - 订阅邮箱卡片、4 个统计卡片、`#tagCloud` 趋势标签云（元素已删，`renderTags()` 留空壳带 null 保护）。
@@ -76,7 +76,7 @@
 | Formspree（预约表单收数据） | form ID `xljravoa`，硬编码在 `index.html`（非密钥，公开可见无妨） | 辉哥注册的免费账号（注册邮箱即接收提醒的邮箱），**免费版每月限 50 条提交**；预约后台：https://formspree.io 登录查看；首次某域名提交可能需点邮件里的验证链接 |
 
 ## 8. 部署与定时
-- **每日 07:00（cron `0 23 * * *`）** GitHub Actions 跑 `pipeline.js` → 有变化则提交 `news.js`/`news.json` → Vercel 自动部署。
+- **每日 07:00（cron `0 23 * * *`）** GitHub Actions 跑 `pipeline.js`（默认 `MODE=incremental`：只抓最近 1 天增量追加到底座）→ 有变化则提交 `news.js`/`news.json` → Vercel 自动部署。手动 **Run workflow** 时可选 `mode=backfill` 回填全量 RSS。
 - 手动触发：仓库 **Actions → Daily News Update → Run workflow**。
 - Node 版本固定 **22**（workflow 已设，勿回退 20，GitHub 已弃用）。
 
