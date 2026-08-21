@@ -63,7 +63,10 @@ const { extractTopicTags } = require("./topics.js");
   const EN_QUERIES = [
     { q: "China export tariff trade", def: "tariff" },
     { q: "global trade shipping freight", def: "logistics" },
-    { q: "cross-border ecommerce export", def: "platform" }
+    { q: "cross-border ecommerce export", def: "platform" },
+    { q: "Southeast Asia market China export", def: "market" },
+    { q: "China manufacturing export factory orders", def: "industry" },
+    { q: "US EU China trade policy sanctions", def: "policy" }
   ];
   const EN_LIMIT = 5; // 每组英文源最多取条数（控制英文源占比，避免喧宾夺主）
 

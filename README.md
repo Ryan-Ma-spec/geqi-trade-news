@@ -10,7 +10,7 @@
 |------|------|
 | `index.html` | 站点主页面（单文件，接 `news.js` 渲染） |
 | `news.js` / `news.json` | 真实新闻数据（22 条 2026-08 真实外贸新闻，含 AI 结构化简报） |
-| `pipeline.js` | 生产管线：抓 Google News RSS（中文 16 组 + 英文 3 组，英文 DeepSeek 翻译成中文）→ 本地规则分类 → 相对时间 →（可选）DeepSeek 重写摘要/标签/简报 → 输出 news.js |
+| `pipeline.js` | 生产管线：抓 Google News RSS（中文 16 组 + 英文 6 组，英文 DeepSeek 翻译成中文）→ 本地规则分类 → 相对时间 →（可选）DeepSeek 重写摘要/标签/简报 → 输出 news.js |
 | `topics.js` | 话题标签词典（给每条打"事件级标签 + 主题簇"，用于"相关情报"精准匹配） |
 | `enrich_briefs.js` | 给新闻生成结构化情报简报（DeepSeek） |
 | `enrich_topics.js` | 给新闻补话题标签（本地规则，零 API） |
@@ -58,7 +58,7 @@
 ## 三、日常是怎么自动更新的
 
 - GitHub Actions 每天 **07:00（北京时间）** 自动运行 `pipeline.js`：
-  - 抓 Google News 实时外贸检索结果（中文 16 组 + 英文 3 组，英文经 DeepSeek 翻译成中文后并入，覆盖 6 大栏目）。
+  - 抓 Google News 实时外贸检索结果（中文 16 组 + 英文 6 组，英文经 DeepSeek 翻译成中文后并入，覆盖 6 大栏目）。
   - 分类、算相对时间、有 key 则 DeepSeek 重写摘要+标签+简报。
   - 若 news.js 有变化 → 自动提交 → **EdgeOne 自动重新部署**。
 - 想手动跑一次：GitHub 仓库 → **Actions → 每日外贸情报更新 → Run workflow**。
