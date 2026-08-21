@@ -105,6 +105,9 @@
     .brief-content p { font-size: 15px; line-height: 1.75; color: #334155; margin-bottom: 10px; }
     .brief-content ul { list-style: disc; padding-left: 20px; margin-bottom: 10px; }
     .brief-content li { font-size: 15px; line-height: 1.75; color: #334155; margin-bottom: 6px; }
+    .subchip { font-size: 13px; line-height: 1; padding: 6px 14px; border-radius: 9999px; border: 1px solid #E2E8F0; color: #475569; background: #F8FAFC; cursor: pointer; transition: all .2s; white-space: nowrap; }
+    .subchip:hover { background: #EEF2FF; color: #3525cd; border-color: #c3c0ff; }
+    .subchip.active { background: #3525cd; color: #fff; border-color: #3525cd; }
 </style>
 </head>
 <body class="bg-background text-text-primary min-h-screen flex flex-col">
@@ -177,6 +180,17 @@
         </div>
         <div class="flex items-center space-x-2">
           <span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors" onclick="resetFilters()" title="重置筛选">filter_list</span>
+        </div>
+      </div>
+      <!-- 全站横向筛选：按国家 / 按行业（任意栏目生效） -->
+      <div id="subFilter" class="hidden mb-6 flex flex-col gap-3">
+        <div class="flex items-center gap-2 flex-wrap" data-facet="country">
+          <span class="text-sm text-secondary font-label-md text-label-md shrink-0">按国家：</span>
+          <div id="countryChips" class="flex items-center gap-2 flex-wrap"></div>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap" data-facet="industry">
+          <span class="text-sm text-secondary font-label-md text-label-md shrink-0">按行业：</span>
+          <div id="industryChips" class="flex items-center gap-2 flex-wrap"></div>
         </div>
       </div>
       <div id="feedList" class="flex flex-col space-y-6"></div>
@@ -331,6 +345,51 @@ const CAT_COLOR = {
   industry: "#8b5cf6"
 };
 
+/* ===================== 子筛选维度（分国家 / 分行业） ===================== */
+/* 纯本地关键词表，零 API、确定性强；用于全站横向「按国家 / 按行业」筛选。
+   仅作浏览维度的二次归类，不参与 6 大栏目的核心分类（分类仍由 pipeline 决定）。 */
+const COUNTRY_KW = {
+  "美国":     ["美国", "美企", "USTR", "特朗普", "拜登", "华盛顿", "白宫"],
+  "欧盟":     ["欧盟", "欧洲", "德国", "法国", "荷兰", "波兰", "意大利", "西班牙"],
+  "英国":     ["英国", "伦敦"],
+  "加拿大":   ["加拿大"],
+  "东南亚":   ["东南亚", "印尼", "越南", "泰国", "马来西亚", "新加坡", "菲律宾", "Lazada", "Shopee"],
+  "东盟":     ["东盟"],
+  "中东":     ["中东", "沙特", "阿联酋", "迪拜", "以色列", "伊朗"],
+  "拉美":     ["拉美", "拉丁美洲", "巴西", "墨西哥", "智利", "阿根廷"],
+  "非洲":     ["非洲"],
+  "日本":     ["日本", "东京"],
+  "韩国":     ["韩国", "首尔", "三星"],
+  "印度":     ["印度"],
+  "俄罗斯":   ["俄罗斯", "莫斯科"],
+  "美洲":     ["美洲", "北美", "南美"],
+  "一带一路": ["一带一路"],
+  "RCEP":     ["RCEP"]
+};
+const INDUSTRY_KW = {
+  "消费电子/3C":    ["消费电子", "3C", "电子", "手机", "电脑", "智能硬件", "数码"],
+  "家电/智能家居":  ["家电", "白电", "小家电", "智能家居", "智能家电"],
+  "家居家具/建材":  ["家居", "家具", "建材", "陶瓷", "灯具", "卫浴"],
+  "纺织服装/鞋包":  ["纺织", "服装", "服饰", "鞋", "箱包", "鞋帽"],
+  "汽配/汽车":      ["汽车", "整车", "汽配", "零部件", "滚装"],
+  "新能源/光伏储能": ["新能源", "储能", "光伏", "充电桩", "电池", "锂电", "电动汽车", "新能源汽车"],
+  "机械设备/工业":  ["机械", "机床", "工程机械", "装备", "工业制造", "五金工具", "工具"],
+  "农产品/食品":    ["农产品", "食品", "鸡蛋", "水产", "粮油", "加工食品", "生鲜"],
+  "化工/原材料":    ["化工", "塑料", "橡胶", "钢材", "原材料"],
+  "数字出海":       ["游戏", "手游", "APP", "应用出海", "SaaS", "软件", "人工智能", "AI"]
+};
+
+function matchFacets(text, map) {
+  const out = [];
+  for (const [tag, kws] of Object.entries(map)) {
+    if (kws.some(k => text.includes(k))) out.push(tag);
+  }
+  return out;
+}
+function itemText(n) { return `${n.title || ""} ${n.summary || ""} ${(n.tags || []).join(" ")}`; }
+function getCountries(n) { return matchFacets(itemText(n), COUNTRY_KW); }
+function getIndustries(n) { return matchFacets(itemText(n), INDUSTRY_KW); }
+
 /* Hero 右侧装饰插画：地球 + 趋势线（贸易与数据主题，纯 SVG 离线可渲染） */
 function heroIllustration() {
   return `<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-95 drop-shadow-sm" aria-hidden="true">
@@ -473,19 +532,25 @@ const NEWS = (window.NEWS_DATA && window.NEWS_DATA.length) ? window.NEWS_DATA : 
 ];
 
 /* ===================== State ===================== */
-const state = { cat:"all", query:"", visible:6, saved:new Set() };
+const state = { cat:"all", query:"", visible:6, saved:new Set(), country:null, industry:null };
 let heroId = 1;
 
 /* ===================== Render ===================== */
 const $ = (s) => document.querySelector(s);
 
-function filtered() {
+function baseList() {
   let list = NEWS.slice();
   if (state.cat !== "all") list = list.filter(n => n.cat === state.cat);
   if (state.query) {
     const q = state.query.toLowerCase();
     list = list.filter(n => (n.title + n.summary + n.tags.join(" ")).toLowerCase().includes(q));
   }
+  return list;
+}
+function filtered() {
+  let list = baseList();
+  if (state.country) list = list.filter(n => getCountries(n).includes(state.country));
+  if (state.industry) list = list.filter(n => getIndustries(n).includes(state.industry));
   return list;
 }
 
@@ -519,7 +584,9 @@ function cardHTML(n) {
 }
 
 function getHeroItem() {
-  const list = state.cat === "all" ? NEWS : NEWS.filter(x => x.cat === state.cat);
+  let list = state.cat === "all" ? NEWS : NEWS.filter(x => x.cat === state.cat);
+  if (state.country) list = list.filter(x => getCountries(x).includes(state.country));
+  if (state.industry) list = list.filter(x => getIndustries(x).includes(state.industry));
   return (list.find(x => x.top) || list[0] || NEWS[0]);
 }
 function renderHero() {
@@ -557,7 +624,8 @@ function renderFeed() {
   box.innerHTML = show.map(cardHTML).join("");
   $("#loadMoreBtn").style.display = state.visible < list.length ? "block" : "none";
   const label = state.cat === "all" ? "全部栏目" : CATS[state.cat].label;
-  $("#feedMeta").textContent = `${label} · 共 ${list.length} 条 · 每日整理`;
+  const subLabel = `${state.country ? " · " + state.country : ""}${state.industry ? " · " + state.industry : ""}`;
+  $("#feedMeta").textContent = `${label}${subLabel} · 共 ${list.length} 条 · 每日整理`;
 }
 
 function renderTags() {
@@ -575,11 +643,12 @@ function renderTags() {
 /* ===================== Interactions ===================== */
 function setCat(cat) {
   state.cat = cat; state.visible = 6;
+  state.country = null; state.industry = null;
   document.querySelectorAll(".nav-link").forEach(a => {
     const active = a.dataset.cat === cat;
     a.className = `nav-link font-body-md text-body-md px-3 cursor-pointer hover:bg-ai-indigo-tint transition-all duration-200 ${active?'text-primary font-bold border-b-2 border-primary pb-1':'text-secondary hover:text-primary'}`;
   });
-  renderHero(); renderFeed(); renderTags();
+  renderHero(); renderFeed(); renderTags(); renderSubFilter();
 }
 
 function filterByTag(tag) {
@@ -592,9 +661,50 @@ function filterByTag(tag) {
 
 function resetFilters() {
   state.cat = "all"; state.query = ""; state.visible = 6;
+  state.country = null; state.industry = null;
   $("#searchInput").value = "";
   setCat("all");
   toast("已重置筛选");
+}
+
+/* 全站横向筛选：国家 + 行业两个独立维度，任意栏目生效；维度基于「栏目+搜索词」结果集计算（不含自身，避免选中后塌缩） */
+function renderSubFilter() {
+  const box = $("#subFilter");
+  const base = baseList();
+  const countries = [], industries = [];
+  base.forEach(n => {
+    getCountries(n).forEach(v => { if (!countries.includes(v)) countries.push(v); });
+    getIndustries(n).forEach(v => { if (!industries.includes(v)) industries.push(v); });
+  });
+  renderFacetRow("country", countries);
+  renderFacetRow("industry", industries);
+  const cRow = document.querySelector('[data-facet="country"]');
+  const iRow = document.querySelector('[data-facet="industry"]');
+  if (cRow.classList.contains("hidden") && iRow.classList.contains("hidden")) box.classList.add("hidden");
+  else box.classList.remove("hidden");
+}
+
+function renderFacetRow(type, values) {
+  const row = document.querySelector(`[data-facet="${type}"]`);
+  const chipsBox = document.getElementById(`${type}Chips`);
+  const selected = state[type];
+  // 维度不足 2 种且无选中 → 隐藏该行（无意义）
+  if (values.length <= 1 && !selected) { row.classList.add("hidden"); return; }
+  row.classList.remove("hidden");
+  const chips = [`<button onclick="clearFacet('${type}')" class="subchip ${!selected ? "active" : ""}">全部</button>`]
+    .concat(values.map(v => `<button onclick="setFacet('${type}','${v}')" class="subchip ${selected === v ? "active" : ""}">${v}</button>`));
+  chipsBox.innerHTML = chips.join("");
+}
+
+function setFacet(type, value) {
+  state[type] = (state[type] === value) ? null : value; // 再次点击同一维度=取消
+  state.visible = 6;
+  renderHero(); renderFeed(); renderSubFilter();
+}
+
+function clearFacet(type) {
+  state[type] = null; state.visible = 6;
+  renderHero(); renderFeed(); renderSubFilter();
 }
 
 function loadMore() { state.visible += 6; renderFeed(); }
@@ -755,7 +865,7 @@ function init() {
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeDetail(); closeConsult(); } });
 
   if (document.getElementById('statToday')) document.getElementById('statToday').textContent = NEWS.length;
-  renderHero(); renderFeed(); renderTags(); renderCharts();
+  renderHero(); renderFeed(); renderTags(); renderCharts(); renderSubFilter();
 }
 document.addEventListener("DOMContentLoaded", init);
 </script>

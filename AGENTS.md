@@ -54,6 +54,7 @@
 | 收藏 / 分享 | `toggleSave()` `:500`、`share()` `:506`（复制 `#news-{id}` 链接） | — |
 | 详情弹窗 + 情报速览 | `openDetail()` `:535`；样式 `.brief-content` `:100` | 弹窗高度已限 `max-h`+`overflow-y-auto`（防超屏）；改简报版式动 `.brief-content` CSS |
 | **相关情报精准化** | `getRelated()` `:514` + `topics.js` | 同 `topicTags` 重叠度排序取前 3，无重叠退同栏目；**改匹配规则动 `getRelated` 与 `topics.js` 的 `SPECIFIC`/`THEME`** |
+| **全站横向筛选：按国家 / 按行业** | `COUNTRY_KW`/`INDUSTRY_KW`（10 国 + 10 行业）`getCountries()`/`getIndustries()` `:351、:369、:390~391`、`renderSubFilter()`/`renderFacetRow()`/`setFacet()`/`clearFacet()` `:671~710`、`#subFilter`（双 facet 行）`.subchip` 样式 `:108~110` | **任意栏目生效**的横向维度：国家 + 行业两个独立 facet，各自列出当前「栏目+搜索词」结果集中实际出现的值，维度≤1 且无选中时自动隐藏该行；维度由「标题+摘要+标签」本地关键词派生（纯前端、零 API），`state.country`/`state.industry` 驱动 `filtered()` 与 `getHeroItem()`；再次点击同维度=取消；切换栏目/`resetFilters()` 自动清空双字段 |
 | SEO/GEO 咨询抽屉 | `consultDrawer` `:238`、`openConsult()` `~:575` | 原为"政策解读"，已改 SEO/GEO 定位 |
 | **预约表单真实收数据（Formspree）** | `CONSULT_FORM_ID` 常量 + submit handler（`index.html` consult 段，搜 `xljravoa`） | 客户提交 → fetch POST `https://formspree.io/f/xljravoa` → **预约记录进 Formspree 后台 + 邮件提醒到辉哥注册邮箱**；同时 localStorage（`geqi_consult`）留底。`CONSULT_FORM_ID` 清空时**明确报错引导电话/微信联系，绝不假装成功**（防旧缓存版吞线索）。提交数据带 `_v` 版本戳 + `_v` 常量 `CONSULT_VER`；失败 toast 区分「网络不通/服务异常」；fetch `cache:no-store`，head 已加 no-cache meta |
 | **视觉增强（图标+插画）** | `CAT_ICON`/`CAT_COLOR` `index.html:291~310`、`heroIllustration()` `:332`；卡片/详情/Hero 栏目徽章均带图标 | 纯内联 SVG+Material Symbols，零外部图片依赖；加栏目需同步 `CAT_ICON`/`CAT_COLOR` |
