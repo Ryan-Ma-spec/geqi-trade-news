@@ -59,21 +59,30 @@ const { extractTopicTags } = require("./topics.js");
     { q: "海外仓 品牌出海 独立站 外贸", def: "industry" }
   ];
 
+  // 英文检索词（海外视角，AI 翻译成中文后并入；每组限取最新若干条，避免喧宾夺主）
+  const EN_QUERIES = [
+    { q: "China export tariff trade", def: "tariff" },
+    { q: "global trade shipping freight", def: "logistics" },
+    { q: "cross-border ecommerce export", def: "platform" }
+  ];
+  const EN_LIMIT = 5; // 每组英文源最多取条数（控制英文源占比，避免喧宾夺主）
+
   // 分类关键词（按优先级匹配）
   const CAT_KEYWORDS = {
-    policy:    ["政策", "商务部", "海关", "税务", "规定", "办法", "通知", "条例", "监管", "合规", "国务院", "发改委", "豁免", "准入", "清单", "立法", "部长", "外贸", "进出口", "出口", "贸易"],
+    policy:    ["政策", "商务部", "海关", "税务", "规定", "办法", "通知", "条例", "监管", "合规", "国务院", "发改委", "豁免", "准入", "清单", "立法", "部长", "出口管制"],
     tariff:    ["关税", "汇率", "人民币", "美元", "退税", "反倾销", "反补贴", "外汇", "结汇", "货币"],
     logistics: ["物流", "航运", "港口", "海运", "班列", "运价", "集装箱", "货运", "空运", "中欧", "红海", "铁海联运", "运费"],
-    platform:  ["亚马逊", "TikTok", "阿里国际", "eBay", "Shopify", "独立站", "Lazada", "Shopee", "沃尔玛", "平台", "跨境", "电商", "黑五", "FBE", "电子商务法"],
-    market:    ["出海", "海外", "国际", "美国", "欧盟", "东南亚", "市场", "全球", "开放", "金融", "银行"]
+    platform:  ["亚马逊", "TikTok", "阿里国际", "eBay", "Shopify", "独立站", "Lazada", "Shopee", "沃尔玛", "平台", "跨境", "电商", "黑五", "FBE", "电子商务法", "Temu", "SHEIN", "速卖通"],
+    market:    ["出海", "海外", "国际", "美国", "欧盟", "东南亚", "全球", "一带一路", "RCEP", "东盟", "非洲", "中东", "拉美"],
+    industry:  ["外贸", "进出口", "出口", "贸易", "订单", "制造业", "工厂", "企业", "行业", "供应商"]
   };
-  const CAT_ORDER = ["policy", "tariff", "logistics", "platform", "market"];
+  const CAT_ORDER = ["policy", "tariff", "logistics", "platform", "market", "industry"];
 
   function classify(text) {
     for (const c of CAT_ORDER) {
       if (CAT_KEYWORDS[c].some(k => text.includes(k))) return c;
     }
-    return "industry";
+    return null; // 未命中，由调用方回退 defCat
   }
   function extractTags(text) {
     const set = new Set();
@@ -128,7 +137,7 @@ const { extractTopicTags } = require("./topics.js");
   async function rewriteWithAI(item, cat) {
     const key = process.env.DEEPSEEK_API_KEY;
     if (!key) return null;
-    const sys = '你是外贸资讯编辑。将新闻改写为中文摘要（不超过120字），提取3-5个标签，确认分类(policy/tariff/market/logistics/platform/industry)，并整理一份结构化情报简报（brief，HTML片段，包含<h4>核心事实</h4><p>...</p><h4>影响看点</h4><ul><li>...</li></ul><h4>涉及主体/市场</h4><p>...</p>）。只输出JSON：{"summary":"","tags":[],"cat":"","brief":""}';
+    const sys = '你是外贸资讯编辑。将新闻（中英文均可）改写为中文：输出中文标题、中文摘要（不超过120字）、3-5个标签、确认分类(policy/tariff/market/logistics/platform/industry)，并整理一份结构化情报简报（brief，HTML片段，包含<h4>核心事实</h4><p>...</p><h4>影响看点</h4><ul><li>...</li></ul><h4>涉及主体/市场</h4><p>...</p>）。英文新闻请完整翻译成中文。只输出JSON：{"title":"","summary":"","tags":[],"cat":"","brief":""}';
     try {
       const r = await fetch("https://api.deepseek.com/chat/completions", {
         method: "POST",
@@ -146,7 +155,7 @@ const { extractTopicTags } = require("./topics.js");
       const j = await r.json();
       const c = JSON.parse(j.choices[0].message.content);
       const brief = c.brief || `<p>${c.summary || item.desc.slice(0, 150)}</p>`;
-      return { summary: c.summary || item.desc.slice(0, 150), tags: c.tags || [], cat: CATS_LABEL[c.cat] ? c.cat : cat, brief };
+      return { title: c.title || "", summary: c.summary || item.desc.slice(0, 150), tags: c.tags || [], cat: CATS_LABEL[c.cat] ? c.cat : cat, brief };
     } catch (e) { console.error("DeepSeek 失败，降级：", e.message); return null; }
   }
 
@@ -161,6 +170,19 @@ const { extractTopicTags } = require("./topics.js");
       console.log(`✓ "${q}": ${items.length} 条`);
       raw.push(...items);
     } catch (e) { console.warn("✗ 检索异常:", q, e.message); }
+  }
+
+  // 英文源（海外视角）：Google News 英文检索，AI 翻译后并入
+  for (const { q, def } of EN_QUERIES) {
+    const url = `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=en-US&gl=US&ceid=US:en`;
+    try {
+      const r = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (compatible; GeQiBot/1.0)" }, redirect: "follow" });
+      if (!r.ok) { console.warn("✗ 英文检索失败:", q, r.status); continue; }
+      const xml = await r.text();
+      const items = parseGoogleNews(xml, def).slice(0, EN_LIMIT).map(x => ({ ...x, en: true }));
+      console.log(`✓ [英] "${q}": ${items.length} 条`);
+      raw.push(...items);
+    } catch (e) { console.warn("✗ 英文检索异常:", q, e.message); }
   }
 
   if (raw.length === 0) {
@@ -179,7 +201,7 @@ const { extractTopicTags } = require("./topics.js");
   // 分类 + 相对时间
   let list = dedup.map(x => {
     const text = x.title + " " + x.desc;
-    const cat = classify(text) !== "industry" ? classify(text) : (x.defCat || "industry");
+    const cat = classify(text) || (x.defCat || "industry");
     return { ...x, cat, time: relTime(x.pub) };
   });
 
@@ -193,7 +215,7 @@ const { extractTopicTags } = require("./topics.js");
     let summary, tags, cat = n.cat, brief;
     if (useAI) {
       const r = await rewriteWithAI(n, n.cat);
-      if (r) { summary = r.summary; tags = r.tags; cat = r.cat; brief = r.brief; }
+      if (r) { if (r.title) n.title = r.title; summary = r.summary; tags = r.tags; brief = r.brief; }
     }
     if (!summary) {
       summary = n.desc.length > 150 ? n.desc.slice(0, 150) + "…" : (n.desc || n.title);
