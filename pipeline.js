@@ -31,7 +31,7 @@ const { extractTopicTags } = require("./topics.js");
   }
 
   // 栏目中文名
-  const CATS_LABEL = { policy: "政策速递", tariff: "关税汇率", market: "海外市场", logistics: "物流航运", platform: "平台规则", industry: "行业精选" };
+  const CATS_LABEL = { policy: "政策速递", tariff: "关税汇率", market: "海外市场", logistics: "物流航运", platform: "平台规则", google: "谷歌搜索", industry: "行业精选" };
 
   // 检索词 → 默认栏目（classify 会按正文再校正）；扩充覆盖面以增加信息来源量
   const QUERIES = [
@@ -53,6 +53,10 @@ const { extractTopicTags } = require("./topics.js");
     // platform 平台规则
     { q: "跨境电商 亚马逊 TikTok Shop 平台规则", def: "platform" },
     { q: "亚马逊 Temu SHEIN 速卖通 独立站", def: "platform" },
+    // google 谷歌搜索
+    { q: "谷歌 搜索 算法 更新 SEO", def: "google" },
+    { q: "Google 搜索 排名 SEO 优化", def: "google" },
+    { q: "AI搜索 Google AI Overviews GEO", def: "google" },
     // industry 行业精选
     { q: "外贸企业 行业 订单", def: "industry" },
     { q: "跨境电商 出口 制造业 工厂", def: "industry" },
@@ -64,6 +68,7 @@ const { extractTopicTags } = require("./topics.js");
     { q: "China export tariff trade", def: "tariff" },
     { q: "global trade shipping freight", def: "logistics" },
     { q: "cross-border ecommerce export", def: "platform" },
+    { q: "Google search algorithm update SEO", def: "google" },
     { q: "Southeast Asia market China export", def: "market" },
     { q: "China manufacturing export factory orders", def: "industry" },
     { q: "US EU China trade policy sanctions", def: "policy" }
@@ -76,10 +81,11 @@ const { extractTopicTags } = require("./topics.js");
     tariff:    ["关税", "汇率", "人民币", "美元", "退税", "反倾销", "反补贴", "外汇", "结汇", "货币", "保证金"],
     logistics: ["物流", "航运", "港口", "海运", "班列", "运价", "集装箱", "货运", "空运", "中欧", "红海", "铁海联运", "运费", "运河", "滚装"],
     platform:  ["亚马逊", "TikTok", "阿里国际", "eBay", "Shopify", "独立站", "Lazada", "Shopee", "沃尔玛", "跨境", "电商", "黑五", "FBE", "电子商务法", "Temu", "SHEIN", "速卖通"],
+    google:    ["谷歌", "Google", "SEO", "GEO", "搜索引擎", "算法更新", "AI搜索", "AI Overview", "AI Overviews", "SGE", "Core Update", "搜索排名", "排名算法", "站群", "爬虫", "索引"],
     market:    ["出海", "海外", "美国", "欧盟", "东南亚", "一带一路", "RCEP", "东盟", "非洲", "中东", "拉美"],
     industry:  ["外贸", "进出口", "出口", "贸易", "订单", "制造业", "工厂", "企业", "行业", "供应商"]
   };
-  const CAT_ORDER = ["policy", "tariff", "logistics", "platform", "market", "industry"];
+  const CAT_ORDER = ["policy", "tariff", "logistics", "google", "platform", "market", "industry"];
 
   function classify(text) {
     let first = null;
@@ -145,7 +151,7 @@ const { extractTopicTags } = require("./topics.js");
   async function rewriteWithAI(item, cat) {
     const key = process.env.DEEPSEEK_API_KEY;
     if (!key) return null;
-    const sys = '你是外贸资讯编辑。将新闻（中英文均可）改写为中文：输出中文标题、中文摘要（不超过120字）、3-5个标签、确认分类(policy/tariff/market/logistics/platform/industry)，并整理一份结构化情报简报（brief，HTML片段，包含<h4>核心事实</h4><p>...</p><h4>影响看点</h4><ul><li>...</li></ul><h4>涉及主体/市场</h4><p>...</p>）。英文新闻请完整翻译成中文。只输出JSON：{"title":"","summary":"","tags":[],"cat":"","brief":""}';
+    const sys = '你是外贸资讯编辑。将新闻（中英文均可）改写为中文：输出中文标题、中文摘要（不超过120字）、3-5个标签、确认分类(policy/tariff/market/logistics/platform/google/industry)，并整理一份结构化情报简报（brief，HTML片段，包含<h4>核心事实</h4><p>...</p><h4>影响看点</h4><ul><li>...</li></ul><h4>涉及主体/市场</h4><p>...</p>）。英文新闻请完整翻译成中文。只输出JSON：{"title":"","summary":"","tags":[],"cat":"","brief":""}';
     try {
       const r = await fetch("https://api.deepseek.com/chat/completions", {
         method: "POST",
