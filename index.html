@@ -68,7 +68,7 @@
                     },
                     "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                     "spacing": {
-                        "unit": "8px", "container-max": "1200px", "section-gap": "80px",
+                        "unit": "8px", "container-max": "1760px", "section-gap": "80px",
                         "margin-desktop": "40px", "gutter": "24px", "margin-mobile": "20px"
                     },
                     "fontFamily": { "sans": ["Inter", "system-ui", "sans-serif"] },
@@ -126,22 +126,22 @@
     </div>
     <!-- Desktop Nav -->
     <div id="navLinks" class="hidden lg:flex space-x-1">
-      <a data-cat="all" class="nav-link text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">全部</a>
-      <a data-cat="policy" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">政策速递</a>
-      <a data-cat="tariff" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">关税汇率</a>
-      <a data-cat="market" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">海外市场</a>
-      <a data-cat="logistics" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">物流航运</a>
-      <a data-cat="platform" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">平台规则</a>
-      <a data-cat="industry" class="nav-link text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">行业精选</a>
+      <a data-cat="all" class="nav-link whitespace-nowrap text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">全部</a>
+      <a data-cat="policy" class="nav-link whitespace-nowrap text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">政策速递</a>
+      <a data-cat="tariff" class="nav-link whitespace-nowrap text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">关税汇率</a>
+      <a data-cat="market" class="nav-link whitespace-nowrap text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">海外市场</a>
+      <a data-cat="logistics" class="nav-link whitespace-nowrap text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">物流航运</a>
+      <a data-cat="platform" class="nav-link whitespace-nowrap text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">平台规则</a>
+      <a data-cat="industry" class="nav-link whitespace-nowrap text-secondary hover:text-primary transition-colors font-body-md text-body-md hover:bg-ai-indigo-tint transition-all duration-200 px-3 cursor-pointer" href="javascript:void(0)">行业精选</a>
     </div>
     <!-- Right Actions -->
     <div class="flex items-center space-x-2">
-      <div class="relative hidden sm:block">
+      <div class="relative hidden sm:block shrink-0">
         <span class="material-symbols-outlined text-secondary text-[18px] absolute left-3 top-1/2 -translate-y-1/2">search</span>
         <input id="searchInput" type="text" placeholder="搜索新闻、关税、平台…"
-          class="pl-9 pr-3 py-2 rounded-xl border border-outline-variant bg-surface-bright focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md w-44 transition-all focus:w-60">
+          class="min-w-0 pl-9 pr-3 py-2 rounded-xl border border-outline-variant bg-surface-bright focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md w-44 transition-all focus:w-60">
       </div>
-      <button onclick="openConsult()" class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl scale-95 active:scale-90 transition-transform shadow-soft flex items-center space-x-2">
+      <button onclick="openConsult()" class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl scale-95 active:scale-90 transition-transform shadow-soft flex items-center space-x-2 whitespace-nowrap shrink-0">
         <span class="material-symbols-outlined text-sm">forum</span><span class="hidden sm:inline">咨询格奇</span>
       </button>
       <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-full hover:bg-surface-container-highest text-secondary">
@@ -646,7 +646,7 @@ function setCat(cat) {
   state.country = null; state.industry = null;
   document.querySelectorAll(".nav-link").forEach(a => {
     const active = a.dataset.cat === cat;
-    a.className = `nav-link font-body-md text-body-md px-3 cursor-pointer hover:bg-ai-indigo-tint transition-all duration-200 ${active?'text-primary font-bold border-b-2 border-primary pb-1':'text-secondary hover:text-primary'}`;
+    a.className = `nav-link whitespace-nowrap font-body-md text-body-md px-3 cursor-pointer hover:bg-ai-indigo-tint transition-all duration-200 ${active?'text-primary font-bold border-b-2 border-primary pb-1':'text-secondary hover:text-primary'}`;
   });
   renderHero(); renderFeed(); renderTags(); renderSubFilter();
 }
