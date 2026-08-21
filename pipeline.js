@@ -72,20 +72,25 @@ const { extractTopicTags } = require("./topics.js");
 
   // 分类关键词（按优先级匹配）
   const CAT_KEYWORDS = {
-    policy:    ["政策", "商务部", "海关", "税务", "规定", "办法", "通知", "条例", "监管", "合规", "国务院", "发改委", "豁免", "准入", "清单", "立法", "部长", "出口管制"],
-    tariff:    ["关税", "汇率", "人民币", "美元", "退税", "反倾销", "反补贴", "外汇", "结汇", "货币"],
-    logistics: ["物流", "航运", "港口", "海运", "班列", "运价", "集装箱", "货运", "空运", "中欧", "红海", "铁海联运", "运费"],
-    platform:  ["亚马逊", "TikTok", "阿里国际", "eBay", "Shopify", "独立站", "Lazada", "Shopee", "沃尔玛", "平台", "跨境", "电商", "黑五", "FBE", "电子商务法", "Temu", "SHEIN", "速卖通"],
-    market:    ["出海", "海外", "国际", "美国", "欧盟", "东南亚", "全球", "一带一路", "RCEP", "东盟", "非洲", "中东", "拉美"],
+    policy:    ["政策", "商务部", "海关", "税务", "规定", "办法", "通知", "条例", "监管", "国务院", "发改委", "准入", "清单", "立法", "部长", "出口管制"],
+    tariff:    ["关税", "汇率", "人民币", "美元", "退税", "反倾销", "反补贴", "外汇", "结汇", "货币", "保证金"],
+    logistics: ["物流", "航运", "港口", "海运", "班列", "运价", "集装箱", "货运", "空运", "中欧", "红海", "铁海联运", "运费", "运河", "滚装"],
+    platform:  ["亚马逊", "TikTok", "阿里国际", "eBay", "Shopify", "独立站", "Lazada", "Shopee", "沃尔玛", "跨境", "电商", "黑五", "FBE", "电子商务法", "Temu", "SHEIN", "速卖通"],
+    market:    ["出海", "海外", "美国", "欧盟", "东南亚", "一带一路", "RCEP", "东盟", "非洲", "中东", "拉美"],
     industry:  ["外贸", "进出口", "出口", "贸易", "订单", "制造业", "工厂", "企业", "行业", "供应商"]
   };
   const CAT_ORDER = ["policy", "tariff", "logistics", "platform", "market", "industry"];
 
   function classify(text) {
+    let first = null;
     for (const c of CAT_ORDER) {
-      if (CAT_KEYWORDS[c].some(k => text.includes(k))) return c;
+      if (CAT_KEYWORDS[c].some(k => text.includes(k))) { first = c; break; }
     }
-    return null; // 未命中，由调用方回退 defCat
+    if (!first) return null; // 未命中，由调用方回退 defCat
+    // 平台优先：正文含平台具体品牌词、且首命中是 policy 时，归「平台规则」
+    // （如"亚马逊严打跟卖政策"本质是平台规则，不应被"政策"一词抢成政策速递）
+    if (first === "policy" && CAT_KEYWORDS.platform.some(k => text.includes(k))) return "platform";
+    return first;
   }
   function extractTags(text) {
     const set = new Set();
@@ -204,7 +209,9 @@ const { extractTopicTags } = require("./topics.js");
   // 分类 + 相对时间
   let list = dedup.map(x => {
     const text = x.title + " " + x.desc;
-    const cat = classify(text) || (x.defCat || "industry");
+    // 兜底不再信任检索词预设栏目(defCat)：正文无强关键词命中时，统一归入最通用的「行业精选」，
+    // 避免"抓错的新闻被硬塞进特定栏目"（如地缘/军事新闻误入物流航运）。
+    const cat = classify(text) || "industry";
     return { ...x, cat, time: relTime(x.pub) };
   });
 
