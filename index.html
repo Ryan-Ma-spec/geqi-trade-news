@@ -105,6 +105,11 @@
     .brief-content p { font-size: 15px; line-height: 1.75; color: #334155; margin-bottom: 10px; }
     .brief-content ul { list-style: disc; padding-left: 20px; margin-bottom: 10px; }
     .brief-content li { font-size: 15px; line-height: 1.75; color: #334155; margin-bottom: 6px; }
+    .article-content p { font-size: 16px; line-height: 1.9; color: #1e293b; margin-bottom: 14px; }
+    .article-content p:last-child { margin-bottom: 0; }
+    .article-content h4 { font-size: 15px; font-weight: 700; color: #0F172A; margin: 18px 0 8px; }
+    .article-content ul { list-style: disc; padding-left: 20px; margin-bottom: 14px; }
+    .article-content li { font-size: 16px; line-height: 1.9; color: #1e293b; margin-bottom: 6px; }
     .subchip { font-size: 13px; line-height: 1; padding: 6px 14px; border-radius: 9999px; border: 1px solid #E2E8F0; color: #475569; background: #F8FAFC; cursor: pointer; transition: all .2s; white-space: nowrap; }
     .subchip:hover { background: #EEF2FF; color: #3525cd; border-color: #c3c0ff; }
     .subchip.active { background: #3525cd; color: #fff; border-color: #3525cd; }
@@ -748,11 +753,29 @@ function getRelated(n) {
   return pick.map(s => s.o);
 }
 
+/* 正文渲染：区分「真正文」与「标题+来源」类噪声。
+   - HTML 正文（DeepSeek 多段 <p>）：内容 ≥80 字才显示；
+   - 纯文本正文：必须 ≥2 段（含换行）才显示，避免把「标题 - 来源」单行当成正文重复显示。 */
+function bodyHTML(n) {
+  const b = (n.body || "").trim();
+  if (!b) return "";
+  const isHTML = /<[a-z][\s\S]*>/i.test(b);
+  if (isHTML) {
+    const plain = b.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    if (plain.length < 80) return "";
+    return b;
+  }
+  const paras = b.split(/\n+/).map(p => p.trim()).filter(Boolean);
+  if (paras.length < 2) return "";
+  return paras.map(p => `<p>${p}</p>`).join("");
+}
+
 /* Detail */
 function openDetail(id) {
   const n = NEWS.find(x => x.id === id);
   if (!n) return;
   const related = getRelated(n);
+  const bodyHtml = bodyHTML(n);
   $("#detailContent").innerHTML = `
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center space-x-3">
@@ -772,6 +795,13 @@ function openDetail(id) {
       </div>
       <div class="brief-content">${n.brief || `<p>${n.summary}</p>`}</div>
     </div>
+    ${bodyHtml ? `<div class="mb-6">
+      <div class="flex items-center space-x-2 mb-4">
+        <span class="material-symbols-outlined text-primary text-sm">description</span>
+        <span class="font-label-md text-label-md text-primary font-bold">正文</span>
+      </div>
+      <div class="article-content">${bodyHtml}</div>
+    </div>` : ""}
     <div class="flex flex-wrap gap-2 mb-6">
       ${n.tags.map(t=>`<span class="px-3 py-1 bg-surface-container-low text-secondary font-label-sm text-label-sm rounded-lg">#${t}</span>`).join("")}
     </div>

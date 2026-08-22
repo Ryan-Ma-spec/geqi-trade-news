@@ -151,7 +151,7 @@ const { extractTopicTags } = require("./topics.js");
   async function rewriteWithAI(item, cat) {
     const key = process.env.DEEPSEEK_API_KEY;
     if (!key) return null;
-    const sys = '你是外贸资讯编辑。将新闻（中英文均可）改写为中文：输出中文标题、中文摘要（不超过120字）、3-5个标签、确认分类(policy/tariff/market/logistics/platform/google/industry)，并整理一份结构化情报简报（brief，HTML片段，包含<h4>核心事实</h4><p>...</p><h4>影响看点</h4><ul><li>...</li></ul><h4>涉及主体/市场</h4><p>...</p>）。英文新闻请完整翻译成中文。只输出JSON：{"title":"","summary":"","tags":[],"cat":"","brief":""}';
+    const sys = '你是外贸资讯编辑。将新闻（中英文均可）改写为中文，输出以下内容：1) 中文标题；2) 中文导语摘要（80~120字）；3) 3~5个标签；4) 确认分类(policy/tariff/market/logistics/platform/google/industry)；5) 结构化情报速览 brief（HTML片段，包含<h4>核心事实</h4><p>...</p><h4>影响看点</h4><ul><li>...</li></ul><h4>涉及主体/市场</h4><p>...</p>）；6) 完整正文 body（HTML片段，由3~5个<p>段落组成，共300~600字，按「事件背景→核心事实与数据→对出海/外贸企业的影响→行动建议」展开，语言务实、信息密度高、不空话套话）。英文新闻请完整翻译成中文。只输出JSON：{"title":"","summary":"","tags":[],"cat":"","brief":"","body":""}';
     try {
       const r = await fetch("https://api.deepseek.com/chat/completions", {
         method: "POST",
@@ -169,7 +169,8 @@ const { extractTopicTags } = require("./topics.js");
       const j = await r.json();
       const c = JSON.parse(j.choices[0].message.content);
       const brief = c.brief || `<p>${c.summary || item.desc.slice(0, 150)}</p>`;
-      return { title: c.title || "", summary: c.summary || item.desc.slice(0, 150), tags: c.tags || [], cat: CATS_LABEL[c.cat] ? c.cat : cat, brief };
+      const body = c.body || item.desc;
+      return { title: c.title || "", summary: c.summary || item.desc.slice(0, 150), tags: c.tags || [], cat: CATS_LABEL[c.cat] ? c.cat : cat, brief, body };
     } catch (e) { console.error("DeepSeek 失败，降级：", e.message); return null; }
   }
 
@@ -255,10 +256,10 @@ const { extractTopicTags } = require("./topics.js");
   // AI 重写（有 key 才调）
   const useAI = !!process.env.DEEPSEEK_API_KEY;
   for (const n of list) {
-    let summary, tags, cat = n.cat, brief;
+    let summary, tags, cat = n.cat, brief, body;
     if (useAI) {
       const r = await rewriteWithAI(n, n.cat);
-      if (r) { if (r.title) n.title = r.title; summary = r.summary; tags = r.tags; brief = r.brief; }
+      if (r) { if (r.title) n.title = r.title; summary = r.summary; tags = r.tags; brief = r.brief; body = r.body; }
     }
     if (!summary) {
       summary = n.desc.length > 150 ? n.desc.slice(0, 150) + "…" : (n.desc || n.title);
@@ -266,10 +267,12 @@ const { extractTopicTags } = require("./topics.js");
       if (tags.length === 0) tags = [CATS_LABEL[cat]];
     }
     if (!brief) brief = `<p>${summary}</p>`;
+    if (!body) body = n.desc || summary;
     n.summary = summary;
     n.tags = (tags && tags.length) ? tags : [CATS_LABEL[cat]];
     n.cat = cat;
     n.brief = brief;
+    n.body = body;
   }
 
   // 组装本次新条目（含 pub 便于未来精确排序）
@@ -284,7 +287,7 @@ const { extractTopicTags } = require("./topics.js");
     url: n.link,
     tags: n.tags,
     topicTags: extractTopicTags(n.title, n.summary),
-    body: n.desc || n.title,
+    body: n.body,
     brief: n.brief,
     pub: n.pub
   }));
