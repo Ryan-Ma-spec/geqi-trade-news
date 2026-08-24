@@ -322,6 +322,16 @@ const { extractTopicTags } = require("./topics.js");
   fs.writeFileSync(path.join(__dirname, "news.js"), out);
   fs.writeFileSync(path.join(__dirname, "news.json"), JSON.stringify(finalList, null, 2));
 
+  // 生成 sitemap.xml（根页 + 7 栏目），便于 Google 收录站点结构
+  const BASE_URL = "https://geqitradeconsulting.com";
+  const sitemapUrls = [`${BASE_URL}/`]
+    .concat(Object.keys(CATS_LABEL).map(c => `${BASE_URL}/?cat=${c}`))
+    .map(u => `  <url><loc>${u}</loc><changefreq>daily</changefreq><priority>0.8</priority></url>`)
+    .join("\n");
+  fs.writeFileSync(path.join(__dirname, "sitemap.xml"),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`);
+  console.log("✅ sitemap.xml 已生成");
+
   console.log(`\n✅ 生成完成：底座共 ${finalList.length} 条（新增 ${added}）-> news.js / news.json`);
   console.log(`   模式=${MODE} | 增量窗口=${SINCE_DAYS}天 | AI 重写：${useAI ? "已启用 (DeepSeek)" : "未启用（降级）"}`);
   const c = {}; finalList.forEach(n => c[n.cat] = (c[n.cat] || 0) + 1);

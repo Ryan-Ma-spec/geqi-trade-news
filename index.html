@@ -5,6 +5,20 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>格奇外贸情报 · GeQi Trade Intelligence</title>
+<meta name="description" content="格奇外贸情报 · 每日聚合外贸政策、关税汇率、海外市场、物流航运、平台规则、谷歌搜索与行业精选，帮出海企业看清贸易动态。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="格奇外贸情报">
+<meta property="og:title" content="格奇外贸情报 · 每日外贸动态聚合">
+<meta property="og:description" content="外贸政策、关税汇率、海外市场、物流航运、平台规则、谷歌搜索与行业精选，每日整理。">
+<meta property="og:url" content="https://geqitradeconsulting.com/">
+<meta property="og:image" content="https://geqitradeconsulting.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="格奇外贸情报 · 每日外贸动态聚合">
+<meta name="twitter:description" content="外贸政策、关税汇率、海外市场、物流航运、平台规则、谷歌搜索与行业精选，每日整理。">
+<meta name="twitter:image" content="https://geqitradeconsulting.com/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"石家庄格奇科技","url":"https://geqitradeconsulting.com/","logo":"https://geqitradeconsulting.com/og.png","contactPoint":{"@type":"ContactPoint","telephone":"+86-18618130321","contactType":"customer service"}}
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,line-clamp"></script>
 <script src="news.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -227,6 +241,19 @@
         </button>
         <p class="text-center text-[12px] text-secondary mt-3">电话 / 微信：18618130321</p>
       </div>
+    </div>
+
+    <!-- 邮件订阅（留资转化） -->
+    <div class="bg-surface rounded-[16px] shadow-soft p-6 border border-border-subtle">
+      <div class="flex items-center space-x-2 mb-3">
+        <span class="material-symbols-outlined text-primary text-[18px]">mail</span>
+        <h3 class="font-headline-md text-headline-md text-text-primary">订阅每周外贸情报</h3>
+      </div>
+      <p class="text-sm text-secondary mb-4">每周一封精选情报 + 出海获客干货，留邮箱即可，免费。</p>
+      <form id="subscribeForm" class="flex flex-col space-y-3">
+        <input name="email" type="email" required placeholder="你的邮箱" class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:outline-none focus:ring-2 focus:ring-primary font-body-md text-body-md">
+        <button type="submit" class="w-full bg-primary-container text-on-primary font-label-md text-label-md px-4 py-3 rounded-xl hover:bg-primary transition-colors shadow-soft">免费订阅</button>
+      </form>
     </div>
 
     <!-- CTA 下方：数据图表（由 NEWS 实时生成） -->
@@ -542,7 +569,10 @@ const NEWS = (window.NEWS_DATA && window.NEWS_DATA.length) ? window.NEWS_DATA : 
 ];
 
 /* ===================== State ===================== */
-const state = { cat:"all", query:"", visible:6, saved:new Set(), country:null, industry:null };
+const SAVED_KEY = "geqi_saved";
+function loadSaved() { try { return new Set(JSON.parse(localStorage.getItem(SAVED_KEY) || "[]")); } catch(e){ return new Set(); } }
+function persistSaved() { try { localStorage.setItem(SAVED_KEY, JSON.stringify([...state.saved])); } catch(e){} }
+const state = { cat:"all", query:"", visible:6, saved:loadSaved(), country:null, industry:null };
 let heroId = 1;
 
 /* ===================== Render ===================== */
@@ -722,6 +752,7 @@ function loadMore() { state.visible += 6; renderFeed(); }
 function toggleSave(id) {
   if (state.saved.has(id)) { state.saved.delete(id); toast("已取消收藏"); }
   else { state.saved.add(id); toast("已收藏到情报夹"); }
+  persistSaved();
   renderFeed();
 }
 
@@ -896,11 +927,56 @@ function init() {
       btn.textContent = old;
     }
   });
+  // 邮件订阅（复用 Formspree；如需独立收件箱，新建订阅 form 并替换 SUBSCRIBE_FORM_ID）
+  const SUBSCRIBE_FORM_ID = CONSULT_FORM_ID;
+  $("#subscribeForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const email = (f.email.value || "").trim();
+    if (!email) { toast("请先填写邮箱"); return; }
+    try { localStorage.setItem("geqi_subscribe", JSON.stringify({ email, at: new Date().toISOString(), _v: CONSULT_VER })); } catch(err){}
+    const btn = f.querySelector('button[type="submit"]');
+    if (!SUBSCRIBE_FORM_ID) { toast("订阅暂未开放，请直接联系：18618130321"); return; }
+    btn.disabled = true; const old = btn.textContent; btn.textContent = "提交中…";
+    try {
+      const res = await fetch("https://formspree.io/f/" + SUBSCRIBE_FORM_ID, {
+        method: "POST", cache: "no-store",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({ email, type: "subscribe", at: new Date().toISOString(), _v: CONSULT_VER })
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      toast("订阅成功，每周情报发到你邮箱");
+      f.reset();
+    } catch (err) {
+      const hint = (err && err.message && err.message.startsWith("HTTP")) ? "（服务异常）" : "（网络不通）";
+      toast("订阅未成功" + hint + "，请稍后重试或直接联系：18618130321");
+    } finally { btn.disabled = false; btn.textContent = old; }
+  });
+
   // esc to close
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeDetail(); closeConsult(); } });
 
   if (document.getElementById('statToday')) document.getElementById('statToday').textContent = NEWS.length;
+  // 支持 ?cat=xxx 直接进栏目（便于 sitemap / 外链收录）
+  const initCat = new URLSearchParams(location.search).get("cat");
+  if (initCat && CATS[initCat]) setCat(initCat);
   renderHero(); renderFeed(); renderTags(); renderCharts(); renderSubFilter();
+  // 注入最新新闻 NewsArticle 结构化数据（提升 Google 富媒体收录）
+  try {
+    const items = NEWS.slice(0, 20).map(n => ({
+      "@type": "NewsArticle",
+      "headline": n.title,
+      "description": n.summary,
+      "datePublished": n.pub || new Date().toISOString(),
+      "articleSection": CATS[n.cat] ? CATS[n.cat].label : "",
+      "publisher": { "@type": "Organization", "name": "石家庄格奇科技" },
+      "url": "https://geqitradeconsulting.com/#news-" + n.id
+    }));
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    ld.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": items });
+    document.head.appendChild(ld);
+  } catch(e){}
 }
 document.addEventListener("DOMContentLoaded", init);
 </script>
