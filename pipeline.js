@@ -122,6 +122,12 @@ const { extractTopicTags } = require("./topics.js");
     if (diff < 86400 * 7) return Math.floor(diff / 86400) + "天前";
     return Math.floor(diff / 86400 / 7) + "周前";
   }
+  // 由 RSS 原始发布时间算出真实日期（M-D），供前端展示真实日期
+  function fmtDate(pub) {
+    const d = new Date(pub);
+    if (isNaN(d.getTime())) return "";
+    return (d.getUTCMonth() + 1) + "-" + d.getUTCDate();
+  }
 
   // 解析 Google News RSS（含 <source> 标签与 "标题 - 来源" 格式）
   function parseGoogleNews(xml, defCat) {
@@ -289,7 +295,8 @@ const { extractTopicTags } = require("./topics.js");
     topicTags: extractTopicTags(n.title, n.summary),
     body: n.body,
     brief: n.brief,
-    pub: n.pub
+    pub: n.pub,
+    date: fmtDate(n.pub)
   }));
 
   // 合并去重（按 url 规范化）：跳过已存在于底座的条目，避免重复累积

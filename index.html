@@ -576,7 +576,7 @@ function cardHTML(n) {
     <div class="flex justify-between mb-4 items-center flex-wrap gap-2">
       <div class="flex items-center space-x-3">
         <span class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">${CAT_ICON[n.cat]}</span>${CATS[n.cat].label}</span>
-        <span class="text-secondary font-label-sm text-label-sm">${n.time}</span>
+        <span class="text-secondary font-label-sm text-label-sm">${n.date||n.time}</span>
       </div>
       ${aiBadge(n.ai)}
     </div>
@@ -607,7 +607,7 @@ function renderHero() {
       <div class="relative z-10 max-w-2xl">
         <div class="flex items-center space-x-3 mb-4">
           <span class="bg-white/20 text-white font-label-sm text-label-sm px-3 py-1 rounded-full backdrop-blur-sm flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">${CAT_ICON[n.cat]}</span>今日头条 · ${CATS[n.cat].label}</span>
-          <span class="text-white/80 font-label-md text-label-md flex items-center"><span class="material-symbols-outlined text-sm mr-1">schedule</span>${n.time}</span>
+          <span class="text-white/80 font-label-md text-label-md flex items-center"><span class="material-symbols-outlined text-sm mr-1">schedule</span>${n.date||n.time}</span>
         </div>
         <h1 class="font-display-lg text-[32px] sm:text-[40px] text-white mb-4 max-w-3xl leading-tight">${n.title}</h1>
         <p class="font-body-lg text-white/90 max-w-2xl mb-6 leading-relaxed line-clamp-2">${n.summary}</p>
@@ -786,7 +786,7 @@ function openDetail(id) {
     </div>
     <h1 class="font-headline-lg text-headline-lg text-text-primary mb-2 leading-tight">${n.title}</h1>
     <div class="flex items-center space-x-3 text-sm text-secondary mb-6">
-      <span>${n.time}</span><span>·</span><span>来源：${n.source}</span>
+      <span>${n.date||n.time}</span><span>·</span><span>来源：${n.source}</span>
     </div>
     <div class="bg-surface-container-low/60 border border-border-subtle rounded-2xl p-5 mb-6">
       <div class="flex items-center space-x-2 mb-4">

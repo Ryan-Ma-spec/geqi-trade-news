@@ -19,6 +19,7 @@
 | `gen_news.js` | 沙箱兜底：内置 31 条真实新闻写 `news.js` | 仅本地无网时一次性用 |
 | `enrich_briefs.js` | 一次性回填 `brief` 的 dev 脚本 | 历史数据补简报时用 |
 | `enrich_topics.js` | 一次性回填 `topicTags` 的 dev 脚本 | 历史数据补标签时用 |
+| `enrich_dates.js` | 一次性回填 `date` 的 dev 脚本 | 历史数据补真实日期时用（有 `pub` 取真实发布日，无则按 `time` 反推近似） |
 | `README.md` | 面向辉哥的部署手册（三步） | 部署流程变更时同步 |
 | `.github/workflows/daily-news.yml` | 每日 07:00 定时跑管线并提交 | 改定时 / Node 版本 / 提交逻辑 |
 
@@ -28,7 +29,8 @@
 |------|------|------------|
 | `id` | number | 序号（1 起，倒序=越新越小） |
 | `cat` | string | 栏目：`policy`/`tariff`/`market`/`logistics`/`platform`/`industry` |
-| `time` | string | 相对时间，如"2小时前"（管线 `relTime` 生成） |
+| `time` | string | 相对时间，如"2小时前"（管线 `relTime` 生成）；前端已**不再直接展示**，改为优先展示 `date` |
+| `date` | string | 真实日期（格式 `M-D`，如 `8-23`）：有 `pub` 取 RSS 真实发布日，无 `pub` 由 `time` 反推近似；前端展示优先用 `date`，缺省兜底 `time` |
 | `top` | bool | 是否头条（仅第 1 条 `true`） |
 | `ai` | string | 固定 `"要点提炼"`（标识 AI 整理） |
 | `title` | string | 标题 |
